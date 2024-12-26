@@ -41,7 +41,7 @@ int currentAngle;
 int error = 1064;
 const double kP = 0.035;
 const int deadband = 150;
-const int targetAngle = 730;
+const int targetAngle = 2010;
 bool hold;
 void setArmLoadNew()
 {
@@ -219,8 +219,8 @@ void driveArm()
 {
     int arm_power = 400 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) - controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2));
 
-    if (armsensor.get_position() > 11650)
-    {
+    if (armsensor.get_angle() > 12550 && armsensor.get_angle() < 35800) {
+
         if (arm_power > 0)
         {
             arm_power = 0;

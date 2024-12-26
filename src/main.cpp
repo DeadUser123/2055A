@@ -336,17 +336,19 @@ void opcontrol() {
 	// while (true) {
 	// 	pros::lcd::set_text(1,"Hello World");
 	// }
-	drive_LB.set_brake_mode(MOTOR_BRAKE_COAST);
-	drive_LM.set_brake_mode(MOTOR_BRAKE_COAST);
-    drive_LF.set_brake_mode(MOTOR_BRAKE_COAST);
+	drive_LB.set_brake_mode(MOTOR_BRAKE_BRAKE);
+	drive_LM.set_brake_mode(MOTOR_BRAKE_BRAKE);
+    drive_LF.set_brake_mode(MOTOR_BRAKE_BRAKE);
 
-    drive_RB.set_brake_mode(MOTOR_BRAKE_COAST);
-	drive_RM.set_brake_mode(MOTOR_BRAKE_COAST);
-    drive_RF.set_brake_mode(MOTOR_BRAKE_COAST);
+    drive_RB.set_brake_mode(MOTOR_BRAKE_BRAKE);
+	drive_RM.set_brake_mode(MOTOR_BRAKE_BRAKE);
+    drive_RF.set_brake_mode(MOTOR_BRAKE_BRAKE);
 	
 	arm.set_brake_mode(MOTOR_BRAKE_HOLD);
 
-	
+	armsensor.set_position(0);
+	armsensor.reset_position();
+
 
 	// armsensor.set_position(0);
 
