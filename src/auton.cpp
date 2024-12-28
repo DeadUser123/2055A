@@ -1246,3 +1246,24 @@ void newskillsprog() {
     // chassis.moveToPose(0,-58,270, 1000, {}, false);
 
 }
+
+// void ethanskills() {
+//     chassis.setPose(-57, -1, -90);
+//     scoreAllianceStake();
+//     chassis.turnToHeading(120, 500)
+//     chassis.moveToPoint(-25, 22, 1000)
+//     chassis.setIntake(60)
+//   
+//     chassis.turntoHeading(90, 300)
+//     chassis.setPose(-36, 25, 300)
+//     chassissetIntake(0)
+//     clamp.set_value(false)
+//     chassis.setIntake(127)
+//     
+//     chassis.turntoHeading(45, 200)
+//     chassis.setPose(-10,60, 1000)
+//     chassis.turntoHeading(20, 100)
+//     chassis.setIntake(127)
+//     chassis.setPose()
+//     
+// }

@@ -14,3 +14,4 @@ void prog_skills_new();
 void mogorushred();
 void mogorushblue();
 void newskillsprog();
+void ethanskills();

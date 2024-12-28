@@ -39,9 +39,9 @@ void driveClamp()
 
 int currentAngle;
 int error = 1064;
-const double kP = 0.035;
-const int deadband = 150;
-const int targetAngle = 2010;
+const double kP = 0.03;
+const int deadband = 50;
+const int targetAngle = 1300;
 bool hold;
 void setArmLoadNew()
 {

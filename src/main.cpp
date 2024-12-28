@@ -200,6 +200,9 @@ void initialize() {
 	// pros::rtos::Task my_task(rotationsensor);
 
 	lvgl_init();
+	armsensor.set_position(0);
+
+	pros::delay(1000);
 }
 
 	// pros::Task my_task(my_task_fn);
@@ -257,6 +260,7 @@ void autonomous() {
 	// mogorushred(); // slot 5
 	// mogorushblue(); // slot 6
 	// mogorushblue();
+	//ethanskills();
 	
 	// brampton_Auton_Red_Positive();
 	// brampton_Auton_Blue_Positive();
@@ -348,6 +352,7 @@ void opcontrol() {
 
 	armsensor.set_position(0);
 	armsensor.reset_position();
+	pros::delay(1000);
 
 
 	// armsensor.set_position(0);
