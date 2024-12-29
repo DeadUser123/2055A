@@ -40,9 +40,10 @@ void driveClamp()
 int currentAngle;
 int error = 1064;
 const double kP = 0.03;
-const int deadband = 50;
+const int deadband = 250;
 const int targetAngle = 1300;
 bool hold;
+
 void setArmLoadNew()
 {
     while (true)
@@ -65,7 +66,7 @@ void setArmLoadNew()
                 }
                 error = targetAngle - currentAngle;
                 arm.move_velocity(error * kP);
-                pros::lcd::set_text(3, "Speed: " + std::to_string(error * kP));
+               //pros::lcd::set_text(3, "Target: " + std::to_string(target));
                 pros::lcd::set_text(4, "Current Angle: " + std::to_string(currentAngle));
                 pros::lcd::set_text(5, "Error: " + std::to_string(error));
                 pros::delay(1);
@@ -88,6 +89,103 @@ void setArmLoadNew()
         }
     }
 }
+
+const int numstates = 2;
+int states[numstates] = {0, 1500};
+int currState = 0;
+
+
+void setArmLoad1()
+{
+    while (true)
+    {
+        if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B))
+        {
+            currState += 1;
+            if (currState == 3) {
+                currState = 1;
+            }
+            int target = states[currState];
+
+            arm.set_brake_mode(MOTOR_BRAKE_HOLD);
+            currentAngle = armsensor.get_angle();
+            if (30000 <= currentAngle && currentAngle <= 36000) 
+            {
+                currentAngle = 0 - (36000 - currentAngle);
+            }
+            error = target - currentAngle;
+            while (abs(error) > deadband)
+            {
+                currentAngle = armsensor.get_angle();
+                if (30000 <= currentAngle && currentAngle <= 36000) 
+                {
+                    currentAngle = 0 - (36000 - currentAngle);
+                }
+                error = target - currentAngle;
+                arm.move_velocity(error * kP);
+                pros::lcd::set_text(3, "Target: " + std::to_string(currState));
+                pros::lcd::set_text(4, "Current Angle: " + std::to_string(currentAngle));
+                pros::lcd::set_text(5, "Error: " + std::to_string(error));
+                pros::delay(1);
+            }
+            arm.move_velocity(0);
+            // arm.set_brake_mode(MOTOR_BRAKE_HOLD);
+            // arm.move_velocity(0);
+        }
+        else
+        {
+            // hold arm in place if in loading position
+            // if (hold)
+            // {
+            //     // 100 too fast, 40 too fast, 20 too fast, 10 too fast, 5 too fast, 2 too fast
+            //     // this is the velocity at which the arm will move upwards to hold
+            //     arm.move_velocity(0);
+            // }
+            driveArm();
+            pros::delay(1);
+        }
+    }
+}
+
+// const int numstates = 3;
+// int states[numstates] = {1500,0};
+// int currState = 0;
+// int target = 0;
+
+// void nextstate() {
+//    double kP = 0.03;
+//    double error;
+//    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X)) {
+//         currState += 1;
+//         if (currState > 2) {
+//             currState = 0;
+//         }
+//         target = states[currState];
+
+//         currentAngle = armsensor.get_angle();
+//         error = target - currentAngle;
+//         if (30000 <= currentAngle && currentAngle <= 36000) 
+//         {
+//             currentAngle = 0 - (36000 - currentAngle);
+//         }
+//         while (abs(error) > 150) {
+//             currentAngle = armsensor.get_angle();
+//             error = target - currentAngle;
+//             if (30000 <= currentAngle && currentAngle <= 36000) 
+//             {
+//                 currentAngle = 0 - (36000 - currentAngle);
+//             }
+//             arm.move(error * kP);
+//             pros::lcd::set_text(5, "Target: " + std::to_string(target));
+//             pros::delay(10);
+//         }
+//         arm.move_velocity(0);
+//     }
+//     else {
+//         driveArm();
+//         pros::delay(10);
+//     }
+// }
 
 void setarm() {
     arm.set_brake_mode(MOTOR_BRAKE_HOLD);

@@ -27,7 +27,7 @@ void my_opcontrol()
         // setArmLoad();
         // driveClaw();
         doink();
-// ClampTilt                                                                                                                                                                                    _Goal();
+        // ClampTilt                                                                                                                                                                                    _Goal();
         // driveArm();
         //setarm();
         //claw_clamp();
@@ -35,7 +35,6 @@ void my_opcontrol()
         // pros::delay(20);
         // armtest();
         // setarm();
-        pros::lcd::set_text(1, std::to_string(armsensor.get_position()));
         pros::delay(1);
     }
 }

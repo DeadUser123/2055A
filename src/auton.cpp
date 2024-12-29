@@ -110,6 +110,12 @@ void qualredmogoside() {
     pros::delay(3000);
     setIntake(0);
 }
+void ethanredpositivequal(){
+    clamp.set_value(true);
+    chassis.moveToPose(-59, 0, 0, 100);
+    chassis.turnToHeading(90, 600);
+    scoreAllianceStake();
+}
 
 // // blue positive qual
 void qualbluemogoside() {
@@ -422,6 +428,7 @@ void qual5ringRed()
     // arm.move_velocity(0);
 }
 
+//qual blue negative
 void qual5ringBlue() {   
     chassis.setPose(57.375, 15, 0);
     chassis.moveToPoint(57.375, -1, 750, {.forwards=false}, false);
@@ -438,15 +445,17 @@ void qual5ringBlue() {
 
     //Get Mobile Goal
     chassis.moveToPoint(chassis.getPose().x - 2, chassis.getPose().y, 500, {.forwards=false}, false); // this should probably be chassis.getPose().x - 2
-    chassis.turnToHeading(154, 500, {}, false);
+    chassis.turnToHeading(145, 500, {}, false); //154
     chassis.moveToPoint(47, 23, 800, {.forwards=false}, false);
-    chassis.turnToHeading(chassis.getPose().theta - 180, 750, {}, false);
+    //chassis.turnToHeading(chassis.getPose().theta - 180, 750, {}, false);
+    chassis.turnToHeading(154 - 180, 750, {}, false);
     setIntake(127);
     chassis.moveToPose(19, 53, -40, 1250, {}, false); // pick up ring
-    // setIntake(0);
+    pros::delay(50);
+    setIntake(0);
     
     chassis.turnToHeading(-9, 500, {}, false); // turn to Mobile Goal
-    setIntake(0);
+    //setIntake(0);
     intake2.move(60);
     chassis.moveToPoint(24, 22, 1750, {.forwards=false, .maxSpeed=80}); // go to Mobile Goal
     // chassis.moveToPose(24, 22, 0, 1750, {.forwards=false, .minSpeed=40}); // go to Mobile Goal
@@ -1244,7 +1253,7 @@ void newskillsprog() {
     // intake2.move(127);
 
     // chassis.moveToPose(0,-58,270, 1000, {}, false);
-
+    
 }
 
 // void ethanskills() {
@@ -1267,3 +1276,11 @@ void newskillsprog() {
 //     chassis.setPose()
 //     
 // }
+
+void skillsprog() {
+    chassis.setPose(-56, 1, 270);
+    chassis.swingToPoint(-40, 24, DriveSide::RIGHT, 1000, {.forwards = false}, true);
+    chassis.moveToPoint(-45,26,1000, {.forwards = false, .maxSpeed = 85}, false);
+    pros::delay(500);
+    clamp.set_value(false);
+}

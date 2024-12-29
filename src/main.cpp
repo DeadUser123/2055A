@@ -201,8 +201,6 @@ void initialize() {
 
 	lvgl_init();
 	armsensor.set_position(0);
-
-	pros::delay(1000);
 }
 
 	// pros::Task my_task(my_task_fn);
@@ -251,8 +249,10 @@ void autonomous() {
         }
     });
 	// set position to x:0, y:0, heading:0
+	skillsprog();
+	//ethanredpositivequal();
 	//qual5ringBlue(); // slot 4
-	qual5ringRed(); //slot 3
+	//qual5ringRed(); //slot 3
 	// qualredmogoside(); //slot 1
 	// qualbluemogoside(); //slot 2
 	// newskillsprog(); // slot 8
@@ -352,7 +352,6 @@ void opcontrol() {
 
 	armsensor.set_position(0);
 	armsensor.reset_position();
-	pros::delay(1000);
 
 
 	// armsensor.set_position(0);
@@ -366,8 +365,8 @@ void opcontrol() {
 	// pros::lcd::set_text(3, std::to_string(colorsensor.get_hue()));
 
 	// pros::rtos::Task my_task(color_sort_red);
-	pros::rtos::Task my_task_2(setArmLoadNew);
-
+	//pros::rtos::Task my_task_2(setArmLoadNew);
+	pros::rtos::Task my_task_2(setArmLoad1);
 
 	// pros::Task screen_task([&]() {
     //     while (true) {

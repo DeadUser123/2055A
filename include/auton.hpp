@@ -15,3 +15,5 @@ void mogorushred();
 void mogorushblue();
 void newskillsprog();
 void ethanskills();
+void ethanredpositivequal();
+void skillsprog();
