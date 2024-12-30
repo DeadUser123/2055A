@@ -39,130 +39,56 @@ void color_sort_red_team() {
 	double colorvalue;
 	while (true) {
 		colorvalue = colorsensor.get_hue();
-		pros::lcd::set_text(3, std::to_string(colorvalue));
-		if (colorvalue >= 55 && colorvalue <= 70)
+		if (colorvalue >= 5 && colorvalue <= 27) 
 		{
-			pros::lcd::set_text(4, "BLUE RING DETECTED! :(");
-			// pros::delay(5);
-			intake1.move(127);
-			pros::delay(250);
-			intake1.move(0);
-			pros::delay(250);
-			//setIntake(0);
+			pros::lcd::set_text(4, "RED RING DETECTED! :(");
+			int ticks = intake1.get_position();
+			int newtick = ticks + 85;
+			while (newtick - ticks > 5) 
+			{
+				setIntake(127);
+				ticks = intake1.get_position();
+				pros::lcd::set_text(5, "Error: " + std::to_string(ticks));
+			}
+			setIntake(-100);
+			pros::delay(300);
 		}
-
-		else {
+		else 
+		{
 			driveIntake();
+			pros::delay(50);
 		}
-		pros::delay(20);
+		pros::delay(50);
 	}
-}
+	}
 
-// int currentAngle;
-// int error;
-// const double kP = 0.01;
-// void moveArm(int target) {
-// 	currentAngle = armsensor.get_angle()/100;
-// 	while (error>2) {
-// 		error = target - currentAngle;
-// 		pros::lcd::set_text(3, std::to_string(error));
-// 		arm.move_velocity(error * kP);
-// 		//pros::lcd::set_text(4, std::to_string(targetheading - rotation));
-// 		pros::delay(1);
-// 	}
-// }
 
 void color_sort_blue_team() {
 	double colorvalue;
 	while (true) {
 		colorvalue = colorsensor.get_hue();
-		pros::lcd::set_text(3, std::to_string(colorvalue));
-		if (colorvalue >= 15 && colorvalue <= 35)
+		if (colorvalue >= 5 && colorvalue <= 27) 
 		{
-			pros::lcd::set_text(5, "");
 			pros::lcd::set_text(4, "RED RING DETECTED! :(");
-			// pros::delay(5);
-			// intake1.move(127);
-			setIntake(127);
-			pros::delay(250);
-			setIntake(0);
-			pros::delay(500);
-			pros::lcd::set_text(5, "RING EJECTED! :)");
-			pros::lcd::set_text(4, "");
-			//setIntake(0);
+			int ticks = intake1.get_position();
+			int newtick = ticks + 85;
+			while (newtick - ticks > 5) 
+			{
+				setIntake(127);
+				ticks = intake1.get_position();
+				pros::lcd::set_text(5, "Error: " + std::to_string(ticks));
+			}
+			setIntake(-100);
+			pros::delay(300);
 		}
-
-		else {
+		else 
+		{
 			driveIntake();
+			pros::delay(50);
 		}
-		pros::delay(20);
+		pros::delay(50);
 	}
 }
-
-// // task
-int state = 0;
-// 3 states
-//  State 0: angle is zero, starting position
-//  State 1: loading position
-//  State 2: scoring position
-// void setArmLoad()
-// {
-// 	while (true)
-// 	{
-// 		if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1))
-//     	{
-// 			if (state == 0)
-// 			{
-// 				while (armsensor.get_position() < 3600)
-// 				{
-// 					arm.move_velocity(400);
-// 					pros::delay(1);
-// 				}
-// 				state = 1;
-// 				arm.move_velocity(0);
-// 			}
-// 			else if (state == 1)
-// 			{
-// 				while (armsensor.get_position() < 13500)
-// 				{
-// 					arm.move_velocity(400);
-// 					pros::delay(1);
-// 				}
-// 				state = 2;
-// 				arm.move_velocity(0);
-// 			}
-// 		// arm.move_velocity(0);
-// 		}
-
-// 		if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2))
-// 		{
-// 			if (state == 2)
-// 			{
-// 				while (armsensor.get_position() > 4000)
-// 				{
-// 					arm.move_velocity(-400);
-// 					pros::delay(1);
-// 				}
-// 				state = 1;
-// 				arm.move_velocity(0);
-// 			}
-// 			else if (state == 1)
-// 			{
-// 				while (armsensor.get_position() > 0)
-// 				{
-// 					arm.move_velocity(-400);
-// 					pros::delay(1);
-// 				}
-// 				state = 0;
-// 				arm.move_velocity(0);
-
-// 			}
-// 		}
-// 	}
-// }
-
-
-
 
 /**
  * Runs initialization code. This occurs as soon as the	 program is started.
@@ -197,15 +123,9 @@ void initialize() {
 	armsensor.set_position(0);
 	armsensor.reset_position();
 
-	// pros::rtos::Task my_task(rotationsensor);
-
 	lvgl_init();
 	armsensor.set_position(0);
 }
-
-	// pros::Task my_task(my_task_fn);
-
-
 
 /**
  * Runs while the robot is in the disabled state of Field Management System or
@@ -334,12 +254,9 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	// armsensor.set_position(0);
 	pros::lcd::initialize();
 	pros::lcd::register_btn0_cb(on_center_button);
-	// while (true) {
-	// 	pros::lcd::set_text(1,"Hello World");
-	// }
+
 	drive_LB.set_brake_mode(MOTOR_BRAKE_BRAKE);
 	drive_LM.set_brake_mode(MOTOR_BRAKE_BRAKE);
     drive_LF.set_brake_mode(MOTOR_BRAKE_BRAKE);
@@ -353,19 +270,8 @@ void opcontrol() {
 	armsensor.set_position(0);
 	armsensor.reset_position();
 
-
-	// armsensor.set_position(0);
-
-	// armsensor.reset_position();
-
-	// pros::rtos::Task my_task(rotationsensor);
-
-	
-
-	// pros::lcd::set_text(3, std::to_string(colorsensor.get_hue()));
-
-	// pros::rtos::Task my_task(color_sort_red);
-	//pros::rtos::Task my_task_2(setArmLoadNew);
+	// pros::rtos::Task my_task_fn(color_sort_red);
+	pros::rtos::Task my_task_fn(color_sort_blue_team);
 	pros::rtos::Task my_task_2(setArmLoad1);
 
 	// pros::Task screen_task([&]() {
@@ -379,16 +285,5 @@ void opcontrol() {
     //     }
     // });
 
-	// while (true)
-	// {
-	// 	pros::lcd::set_text(1, "X: "  +  std::to_string(chassis.getPose().x)); // print the x position
-	// 	pros::lcd::set_text(2, "Y: " + std::to_string(chassis.getPose().y)); // print the y position
-	// 	pros::lcd::set_text(5, "Angle: " + std::to_string(chassis.getPose().theta)); // print the y position
-	// 	pros::delay(20);
-	// }
-
-
-	// pros::rtos::Task my_task(color_sort_blue_team);
-	// pros::rtos::Task my_task(color_sort_red_team);
 	my_opcontrol();
 }

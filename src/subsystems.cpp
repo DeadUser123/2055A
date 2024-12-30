@@ -91,7 +91,7 @@ void setArmLoadNew()
 }
 
 const int numstates = 2;
-int states[numstates] = {0, 1500};
+int states[numstates] = {0, 1350};
 int currState = 0;
 
 
@@ -102,8 +102,8 @@ void setArmLoad1()
         if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B))
         {
             currState += 1;
-            if (currState == 3) {
-                currState = 1;
+            if (currState == 2) {
+                currState = 0;
             }
             int target = states[currState];
 
@@ -134,58 +134,11 @@ void setArmLoad1()
         }
         else
         {
-            // hold arm in place if in loading position
-            // if (hold)
-            // {
-            //     // 100 too fast, 40 too fast, 20 too fast, 10 too fast, 5 too fast, 2 too fast
-            //     // this is the velocity at which the arm will move upwards to hold
-            //     arm.move_velocity(0);
-            // }
             driveArm();
             pros::delay(1);
         }
     }
 }
-
-// const int numstates = 3;
-// int states[numstates] = {1500,0};
-// int currState = 0;
-// int target = 0;
-
-// void nextstate() {
-//    double kP = 0.03;
-//    double error;
-//    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X)) {
-//         currState += 1;
-//         if (currState > 2) {
-//             currState = 0;
-//         }
-//         target = states[currState];
-
-//         currentAngle = armsensor.get_angle();
-//         error = target - currentAngle;
-//         if (30000 <= currentAngle && currentAngle <= 36000) 
-//         {
-//             currentAngle = 0 - (36000 - currentAngle);
-//         }
-//         while (abs(error) > 150) {
-//             currentAngle = armsensor.get_angle();
-//             error = target - currentAngle;
-//             if (30000 <= currentAngle && currentAngle <= 36000) 
-//             {
-//                 currentAngle = 0 - (36000 - currentAngle);
-//             }
-//             arm.move(error * kP);
-//             pros::lcd::set_text(5, "Target: " + std::to_string(target));
-//             pros::delay(10);
-//         }
-//         arm.move_velocity(0);
-//     }
-//     else {
-//         driveArm();
-//         pros::delay(10);
-//     }
-// }
 
 void setarm() {
     arm.set_brake_mode(MOTOR_BRAKE_HOLD);
@@ -209,48 +162,8 @@ void setarm() {
             arm.move_velocity(0);
     }
 
-
-bool armraise = false;
-// void armtest() {
-//     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)) {
-//             // if (armraise = false) {
-//                 while (armsensor.get_angle() > 100) {
-//                     arm.move(120);
-//                     pros::delay(1);
-//                     armraise != armraise;
-//                }
-//             arm.brake();
-//             // if (armraise = true) {
-//             //     while (armsensor.get_angle() > 200) {
-//             //         arm.move(-120);
-//             //         pros::delay(1);
-//             //         armraise != armraise;
-//             //     }
-//             // }
-            
-//     }
-// }
-// // }
-//             if (armraise = false) {
-//                 while (armsensor.get_angle() < 4500) {
-//                     arm.move(120);
-//                     pros::delay(1);
-//                     armraise != armraise;
-//                 }
-//             if (armraise = true) {
-//                 while (armsensor.get_angle() > 200) {
-//                     arm.move(-120);
-//                     pros::delay(1);
-//                     armraise != armraise;
-//                 }
-//             }
-            
-//     }
-// }
-// }
-
-
 bool checkForJam = false;
+
 void setIntake(int power)
 {
     intake1.move(power);
@@ -327,40 +240,6 @@ void driveArm()
 
     arm.move_velocity(arm_power);
 
-    
-    // if the arm isn't holding, or if the driver clicks L1 or L2, the arm will move. Otherwise, if the driver does not click L1/L2 and the arm is holding, the arm will not move.
-    // if (arm_power != 0 || (arm_power == 0 && hold == false))
-    // {
-    //     hold = false;
-    //     arm.move(arm_power);
-    // }
-    // if (armsensor.get_position() > 13000)
-    // {
-    //     if (arm_power > 0)
-    //     {
-    //         arm_power = 0;
-    //     }
-    // }
-    // if (armsensor.get_position() < 0)
-    // {
-    //     if (arm_power < 0)
-    //     {
-    //         arm_power = 0;
-    //     }
-    // }
-
-    // if (arm_power == 0)
-    // {
-    //     current_velocity_2 = armsensor.get_velocity();
-    //     if (current_velocity_2 > 200 || current_velocity_2 < 200)
-    //     {
-    //         arm.move_velocity(current_velocity_2 * armkP * -1);
-    //     }
-    // }
-    // if (arm_power = 0)
-    // {
-        
-    // }
 }
     
 bool clawState = false;
