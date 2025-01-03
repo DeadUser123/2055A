@@ -198,8 +198,8 @@ void autonomous() {
 	// qualredmogoside(); //slot 5  <--
 	// qualbluemogoside(); //slot 6 <--
 	// elimBlueMogoSide();//SLOT 8
-	// prog_skills_new(); // SLOT 8
-	
+	//prog_skills_new(); // SLOT 8
+	// gatewayredposqual();
 
 // 	Auton selector;
 //     switch (selector::auton) {

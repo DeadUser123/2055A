@@ -10,6 +10,41 @@
 #include "pros/vision.hpp"
 #include "lemlib/api.hpp"
 
+// void gatewayredposqual(){
+//     //alliance stake
+//     chassis.setPose(-57.375, -15, 180);
+//     chassis.moveToPoint(-57.375, 0, 1000, {.forwards=false}, false);
+//     chassis.turnToHeading(-90, 750, {}, false);
+//     setDrive(6000, 6000);
+//     pros::delay(150);
+//     setDrive(0, 0);
+//     scoreAllianceStake();   
+//     chassis.moveToPoint(-38, 0, 750, {.forwards=false}, false);
+
+//    //corner rings
+//     chassis.turnToHeading(-150, 750, {}, false);
+//     chassis.moveToPoint(-59, -33,  1000, {.forwards = true, .maxSpeed = 65}, false);
+//     chassis.turnToHeading(-175, 750, {}, false);
+//     chassis.moveToPoint(-70, -70,  1000, {.forwards = true, .maxSpeed = 65}, false);
+//     doinker.set_value(true);
+//     chassis.turnToHeading(90, 750, {}, false);
+//     doinker.set_value(false);
+
+//     //turn around
+//     chassis.moveToPoint(-18, -47, 1000, {.forwards=false}, false);
+//     chassis.turnToHeading(-180, 750, {}, false);
+//     chassis.moveToPoint(-18, -20, 1000, {.forwards=false}, false);
+// }
+
+// // -57.375, -15, 180
+// // -57.375, 1
+// // -57.375, 1,-90
+// // -38, 0
+// // -38, 0, -150
+// // -60, -58, -170
+// // -60, -58, 90
+// // -24,-46,-180
+
 void qualredmogoside() { 
     chassis.setPose(-48,-22,270);
     clamp.set_value(true);
@@ -145,7 +180,7 @@ void qual5ringBlue() {
     chassis.turnToHeading(145, 500, {}, false); //154
     chassis.moveToPoint(47, 23, 800, {.forwards=false}, false);
     //chassis.turnToHeading(chassis.getPose().theta - 180, 750, {}, false);
-    chassis.turnToHeading(154 - 180, 750, {}, false);
+    chassis.turnToHeading(-40, 750, {}, false);
     setIntake(127);
     chassis.moveToPose(19, 53, -40, 1250, {}, false); // pick up ring
     pros::delay(50);
