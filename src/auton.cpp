@@ -20,23 +20,29 @@ void gatewayredposqual(){
     setDrive(0, 0);
     scoreAllianceStake();   
 
-    pros::delay(15000);
-
-    chassis.moveToPoint(-38, 0, 750, {.forwards=false}, false);
+    chassis.moveToPoint(-42, 0, 750, {.forwards=false}, false);
 
    //corner rings
-    chassis.turnToHeading(-150, 750, {}, false);
-    chassis.moveToPoint(-59, -33,  1000, {.forwards = true, .maxSpeed = 65}, false);
-    chassis.turnToHeading(-175, 750, {}, false);
-    chassis.moveToPoint(-70, -70,  1000, {.forwards = true, .maxSpeed = 65}, false);
+    chassis.turnToHeading(-145, 750, {}, false);
+    chassis.moveToPoint(-59, -33,  1000, {}, false);
+    chassis.turnToHeading(-174, 750, {}, false);
+    chassis.moveToPoint(-62, -60,  1000, {}, false);
     doinker.set_value(true);
     chassis.turnToHeading(90, 750, {}, false);
     doinker.set_value(false);
 
     //turn around
-    chassis.moveToPoint(-18, -47, 1000, {.forwards=false}, false);
-    chassis.turnToHeading(-180, 750, {}, false);
-    chassis.moveToPoint(-18, -20, 1000, {.forwards=false}, false);
+    chassis.moveToPoint(-23, chassis.getPose().y, 1000, {}, false);
+    chassis.turnToHeading(0, 750, {}, false);
+    
+    setIntake(115);
+    setDrive(6000, 6000);
+    pros::delay(300);
+    setIntake(0);
+    setDrive(-6000, -6000);
+    pros::delay(100);
+    setDrive(0, 0);
+
 }
 
 // // -57.375, -15, 180
