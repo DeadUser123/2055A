@@ -10,31 +10,34 @@
 #include "pros/vision.hpp"
 #include "lemlib/api.hpp"
 
-// void gatewayredposqual(){
-//     //alliance stake
-//     chassis.setPose(-57.375, -15, 180);
-//     chassis.moveToPoint(-57.375, 0, 1000, {.forwards=false}, false);
-//     chassis.turnToHeading(-90, 750, {}, false);
-//     setDrive(6000, 6000);
-//     pros::delay(150);
-//     setDrive(0, 0);
-//     scoreAllianceStake();   
-//     chassis.moveToPoint(-38, 0, 750, {.forwards=false}, false);
+void gatewayredposqual(){
+    //alliance stake
+    chassis.setPose(-57.375, -15, 180);
+    chassis.moveToPoint(-57.375, 1, 1000, {.forwards=false}, false);
+    chassis.turnToHeading(-90, 750, {}, false);
+    setDrive(6000, 6000);
+    pros::delay(220);
+    setDrive(0, 0);
+    scoreAllianceStake();   
 
-//    //corner rings
-//     chassis.turnToHeading(-150, 750, {}, false);
-//     chassis.moveToPoint(-59, -33,  1000, {.forwards = true, .maxSpeed = 65}, false);
-//     chassis.turnToHeading(-175, 750, {}, false);
-//     chassis.moveToPoint(-70, -70,  1000, {.forwards = true, .maxSpeed = 65}, false);
-//     doinker.set_value(true);
-//     chassis.turnToHeading(90, 750, {}, false);
-//     doinker.set_value(false);
+    pros::delay(15000);
 
-//     //turn around
-//     chassis.moveToPoint(-18, -47, 1000, {.forwards=false}, false);
-//     chassis.turnToHeading(-180, 750, {}, false);
-//     chassis.moveToPoint(-18, -20, 1000, {.forwards=false}, false);
-// }
+    chassis.moveToPoint(-38, 0, 750, {.forwards=false}, false);
+
+   //corner rings
+    chassis.turnToHeading(-150, 750, {}, false);
+    chassis.moveToPoint(-59, -33,  1000, {.forwards = true, .maxSpeed = 65}, false);
+    chassis.turnToHeading(-175, 750, {}, false);
+    chassis.moveToPoint(-70, -70,  1000, {.forwards = true, .maxSpeed = 65}, false);
+    doinker.set_value(true);
+    chassis.turnToHeading(90, 750, {}, false);
+    doinker.set_value(false);
+
+    //turn around
+    chassis.moveToPoint(-18, -47, 1000, {.forwards=false}, false);
+    chassis.turnToHeading(-180, 750, {}, false);
+    chassis.moveToPoint(-18, -20, 1000, {.forwards=false}, false);
+}
 
 // // -57.375, -15, 180
 // // -57.375, 1
@@ -76,31 +79,6 @@ void qualredmogoside() {
     pros::delay(3000);
     setIntake(0);
 }
-
-void gatewayredposqual(){
-    chassis.setPose(-57.375, -15, 180);
-    chassis.moveToPoint(-57.375, 1, 750, {.forwards=false}, false);
-    chassis.turnToHeading(-90, 750, {}, false);
-    
-    setDrive(6000, 6000);
-    pros::delay(200);
-    setDrive(0, 0);
-    scoreAllianceStake();
-    
-    chassis.moveToPoint(-38, 0, 750, {},false); //move back
-    chassis.turnToHeading(-150, 750, {}, false);
-
-    chassis.moveToPose(-60, -58, -170, 1500, {.forwards = false, .maxSpeed = 65}, false);
-    setIntake(127);
-    pros::delay(200);
-    setIntake(0);
-    doinker.set_value(true);
-    chassis.turnToHeading(90, 750, {}, false);
-    doinker.set_value(false);
-
-    chassis.moveToPose(-24, -46, 0, 1000, {}, false);
-
-}  
 
 //  void gatewayblueposqual
 //     chassis.setPose(57.375, -15, 180);

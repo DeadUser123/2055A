@@ -169,7 +169,7 @@ void autonomous() {
         }
     });
 	// set position to x:0, y:0, heading:0
-	skillsprog();
+	// skillsprog();
 	//newskillsprog();
 	//gatewayredposqual();
 	//ethanredpositivequal();
@@ -201,7 +201,7 @@ void autonomous() {
 	// qualbluemogoside(); //slot 6 <--
 	// elimBlueMogoSide();//SLOT 8
 	//prog_skills_new(); // SLOT 8
-	// gatewayredposqual();
+	gatewayredposqual();
 
 // 	Auton selector;
 //     switch (selector::auton) {
