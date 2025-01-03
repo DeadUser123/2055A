@@ -39,18 +39,18 @@ void color_sort_red_team() {
 	double colorvalue;
 	while (true) {
 		colorvalue = colorsensor.get_hue();
-		if (colorvalue >= 5 && colorvalue <= 27) 
+		if (colorvalue >= 180 && colorvalue <= 220) 
 		{
 			pros::lcd::set_text(4, "RED RING DETECTED! :(");
 			int ticks = intake1.get_position();
-			int newtick = ticks + 85;
-			while (newtick - ticks > 5) 
+			int newtick = ticks + 77;
+			while (newtick - ticks > 0) 
 			{
 				setIntake(127);
 				ticks = intake1.get_position();
 				pros::lcd::set_text(5, "Error: " + std::to_string(ticks));
 			}
-			setIntake(-100);
+			setIntake(-127);
 			pros::delay(300);
 		}
 		else 
@@ -58,7 +58,7 @@ void color_sort_red_team() {
 			driveIntake();
 			pros::delay(50);
 		}
-		pros::delay(50);
+		pros::delay(10);
 	}
 	}
 
@@ -72,21 +72,21 @@ void color_sort_blue_team() {
 			pros::lcd::set_text(4, "RED RING DETECTED! :(");
 			int ticks = intake1.get_position();
 			int newtick = ticks + 85;
-			while (newtick - ticks > 5) 
+			while (newtick - ticks > 0) 
 			{
 				setIntake(127);
 				ticks = intake1.get_position();
 				pros::lcd::set_text(5, "Error: " + std::to_string(ticks));
 			}
-			setIntake(-100);
-			pros::delay(300);
+			setIntake(-127);
+			pros::delay(180);
 		}
 		else 
 		{
 			driveIntake();
 			pros::delay(50);
 		}
-		pros::delay(50);
+		pros::delay(10);
 	}
 }
 
@@ -170,6 +170,8 @@ void autonomous() {
     });
 	// set position to x:0, y:0, heading:0
 	skillsprog();
+	//newskillsprog();
+	//gatewayredposqual();
 	//ethanredpositivequal();
 	//qual5ringBlue(); // slot 4
 	//qual5ringRed(); //slot 3
@@ -270,7 +272,7 @@ void opcontrol() {
 	armsensor.set_position(0);
 	armsensor.reset_position();
 
-	// pros::rtos::Task my_task_fn(color_sort_red);
+	//pros::rtos::Task my_task_fn(color_sort_red_team);
 	pros::rtos::Task my_task_fn(color_sort_blue_team);
 	pros::rtos::Task my_task_2(setArmLoad1);
 
