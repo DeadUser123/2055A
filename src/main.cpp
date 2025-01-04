@@ -169,8 +169,8 @@ void autonomous() {
         }
     });
 	// set position to x:0, y:0, heading:0
-	skillsprog();
-	//newskillsprog();
+	//skillsprog2();
+	newskillsprog();
 	//gatewayredposqual();
 	//ethanredpositivequal();
 	//qual5ringBlue(); // slot 4

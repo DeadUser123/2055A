@@ -17,5 +17,6 @@ void newskillsprog();
 void ethanskills();
 void ethanredpositivequal();
 void skillsprog();
+void skillsprog2();
 void gatewayredposqual();
 void gatewayblueposqual();
