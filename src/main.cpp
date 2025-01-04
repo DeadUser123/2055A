@@ -44,12 +44,12 @@ void color_sort_red_team() {
 			pros::lcd::set_text(4, "RED RING DETECTED! :(");
 			int ticks = intake1.get_position();
 			int newtick = ticks + 77;
-			while (newtick - ticks > 0) 
-			{
-				setIntake(127);
-				ticks = intake1.get_position();
-				pros::lcd::set_text(5, "Error: " + std::to_string(ticks));
-			}
+			//while (newtick - ticks > 0) 
+			// {
+			// 	setIntake(127);
+			// 	ticks = intake1.get_position();
+			// 	pros::lcd::set_text(5, "Error: " + std::to_string(ticks));
+			// }
 			setIntake(-127);
 			pros::delay(300);
 		}
@@ -169,8 +169,8 @@ void autonomous() {
         }
     });
 	// set position to x:0, y:0, heading:0
-	//skillsprog2();
-	newskillsprog();
+	//skillsauton();
+	skillsprog();
 	//gatewayredposqual();
 	//ethanredpositivequal();
 	//qual5ringBlue(); // slot 4
@@ -180,7 +180,7 @@ void autonomous() {
 	// newskillsprog(); // slot 8
 	// soloauton_AWP_Blue_Negative_Sig();
 	// mogorushred(); // slot 5
-	// mogorushblue(); // slot 6
+	//mogorushblue(); // slot 6
 	// mogorushblue();
 	//ethanskills();
 	
@@ -200,7 +200,7 @@ void autonomous() {
 	// qualredmogoside(); //slot 5  <--
 	// qualbluemogoside(); //slot 6 <--
 	// elimBlueMogoSide();//SLOT 8
-	// prog_skills_new(); // SLOT 8
+	//prog_skills_new(); // SLOT 8
 	
 
 // 	Auton selector;
@@ -272,8 +272,8 @@ void opcontrol() {
 	armsensor.set_position(0);
 	armsensor.reset_position();
 
-	//pros::rtos::Task my_task_fn(color_sort_red_team);
-	pros::rtos::Task my_task_fn(color_sort_blue_team);
+	pros::rtos::Task my_task_fn(color_sort_red_team);
+	//pros::rtos::Task my_task_fn(color_sort_blue_team);
 	pros::rtos::Task my_task_2(setArmLoad1);
 
 	// pros::Task screen_task([&]() {
