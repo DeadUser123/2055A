@@ -28,22 +28,25 @@ void gatewayredposqual(){
     chassis.turnToHeading(-174, 750, {}, false);
     chassis.moveToPoint(-60, -58,  1000, {}, false);
     doinker.set_value(true);
+
+    //to pick up
     chassis.turnToHeading(78, 750, {}, false);
     doinker.set_value(false);
     
+    //pick up ring
     setIntake(110);
-    chassis.moveToPoint(-17, -44, 1000, {}, false);
+    chassis.moveToPoint(-24, -47, 1000, {}, false);
+    pros::delay(250);
     setIntake(0);
     chassis.turnToHeading(180, 750, {}, false);
     
     chassis.moveToPoint(-23, -26, 1000, {.forwards=false, .maxSpeed = 45}, false);
     clamp.set_value(false);
-    setIntake(110);
+    setIntake(110); 
     pros::delay(250);
     setIntake(0);
 
     chassis.moveToPoint(-23, 1, 1000, {.forwards=false, .maxSpeed = 45}, false);
-
 }
 
 void qualredmogoside() { 
@@ -201,10 +204,10 @@ void qual5ringBlue() {
     setIntake(127);
     chassis.moveToPose(19, 53, -40, 1250, {}, false); // pick up ring
     pros::delay(50);
-    setIntake(0);
+    //setIntake(0);
     
     chassis.turnToHeading(-9, 500, {}, false); // turn to Mobile Goal
-    //setIntake(0);
+    setIntake(0);
     intake2.move(60);
     chassis.moveToPoint(24, 22, 1000, {.forwards=false, .maxSpeed=80}); // go to Mobile Goal
     // chassis.moveToPose(24, 22, 0, 1750, {.forwards=false, .minSpeed=40}); // go to Mobile Goal
@@ -214,12 +217,14 @@ void qual5ringBlue() {
     setIntake(127); // score 2nd ring
     pros::delay(500);
 
-    chassis.moveToPose(14,29,-9,500,{.maxSpeed=75},false); //move to rings
-    pros::delay(200);
-    chassis.moveToPose(10,47,1,1500,{.maxSpeed=75},false);
+    //chassis.moveToPose(14,29,-9,500,{.maxSpeed=75},false); //move to rings
+    //pros::delay(200);
+    chassis.moveToPose(10,55,1,2500,{},false);
     //chassis.turnToHeading(1,500,{},false);
+    //pros::delay(15000);
     pros::delay(300);
-    chassis.moveToPose(12,32,-12,500,{.forwards=false},false);
+    chassis.moveToPose(12,35
+    ,-12,1000,{.forwards=false},false);
     pros::delay(100);
     chassis.moveToPose(24,12,0,1000,{},false);
 
