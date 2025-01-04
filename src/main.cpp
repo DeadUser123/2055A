@@ -169,8 +169,8 @@ void autonomous() {
         }
     });
 	// set position to x:0, y:0, heading:0
-	// skillsprog();
-	//newskillsprog();
+	//skillsprog2();
+	newskillsprog();
 	//gatewayredposqual();
 	//ethanredpositivequal();
 	//qual5ringBlue(); // slot 4
@@ -200,8 +200,8 @@ void autonomous() {
 	// qualredmogoside(); //slot 5  <--
 	// qualbluemogoside(); //slot 6 <--
 	// elimBlueMogoSide();//SLOT 8
-	//prog_skills_new(); // SLOT 8
-	gatewayredposqual();
+	// prog_skills_new(); // SLOT 8
+	
 
 // 	Auton selector;
 //     switch (selector::auton) {
