@@ -23,11 +23,12 @@ void gatewayredposqual(){
     chassis.moveToPoint(-42, 0, 750, {.forwards=false}, false);
 
    //corner rings
-    chassis.turnToHeading(-145, 750, {}, false);
+    chassis.turnToHeading(-150, 750, {}, false);
     chassis.moveToPoint(-59, -33,  1000, {}, false);
-    chassis.turnToHeading(-174, 750, {}, false);
-    chassis.moveToPoint(-60, -58,  1000, {}, false);
+    chassis.turnToHeading(-167, 750, {}, false);
+    chassis.moveToPoint(-63, -55,  1000, {}, false);
     doinker.set_value(true);
+    pros::delay(500);
 
     //to pick up
     chassis.turnToHeading(78, 750, {}, false);
@@ -35,18 +36,18 @@ void gatewayredposqual(){
     
     //pick up ring
     setIntake(110);
-    chassis.moveToPoint(-24, -47, 1000, {}, false);
+    chassis.moveToPoint(-34, -47, 1000, {}, false);
     pros::delay(250);
     setIntake(0);
     chassis.turnToHeading(180, 750, {}, false);
     
-    chassis.moveToPoint(-23, -26, 1000, {.forwards=false, .maxSpeed = 45}, false);
+    chassis.moveToPoint(-23, -26, 1000, {.forwards=false, .maxSpeed = 50}, false);
     clamp.set_value(false);
-    setIntake(110); 
-    pros::delay(250);
-    setIntake(0);
+    setIntake(135); 
+    pros::delay(2000);
+    chassis.moveToPoint(-23, 1, 1000, {.forwards=false}, false);
 
-    chassis.moveToPoint(-23, 1, 1000, {.forwards=false, .maxSpeed = 45}, false);
+    setIntake(0);
 }
 
 void qualredmogoside() { 
