@@ -31,9 +31,9 @@ char CLAW_PORT = 'G';
 char DOINKER_PORT = 'F';
 
 
-int MOTOR_INTAKE_1= 7; // top intake
+int MOTOR_INTAKE_1= -7; // top intake
 int ARM_PORT = 1;
-int INTAKE2_PORT = 6; // bottom intake
+int INTAKE2_PORT = -6; // bottom intake
 int arm_sensor = 11;
 
 
