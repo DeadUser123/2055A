@@ -27,7 +27,7 @@ void scoreWallStake()
     arm.move_velocity(600);
     while (true)
     {
-        if (armsensor.get_position() > 13650)
+        if (armsensor.get_position() > 12500)
         {
             arm.move_velocity(-600);
             break;

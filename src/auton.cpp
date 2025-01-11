@@ -224,8 +224,8 @@ void qual5ringBlue() {
     //chassis.turnToHeading(1,500,{},false);
     //pros::delay(15000);
     pros::delay(300);
-    chassis.moveToPose(12,35
-    ,-12,1000,{.forwards=false},false);
+    //chassis.moveToPose(12,35,-12,1000,{.forwards=false},false);
+    chassis.moveToPoint(24, 22, 1000, {.forwards=false});
     pros::delay(100);
     chassis.moveToPose(24,12,0,1000,{},false);
 
@@ -856,25 +856,24 @@ void skillsprog()
     setIntake(127);
     chassis.moveToPoint(-22,24,500, {}, false);
     chassis.turnToHeading(40, 450, {}, false);
+    setarm();
     chassis.moveToPoint(24, 48, 1100, {}, false);
     //chassis.moveToPose(27,51,66,1900,{}, false);
 
     // //Wall Stake
     chassis.turnToHeading(90,600,{}, false);
-    chassis.moveToPoint(3.5,44,900,{.forwards = false, .minSpeed = 127},true);
+    chassis.moveToPoint(4.75,44,900,{.forwards = false, .minSpeed = 127},true);
     //chassis.moveToPoint(1.8,56.7,900, {}, false);
     pros::delay(100);
     // pros::delay(500);
     chassis.turnToHeading(0, 500, {}, false);
     setIntake(0);
     intake1.move_velocity(127);
-    setarm();
-    setDrive(5000,5000);
+    // setarm();
+    setDrive(9000,9000);
     pros::delay(800);
-    arm.move(600);
-    pros::delay(900);
-    arm.move(-600);
-    pros::delay(900);
+    setDrive(0, 0);
+    scoreWallStake();
     
     chassis.setPose(0,61,chassis.getPose().theta);
     chassis.moveToPoint(2,48,700,{.forwards=false},false);
@@ -896,7 +895,7 @@ void skillsprog()
     chassis.turnToHeading(0,450,{},false);
 
     chassis.moveToPoint(-47,-3,1500,{.forwards = false, .minSpeed=120}, false);
-    chassis.moveToPoint(-47,-25,800,{.forwards=false, .maxSpeed = 45},false);
+    chassis.moveToPoint(-47,-25.5,1200,{.forwards=false, .maxSpeed = 45},false);
     pros::delay(200);
     clamp.set_value(false);
     pros::delay(200);
@@ -930,9 +929,9 @@ void skillsprog()
     setIntake(0);
 
     chassis.turnToPoint(1,1,500,{},false);
-    intake1.move_velocity(127);
-    chassis.moveToPoint(1,1,1600,{.minSpeed = 120}, false);
-    setIntake(60);
+    //intake1.move_velocity(127);
+    //chassis.moveToPoint(1,1,1600,{.minSpeed = 120}, false);
+    //setIntake(60);
     // chassis.moveToPoint(24,24,600,{.minSpeed = 127}, false);
 
     // chassis.turnToHeading(-45,500,{},false);

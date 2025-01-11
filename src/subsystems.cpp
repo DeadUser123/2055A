@@ -41,7 +41,7 @@ int currentAngle;
 int error = 1064;
 const double kP = 0.03;
 const int deadband = 250;
-const int targetAngle = 1370;
+const int targetAngle = 1070;
 bool hold;
 
 void setArmLoadNew()
@@ -91,7 +91,7 @@ void setArmLoadNew()
 }
 
 const int numstates = 2;
-int states[numstates] = {0, 1630};
+int states[numstates] = {0, 1070};
 int currState = 0;
 
 
