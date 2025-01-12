@@ -1,5 +1,21 @@
 #include "main.h"
 
+void gatewayredposqual();
+void gatewayblueposqual();
+void gatewayRedMogoRushQual();
+void gatewayBlueMogoRushQual();
+// put red negative qual here:
+// put blue negative qual here:
+void gatewayRedSoloAWP();
+void gatewayBlueSoloAWP();
+void gatewayRedPosElim();
+void gatewayBluePosElim();
+void gatewayRedMogoRushElim();
+void gatewayBlueMogoRushElim();
+void gatewayRedNegElim();
+void gatewayBlueNegElim();
+
+
 void PID_Test();
 void qual5ringRed();
 void qual5ringBlue();
@@ -18,5 +34,3 @@ void ethanskills();
 void ethanredpositivequal();
 void skillsprog();
 void skillsauton();
-void gatewayredposqual();
-void gatewayblueposqual();

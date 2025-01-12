@@ -24,22 +24,8 @@ void scoreAllianceStake()
 
 void scoreWallStake()
 {
-    arm.move_velocity(600);
-    while (true)
-    {
-        if (armsensor.get_position() > 12500)
-        {
-            arm.move_velocity(-600);
-            break;
-        }
-    }
-    pros::delay(300);
-    while (true)
-    {
-         if (armsensor.get_velocity() > -50)
-         {
-            arm.move_velocity(0);
-            break;
-         }
-    }
+    arm.move(12000);
+    pros::delay(850);
+    arm.move(-12000);
+    pros::delay(850);
 }

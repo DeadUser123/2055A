@@ -17,7 +17,7 @@ void my_opcontrol()
     while (true)
     {
         setDriveMotors(); // sets motors based on joystick inputs
-        driveIntake(); // sets intake based on L1 input -- comment this when running colorsort task
+        // driveIntake(); // sets intake based on L1 input -- comment this when running colorsort task
         driveClamp();
         doink();
         pros::delay(1);

@@ -39,24 +39,30 @@ void color_sort_red_team() {
 	double colorvalue;
 	while (true) {
 		colorvalue = colorsensor.get_hue();
-		if (colorvalue >= 180 && colorvalue <= 220) 
+		int distancevalue = distancesensor.get(); // gets currently measured distance in mm
+		if (colorvalue >= 100 && colorvalue <= 250 && distancevalue <= 30) 
 		{
-			pros::lcd::set_text(4, "RED RING DETECTED! :(");
+			pros::lcd::set_text(4, "BLUE RING DETECTED! :(");
 			int ticks = intake1.get_position();
-			int newtick = ticks + 77;
-			while (newtick - ticks > 0) 
+			int newtick = ticks + 50;
+			pros::lcd::set_text(6, "Ticks: " + std::to_string(ticks));
+			pros::lcd::set_text(7, "Newtick: " + std::to_string(newtick));
+			while ((newtick - ticks) > 0) 
 			{
 				setIntake(127);
 				ticks = intake1.get_position();
-				pros::lcd::set_text(5, "Error: " + std::to_string(ticks));
+				// pros::lcd::set_text(6, "Ticks: " + std::to_string(ticks));
+				// pros::lcd::set_text(7, "Newtick: " + std::to_string(newtick));
+				pros::lcd::set_text(5, "Error: " + std::to_string(newtick - ticks));
+				pros::delay(10);
 			}
+			pros::lcd::set_text(4, "DONE!");
 			setIntake(-127);
-			pros::delay(300);
+			pros::delay(100);
 		}
 		else 
 		{
 			driveIntake();
-			pros::delay(50);
 		}
 		pros::delay(10);
 	}
@@ -111,6 +117,7 @@ void initialize() {
 
 	drive_LB.set_brake_mode(MOTOR_BRAKE_HOLD);
 	drive_LM.set_brake_mode(MOTOR_BRAKE_HOLD);
+	drive_LF.set_brake_mode(MOTOR_BRAKE_HOLD);
 
     drive_RB.set_brake_mode(MOTOR_BRAKE_HOLD);
 	drive_RM.set_brake_mode(MOTOR_BRAKE_HOLD);
@@ -125,6 +132,7 @@ void initialize() {
 
 	lvgl_init();
 	armsensor.set_position(0);
+	colorsensor.set_led_pwm(100);
 }
 
 /**
