@@ -40,11 +40,11 @@ void color_sort_red_team() {
 	while (true) {
 		colorvalue = colorsensor.get_hue();
 		int distancevalue = distancesensor.get(); // gets currently measured distance in mm
-		if (colorvalue >= 100 && colorvalue <= 250 && distancevalue <= 30) 
+		if (colorvalue >= 200 && colorvalue <= 230 && distancevalue <= 30) 
 		{
 			pros::lcd::set_text(4, "BLUE RING DETECTED! :(");
 			int ticks = intake1.get_position();
-			int newtick = ticks + 50;
+			int newtick = ticks + 80;
 			pros::lcd::set_text(6, "Ticks: " + std::to_string(ticks));
 			pros::lcd::set_text(7, "Newtick: " + std::to_string(newtick));
 			while ((newtick - ticks) > 0) 
@@ -58,7 +58,7 @@ void color_sort_red_team() {
 			}
 			pros::lcd::set_text(4, "DONE!");
 			setIntake(-127);
-			pros::delay(100);
+			pros::delay(300);
 		}
 		else 
 		{
