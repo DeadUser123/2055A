@@ -80,7 +80,11 @@ void gatewayBluePosQual(){
 
 void gatewayRedMogoRushQual()
 {
-
+    chassis.setPose(-49, -60, 90);
+    chassis.moveToPose(-12, -60, 90, 1250);
+    chassis.turnToHeading(30, 750);
+    pros::delay(500);
+    doinker.set_value(true);
 }
 
 void gatewayBlueMogoRushQual()
@@ -103,8 +107,37 @@ void gatewayBlueSoloAWP()
 }
 
 void gatewayRedPosElim()
-{
+    {   clamp.set_value(true);
+        chassis.setPose(-57.375, -15, 180);
+        chassis.moveToPoint(-57.375, 1, 1000, {.forwards=false}, false);
+        chassis.turnToHeading(-90, 750, {}, false);
+        setDrive(6000, 6000);
+        pros::delay(220);
+        setDrive(0, 0);
+        scoreAllianceStake();   
+        chassis.moveToPoint(-42, 0, 750, {.forwards=false}, false);
 
+    //corner rings
+        chassis.turnToHeading(-150, 750, {}, false);
+        chassis.moveToPoint(-59, -33,  1000, {}, false);
+        chassis.turnToHeading(-167, 750, {}, false);    
+        chassis.moveToPoint(-63, -55,  1000, {}, false);
+        doinker.set_value(true);
+        pros::delay(500);
+
+        //to pick up
+        chassis.turnToHeading(78, 750, {}, false);
+        doinker.set_value(false);
+            //pick up ring
+        setIntake(110);
+        chassis.moveToPoint(-30, -47, 1000, {}, false);
+        pros::delay(500);
+        setIntake(0);
+        chassis.turnToHeading(180, 750, {}, false);
+        
+        chassis.moveToPoint(-30, -26, 1000, {.forwards=false, .maxSpeed = 50}, false);
+        clamp.set_value(false);
+        setIntake(135); 
 }
 
 void gatewayBluePosElim()

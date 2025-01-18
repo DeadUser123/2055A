@@ -180,7 +180,9 @@ void autonomous() {
 	// set position to x:0, y:0, heading:0
 	//skillsauton();
 	// skillsprog(); // 	FOR GATEWAY
-	gatewayRedPosQual();
+	// gatewayRedPosQual();
+	gatewayRedPosElim();
+	// gatewayRedMogoRushQual();
 	//ethanredpositivequal();
 	// qual5ringBlue(); // slot 4
 	//qual5ringRed(); //slot 3
