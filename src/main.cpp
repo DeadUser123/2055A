@@ -44,7 +44,7 @@ void color_sort_red_team() {
 		{
 			pros::lcd::set_text(4, "BLUE RING DETECTED! :(");
 			int ticks = intake1.get_position();
-			int newtick = ticks + 80;
+			int newtick = ticks + 95;
 			pros::lcd::set_text(6, "Ticks: " + std::to_string(ticks));
 			pros::lcd::set_text(7, "Newtick: " + std::to_string(newtick));
 			while ((newtick - ticks) > 0) 
@@ -56,6 +56,7 @@ void color_sort_red_team() {
 				pros::lcd::set_text(5, "Error: " + std::to_string(newtick - ticks));
 				pros::delay(10);
 			}
+
 			pros::lcd::set_text(4, "DONE!");
 			setIntake(-127);
 			pros::delay(300);
@@ -178,8 +179,8 @@ void autonomous() {
     });
 	// set position to x:0, y:0, heading:0
 	//skillsauton();
-	skillsprog(); // 	FOR GATEWAY
-	// gatewayredposqual();
+	// skillsprog(); // 	FOR GATEWAY
+	gatewayRedPosQual();
 	//ethanredpositivequal();
 	// qual5ringBlue(); // slot 4
 	//qual5ringRed(); //slot 3

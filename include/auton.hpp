@@ -1,6 +1,6 @@
 #include "main.h"
 
-void gatewayredposqual();
+void gatewayRedPosQual();
 void gatewayblueposqual();
 void gatewayRedMogoRushQual();
 void gatewayBlueMogoRushQual();

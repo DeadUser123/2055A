@@ -38,14 +38,16 @@ void gatewayRedPosQual(){
     chassis.turnToHeading(78, 750, {}, false);
     doinker.set_value(false);
     
+    pros::delay(15000);
+
     //pick up ring
     setIntake(110);
-    chassis.moveToPoint(-34, -47, 1000, {}, false);
-    pros::delay(250);
+    chassis.moveToPoint(-30, -47, 1000, {}, false);
+    pros::delay(500);
     setIntake(0);
     chassis.turnToHeading(180, 750, {}, false);
     
-    chassis.moveToPoint(-23, -26, 1000, {.forwards=false, .maxSpeed = 50}, false);
+    chassis.moveToPoint(-30, -26, 1000, {.forwards=false, .maxSpeed = 50}, false);
     clamp.set_value(false);
     setIntake(135); 
     pros::delay(2000);
