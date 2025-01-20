@@ -181,8 +181,8 @@ void autonomous() {
 	//skillsauton();
 	// skillsprog(); // 	FOR GATEWAY
 	// gatewayRedPosQual();
-	gatewayRedPosElim();
-	// gatewayRedMogoRushQual();
+	// gatewayRedPosElim();
+	gatewayRedMogoRushQual(); // slot 3
 	//ethanredpositivequal();
 	// qual5ringBlue(); // slot 4
 	//qual5ringRed(); //slot 3
@@ -190,7 +190,7 @@ void autonomous() {
 	// qualbluemogoside(); //slot 2
 	// newskillsprog(); // slot 8
 	// soloauton_AWP_Blue_Negative_Sig();
-	// mogorushred(); // slot 5
+	// mogorushred(); // slot 3
 	//mogorushblue(); // slot 6
 	// mogorushblue();
 	//ethanskills();

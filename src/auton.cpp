@@ -89,6 +89,13 @@ void gatewayRedMogoRushQual()
 
 void gatewayBlueMogoRushQual()
 {
+    chassis.setPose(48, -58, -67);
+    setIntake(60);
+    chassis.moveToPoint(17,-51,2000, {.minSpeed = 120}, false);
+    chassis.turnToHeading(-90,500, {}, false);
+    doinker.set_value(true);
+    setIntake(0);
+    pros::delay(300);
 
 }
 
@@ -121,15 +128,15 @@ void gatewayRedPosElim()
         chassis.turnToHeading(-150, 750, {}, false);
         chassis.moveToPoint(-59, -33,  1000, {}, false);
         chassis.turnToHeading(-167, 750, {}, false);    
-        chassis.moveToPoint(-63, -55,  1000, {}, false);
+        chassis.moveToPoint(-62, -54,  1000, {}, false);
         doinker.set_value(true);
-        pros::delay(500);
+        pros::delay(450);
 
         //to pick up
-        chassis.turnToHeading(78, 750, {}, false);
+        chassis.turnToHeading(77.5, 750, {}, false);
         doinker.set_value(false);
             //pick up ring
-        setIntake(110);
+        setIntake(127);
         chassis.moveToPoint(-30, -47, 1000, {}, false);
         pros::delay(500);
         setIntake(0);
