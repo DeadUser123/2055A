@@ -3,9 +3,10 @@
 void scoreAllianceStake()
 {
     arm.move_velocity(600);
+    pros::delay(300);
     while (true)
     {
-        if (armsensor.get_position() > 11650)
+        if (armsensor.get_velocity() < 50)
         {
             arm.move_velocity(-600);
             break;
