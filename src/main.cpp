@@ -179,10 +179,11 @@ void autonomous() {
     });
 	// set position to x:0, y:0, heading:0
 	//skillsauton();
-	// skillsprog(); // 	FOR GATEWAY
+	//PIDTest();
+	skillsprog(); // 	FOR GATEWAY
 	// gatewayRedPosQual();
 	// gatewayRedPosElim();
-	gatewayRedMogoRushQual(); // slot 3
+	//gatewayRedMogoRushQual(); // slot 3
 	//ethanredpositivequal();
 	// qual5ringBlue(); // slot 4
 	//qual5ringRed(); //slot 3
@@ -285,7 +286,7 @@ void opcontrol() {
 
 	pros::rtos::Task my_task_fn(color_sort_red_team);
 	//pros::rtos::Task my_task_fn(color_sort_blue_team);
-	pros::rtos::Task my_task_2(setArmLoad1);
+	pros::rtos::Task my_task_2(setArmLoadNew);
 
 	// pros::Task screen_task([&]() {
     //     while (true) {

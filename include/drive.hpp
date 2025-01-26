@@ -2,7 +2,7 @@
 
 void ethandrive();
 
-void setdrive();
+void setdrive(double left, double right);
 
 void setDriveMotors();
 
