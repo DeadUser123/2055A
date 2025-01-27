@@ -24,10 +24,10 @@ void gatewayRedPosQual(){
     pros::delay(220);
     setDrive(0, 0);
     scoreAllianceStake();   
-    chassis.moveToPoint(-42, 0, 750, {.forwards=false}, false);
+    chassis.moveToPoint(-44, 0, 750, {.forwards=false}, false);
 
-    chassis.turnToHeading(-40, 750, {}, false);
-    chassis.moveToPoint(-24, -20, 750, {.forwards=false, .maxSpeed = 45}, false);
+    chassis.turnToHeading(-33, 750, {}, false);
+    chassis.moveToPoint(-23, -26, 750, {.forwards=false, .maxSpeed = 50}, false);
     clamp.set_value(false);
     chassis.turnToHeading(180, 750, {}, false);
     setIntake(127);
@@ -35,7 +35,7 @@ void gatewayRedPosQual(){
     pros::delay(500);
     
     setIntake(0);
-    chassis.turnToHeading(115, 750, {}, false);
+    chassis.turnToHeading(113, 750, {}, false);
     chassis.moveToPoint(-59, -33, 750, {.forwards=false}, false);
 
     chassis.turnToHeading(-167, 750, {}, false);
