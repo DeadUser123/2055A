@@ -133,7 +133,7 @@ void gatewayBlueMogoRushQual()
 // put red negative qual here:
 
 // put blue negative qual here:
-
+/*
 void gatewayRedSoloAWP()
 {
 
@@ -143,7 +143,7 @@ void gatewayBlueSoloAWP()
 {
 
 }
-
+*/
 void gatewayRedPosElim()
     {   clamp.set_value(true);
         chassis.setPose(-57.375, -15, 180);
@@ -177,7 +177,7 @@ void gatewayRedPosElim()
         clamp.set_value(false);
         setIntake(127); 
 }
-
+/*
 void gatewayBluePosElim()
 {
 
@@ -202,7 +202,7 @@ void gatewayBlueNegElim()
 {
 
 }
-
+*/
 // put skills here:
 
 
@@ -334,22 +334,25 @@ void qual5ringBlue() {
     // chassis.setPose(51, 24, 90);
 
     //Get Mobile Goal
-    chassis.moveToPoint(chassis.getPose().x - 2, chassis.getPose().y, 500, {.forwards=false}, false); // this should probably be chassis.getPose().x - 2
-    chassis.turnToHeading(145, 500, {}, false); //154
-    chassis.moveToPoint(47, 23, 800, {.forwards=false}, false);
+    chassis.moveToPoint(chassis.getPose().x - 4, chassis.getPose().y, 500, {.forwards=false}, false); // this should probably be chassis.getPose().x - 2
+    //chassis.turnToHeading(145, 500, {}, false); //154
+    //chassis.moveToPoint(47, 23, 800, {.forwards=false}, false);
     //chassis.turnToHeading(chassis.getPose().theta - 180, 750, {}, false);
     chassis.turnToHeading(154 - 180, 750, {}, false);
     setIntake(127);
-    chassis.moveToPose(19, 53, -40, 1250, {}, false); // pick up ring
+    chassis.moveToPoint(31,15,750,{},false);
+    pros::delay(200);
+    setIntake(0);
+    chassis.turnToHeading(125,750,{},false);
+    //chassis.moveToPose(19, 53, -40, 1250, {}, false); // pick up ring
     pros::delay(50);
     //setIntake(0);
     
-    chassis.turnToHeading(-9, 500, {}, false); // turn to Mobile Goal
-    setIntake(0);
-    intake2.move(60);
-    chassis.moveToPoint(24, 22, 1000, {.forwards=false, .maxSpeed=80}); // go to Mobile Goal
+    //chassis.turnToHeading(-9, 500, {}, false); // turn to Mobile Goal
+    //intake2.move(60);
+    chassis.moveToPoint(24, 23, 1000, {.forwards=false, .maxSpeed=60}); // go to Mobile Goal
     // chassis.moveToPose(24, 22, 0, 1750, {.forwards=false, .minSpeed=40}); // go to Mobile Goal
-    chassis.waitUntil(24);
+    chassis.waitUntil(15);
     clamp.set_value(false); // clamp Mobile Goal
     chassis.waitUntilDone();
     setIntake(127); // score 2nd ring
@@ -357,7 +360,7 @@ void qual5ringBlue() {
 
     //chassis.moveToPose(14,29,-9,500,{.maxSpeed=75},false); //move to rings
     //pros::delay(200);
-    chassis.moveToPose(10,55,1,2500,{.minSpeed=80},false); //speed added recently, test and see if it works
+    chassis.moveToPose(10,55,1,2500,{.minSpeed=60},false); //speed added recently, test and see if it works
     //chassis.turnToHeading(1,500,{},false);
     //pros::delay(15000);
     pros::delay(300);
