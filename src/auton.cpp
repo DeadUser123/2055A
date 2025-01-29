@@ -108,13 +108,17 @@ void gatewayRedMogoRushQual()
     // chassis.turnToHeading(30, 750);
     // pros::delay(500);
     // doinker.set_value(true);
-    chassis.setPose(-54, -60, 60); // -48, -58, 67
+    chassis.setPose(-54, -60, 60);
     setIntake(127);
-    chassis.moveToPoint(-16, -46, 1500,  {}, false); // -20, -46, 60
-    chassis.turnToHeading(60, 500, {}, false);
+    chassis.moveToPoint(-16, -46, 1500,  {}, false); // rush to middle mogo
     setIntake(0);
+    chassis.turnToHeading(50, 500, {}, false);
+    doinker.set_value(true); // clamp it with doinker
+    pros::delay(250)
+    chassis.moveToPoint(-27, -56, 1000, {.forwards=false}, false); // move mogo backwards
     pros::delay(1000);
-    doinker.set_value(true);
+    doinker.set_value(false); // let go of mogo
+    
 
 }
 
@@ -319,7 +323,7 @@ void qual5ringRed()
 }
 
 //qual blue negative
-void qual5ringBlue() {  
+void  e() {  
     chassis.setPose(57.375, 15, 0);
     chassis.moveToPoint(57.375, -2, 750, {.forwards=false}, false);
     chassis.turnToHeading(90, 750, {}, false);
@@ -334,13 +338,13 @@ void qual5ringBlue() {
     // chassis.setPose(51, 24, 90);
 
     //Get Mobile Goal
-    chassis.moveToPoint(chassis.getPose().x - 4, chassis.getPose().y, 500, {.forwards=false}, false); // this should probably be chassis.getPose().x - 2
+    chassis.moveToPoint(chassis.getPose().x - 6, chassis.getPose().y, 500, {.forwards=false}, false); // this should probably be chassis.getPose().x - 2
     //chassis.turnToHeading(145, 500, {}, false); //154
     //chassis.moveToPoint(47, 23, 800, {.forwards=false}, false);
     //chassis.turnToHeading(chassis.getPose().theta - 180, 750, {}, false);
     chassis.turnToHeading(154 - 180, 750, {}, false);
     setIntake(127);
-    chassis.moveToPoint(31,15,750,{},false);
+    chassis.moveToPoint(35,13,750,{},false);
     pros::delay(200);
     setIntake(0);
     chassis.turnToHeading(125,750,{},false);
@@ -360,14 +364,14 @@ void qual5ringBlue() {
 
     //chassis.moveToPose(14,29,-9,500,{.maxSpeed=75},false); //move to rings
     //pros::delay(200);
-    chassis.moveToPose(10,55,1,2500,{.minSpeed=60},false); //speed added recently, test and see if it works
+    chassis.moveToPose(9,60,1,2500,{.maxSpeed=80},false); //speed added recently, test and see if it works
     //chassis.turnToHeading(1,500,{},false);
     //pros::delay(15000);
     pros::delay(300);
     //chassis.moveToPose(12,35,-12,1000,{.forwards=false},false);
-    chassis.moveToPoint(24, 22, 1000, {.forwards=false});
+    chassis.moveToPoint(24, 23, 1000, {.forwards=false});
     pros::delay(100);
-    chassis.moveToPose(24,12,0,1000,{},false);
+    chassis.moveToPoint(35,55,1000,{},false);
 
 
     /*

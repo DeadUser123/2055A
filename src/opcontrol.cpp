@@ -17,12 +17,12 @@ void my_opcontrol()
     while (true)
     {
         setDriveMotors(); // sets motors based on joystick inputs
-        // driveIntake(); // sets intake based on L1 input -- comment this when running colorsort task
+        driveIntake(); // sets intake based on L1 input -- comment this when running colorsort task
         driveClamp();
         doink();
-        pros::lcd::set_text(5, "X: "  +  std::to_string(chassis.getPose().x)); // print the x position
-        pros::lcd::set_text(6, "Y: " + std::to_string(chassis.getPose().y)); // print the y position
-        pros::lcd::set_text(7, "Angle: " + std::to_string(chassis.getPose().theta)); // print the heading
+        // pros::lcd::set_text(5, "X: "  +  std::to_string(chassis.getPose().x)); // print the x position
+        // pros::lcd::set_text(6, "Y: " + std::to_string(chassis.getPose().y)); // print the y position
+        // pros::lcd::set_text(7, "Angle: " + std::to_string(chassis.getPose().theta)); // print the heading
         pros::delay(1);
     }
 }
