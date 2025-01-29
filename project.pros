@@ -1,7 +1,11 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
+<<<<<<< HEAD
     "project_name": "negative",
+=======
+    "project_name": "red",
+>>>>>>> 43bf1ff3ab7f8f2a1466be161cc6b886b89ec701
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -464,7 +468,7 @@
       }
     },
     "upload_options": {
-      "slot": 3,
+      "slot": 1,
       "icon": "pizza",
       "after": "screen"
     },
