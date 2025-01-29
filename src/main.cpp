@@ -181,7 +181,7 @@ void autonomous() {
 	//skillsauton();
 	// skillsprog(); // 	FOR GATEWAY
 	// gatewayRedPosQual();
-	// gatewayRedPosElim();
+	gatewayRedPosElim();
 	gatewayRedMogoRushQual(); // slot 3
 	//ethanredpositivequal();
 	// qual5ringBlue(); // slot 4

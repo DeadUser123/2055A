@@ -144,7 +144,7 @@ void gatewayRedPosElim()
         
         chassis.moveToPoint(-30, -26, 1000, {.forwards=false, .maxSpeed = 50}, false);
         clamp.set_value(false);
-        setIntake(135); 
+        setIntake(127); 
 }
 
 void gatewayBluePosElim()
