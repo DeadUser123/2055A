@@ -26,5 +26,5 @@ void scoreAllianceStake()
 void scoreWallStake()
 {
     arm.move(12000);
-    pros::delay(950);
+    pros::delay(1200);
 }
