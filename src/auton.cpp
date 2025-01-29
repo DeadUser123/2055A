@@ -26,78 +26,76 @@ void gatewayRedPosQual(){
     scoreAllianceStake();   
     chassis.moveToPoint(-44, 0, 750, {.forwards=false}, false);
 
-    chassis.turnToHeading(-33, 750, {}, false);
-    chassis.moveToPoint(-23, -26, 750, {.forwards=false, .maxSpeed = 50}, false);
+//ring1
+    chassis.turnToHeading(-40, 750, {}, false);
+    chassis.moveToPoint(-22, -24, 1300, {.forwards=false, .maxSpeed = 50}, false);
+    pros::delay(50);
     clamp.set_value(false);
+    pros::delay(150);
     chassis.turnToHeading(180, 750, {}, false);
     setIntake(127);
-    chassis.moveToPoint(-23, -49, 750, {.forwards=true}, false);
+    chassis.moveToPoint(-22.5, -49, 600, {.forwards=true}, false);
     pros::delay(500);
-    
     setIntake(0);
-    chassis.turnToHeading(113, 750, {}, false);
+
+    chassis.turnToHeading(113, 700, {}, false);
     chassis.moveToPoint(-59, -33, 750, {.forwards=false}, false);
 
+//to clear corner
     chassis.turnToHeading(-167, 750, {}, false);
-    chassis.moveToPoint(-63, -55,  1000, {}, false);
+    chassis.moveToPoint(-60, -53,  1000, {}, false);
     doinker.set_value(true);
     pros::delay(500);
 
-    chassis.turnToHeading(78, 750, {}, false);
+//corner clear
+    chassis.turnToHeading(78, 700, {}, false);
     doinker.set_value(false);
     chassis.moveToPoint(-30, -47, 1000, {}, false);
     chassis.turnToHeading(0, 750, {}, false);
     chassis.moveToPoint(-23, 1, 1000, {.forwards=true}, false);
-
-//    //corner rings
-//     chassis.turnToHeading(-150, 750, {}, false);
-//     chassis.moveToPoint(-59, -33,  1000, {}, false);
-//     chassis.turnToHeading(-167, 750, {}, false);
-//     chassis.moveToPoint(-63, -55,  1000, {}, false);
-//     doinker.set_value(true);
-//     pros::delay(500);
-
-//     //to pick up
-//     chassis.turnToHeading(78, 750, {}, false);
-//     doinker.set_value(false);
-    
-//     pros::delay(15000);
-
-//     //pick up ring
-//     setIntake(110);
-//     chassis.moveToPoint(-30, -47, 1000, {}, false);
-//     pros::delay(500);
-//     setIntake(0);
-//     chassis.turnToHeading(180, 750, {}, false);
-    
-//     chassis.moveToPoint(-30, -26, 1000, {.forwards=false, .maxSpeed = 50}, false);
-//     clamp.set_value(false);
-//     setIntake(127); 
-//     pros::delay(2000);
-//     chassis.moveToPoint(-23, 1, 1000, {.forwards=false}, false);
-
-//     setIntake(0);
 }
 
 void gatewayBluePosQual(){
+    clamp.set_value(true);
     chassis.setPose(57.375, -15, 180);
-    chassis.moveToPoint(57.375, 1, 750, {.forwards=false}, false);
+    chassis.moveToPoint(57.375, 1, 1000, {.forwards=false}, false);
     chassis.turnToHeading(90, 750, {}, false);
-    
     setDrive(6000, 6000);
-    pros::delay(200);
+    pros::delay(220);
     setDrive(0, 0);
-    scoreAllianceStake();
-    chassis.moveToPoint(38, 0, 750, {.forwards=false}, false); //move back
-    chassis.turnToHeading(150, 750, {}, false);
+    scoreAllianceStake();   
+    chassis.moveToPoint(44, 0, 750, {.forwards=false}, false);
 
-    chassis.moveToPose(60, -58, 170, 1500, {.forwards = false, .maxSpeed = 65}, false);
+    chassis.turnToHeading(40, 750, {}, false);
+    chassis.moveToPoint(23, -24, 1300, {.forwards=false, .maxSpeed = 50}, false);
+    pros::delay(50);
+    clamp.set_value(false);
+    pros::delay(150);
+    chassis.turnToHeading(180, 750, {}, false);
     setIntake(127);
+    chassis.moveToPoint(23, -49, 600, {.forwards=true}, false);
     pros::delay(500);
     setIntake(0);
-    doinker.set_value(true);
-    chassis.turnToHeading(90, 750, {}, false);
-    doinker.set_value(false);
+    chassis.moveToPoint(chassis.getPose().x, 0, 1300, {.forwards=false}, false);
+
+    // chassis.setPose(57.375, -15, 180);
+    // chassis.moveToPoint(57.375, 1, 750, {.forwards=false}, false);
+    // chassis.turnToHeading(90, 750, {}, false);
+    
+    // setDrive(6000, 6000);
+    // pros::delay(200);
+    // setDrive(0, 0);
+    // scoreAllianceStake();
+    // chassis.moveToPoint(38, 0, 750, {.forwards=false}, false); //move back
+    // chassis.turnToHeading(150, 750, {}, false);
+
+    // chassis.moveToPose(60, -58, 170, 1500, {.forwards = false, .maxSpeed = 65}, false);
+    // setIntake(127);
+    // pros::delay(500);
+    // setIntake(0);
+    // doinker.set_value(true);
+    // chassis.turnToHeading(90, 750, {}, false);
+    // doinker.set_value(false);
 
 }
 
