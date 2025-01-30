@@ -180,7 +180,7 @@ void gatewayRedPosElim()
         scoreAllianceStake();   
         chassis.turnToHeading(-135, 700, {}, false);
         setIntake(80);
-        chassis.moveToPoint(-34,-14, 1000, {.forwards=true}, false);
+        chassis.moveToPoint(-34,-14, 1000, {}, false);
         setIntake(0);
         pros::delay(200);
         chassis.turnToHeading(-55, 700, {}, false);
