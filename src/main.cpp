@@ -287,7 +287,7 @@ void opcontrol() {
 
 	// pros::rtos::Task my_task_fn(color_sort_red_team);
 	//pros::rtos::Task my_task_fn(color_sort_blue_team);
-	pros::rtos::Task my_task_2(setArmLoadNew);
+	//pros::rtos::Task my_task_2(setArmLoadNew);
 
 	// pros::Task screen_task([&]() {
     //     while (true) {
