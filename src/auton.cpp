@@ -178,13 +178,13 @@ void gatewayRedPosElim()
         pros::delay(220);
         setDrive(0, 0);
         scoreAllianceStake();   
-        chassis.turnToHeading(145, 900, {}, false);
+        chassis.turnToHeading(120, 900, {}, false);
         setIntake(80);
-        chassis.moveToPoint(-34,-14, 1200, {}, false);
+        chassis.moveToPoint(-46,-7, 1200, {}, false);
         pros::delay(220);
         setIntake(0);
         pros::delay(200);
-        chassis.turnToHeading(-180, 900, {}, false);
+        chassis.turnToHeading(-210, 900, {}, false);
         chassis.moveToPoint(-24,-24, 1200, {.forwards=false}, false);
         clamp.set_value(false);
         pros::delay(400);
