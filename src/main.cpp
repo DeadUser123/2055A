@@ -180,10 +180,11 @@ void autonomous() {
 	// set position to x:0, y:0, heading:0
 	//skillsauton();
 	// PIDTest();
-	skillsprog(); // 	FOR GATEWAY
+	// skillsprog(); // 	FOR GATEWAY
+	//gatewaytestblueneg();
 	// gatewayRedPosQual();
 	//gatewayRedPosElim();
-	//gatewayRedMogoRushQual(); // slot 2
+	gatewayRedMogoRushQual(); // slot 2
 	//ethanredpositivequal();
 	// qual5ringBlue(); // slot 5
 	//qual5ringRed(); //slot 3
@@ -270,6 +271,7 @@ void autonomous() {
 void opcontrol() {
 	pros::lcd::initialize();
 	pros::lcd::register_btn0_cb(on_center_button);
+	pros::lcd::set_text(5, "Intiailized");
 
 	drive_LB.set_brake_mode(MOTOR_BRAKE_BRAKE);
 	drive_LM.set_brake_mode(MOTOR_BRAKE_BRAKE);

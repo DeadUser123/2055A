@@ -86,7 +86,7 @@ void driveDistance(const double targetdistance, double maxspeed, double kP, doub
         pros::lcd::set_text(4, "current distance: " + std::to_string(currentdistance));
 
         currentangle = chassis.getPose().theta;
-        angleerror = currentangle - targetangle;
+        angleerror = targetangle - currentangle;
         // pros::lcd::set_text(7, "ticks: " + std::to_string(ticks));
 
         if (error < 2 && error !=0) {

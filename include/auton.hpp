@@ -15,6 +15,8 @@ void gatewayBlueMogoRushElim();
 void gatewayRedNegElim();
 void gatewayBlueNegElim();
 void PIDTest();
+void gatewaytestblueneg();
+
 
 void PID_Test();
 void qual5ringRed();
