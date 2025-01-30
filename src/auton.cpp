@@ -213,17 +213,18 @@ void gatewayRedPosElim()
         pros::delay(220);
         setDrive(0, 0);
         scoreAllianceStake();   
-        chassis.turnToHeading(-135, 700, {}, false);
+        chassis.turnToHeading(120, 900, {}, false);
         setIntake(80);
-        chassis.moveToPoint(-34,-14, 1000, {.forwards=true}, false);
+        chassis.moveToPoint(-46,-7, 1200, {}, false);
+        pros::delay(220);
         setIntake(0);
         pros::delay(200);
-        chassis.turnToHeading(-55, 700, {}, false);
-        chassis.moveToPoint(-27,-20, 650, {.forwards=false}, false);
+        chassis.turnToHeading(-210, 900, {}, false);
+        chassis.moveToPoint(-24,-24, 1200, {.forwards=false}, false);
         clamp.set_value(false);
         pros::delay(400);
         setIntake(127);
-        chassis.turnToHeading(-180, 600,{}, false);
+        chassis.turnToHeading(-180, 800,{}, false);
         chassis.moveToPoint(-24,-57, 1000, {.forwards=true}, false);
 
 //         
@@ -249,9 +250,9 @@ void gatewayRedPosElim()
     //     setIntake(0);
     //     chassis.turnToHeading(180, 750, {}, false);
         
-    //     chassis.moveToPoint(-30, -26, 1000, {.forwards=false, .maxSpeed = 50}, false);
-    //     clamp.set_value(false);
-    //     setIntake(127); 
+        chassis.moveToPoint(-30, -26, 1000, {.forwards=false, .maxSpeed = 50}, false);
+        clamp.set_value(false);
+        setIntake(135); 
 }
 /*
 void gatewayBluePosElim()
