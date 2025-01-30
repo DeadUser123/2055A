@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "mogoRushRed",
+    "project_name": "gateway",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -464,8 +464,9 @@
       }
     },
     "upload_options": {
-      "slot": 3,
-      "icon": "robot"
+      "slot": 4,
+      "icon": "pizza",
+      "after": "screen"
     },
     "use_early_access": false
   }

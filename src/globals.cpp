@@ -95,28 +95,28 @@ lemlib::Drivetrain drivetrain {
 };
 
 lemlib::ControllerSettings linear_controller {
-    13, // proportional gain (kP) 13
+    14, // proportional gain (kP) 13
     0, // integral gain (kI)
-    60, // derivative gain (kD) 42
-    0, // anti windup
-    0, // small error range, in inches
-    0, // small error range timeout, in milliseconds
-    0, // large error range, in inches
-    0, // large error range timeout, in milliseconds
+    60, // derivative gain (kD) 60
+    3, // anti windup
+    1, // small error range, in inches
+    100, // small error range timeout, in milliseconds
+    3, // large error range, in inches
+    500, // large error range timeout, in milliseconds
     0 // maximum acceleration (slew)
 };
  
 
 // turning PID    // 1.5, 0, 7  <-- last values that worked
 lemlib::ControllerSettings angular_controller {
-    2.2,//1.5, // proportional gain (kP)
+    2.47,//, // proportional gain (kP) 2.47
     0, // integral gain (kI)
-    16,//7, // derivative gain (kD)
-    0, // anti windup
-    0, // small error range, in degrees
-    0, // small error range timeout, in milliseconds
-    0, // large error range, in degrees
-    0, // large error range timeout, in milliseconds
+    16,//, // derivative gain (kD) 16
+    3, // anti windup
+    1, // small error range, in degrees
+    100, // small error range timeout, in milliseconds
+    3, // large error range, in degrees
+    500, // large error range timeout, in milliseconds
     0 // maximum acceleration (slew)
 };
 

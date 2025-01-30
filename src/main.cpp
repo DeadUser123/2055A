@@ -133,7 +133,7 @@ void initialize() {
 
 	lvgl_init();
 	armsensor.set_position(0);
-	colorsensor.set_led_pwm(100);
+	// colorsensor.set_led_pwm(100); // turn on colorsensor LED -- TURN ON for colorsort
 }
 
 /**
@@ -179,12 +179,13 @@ void autonomous() {
     });
 	// set position to x:0, y:0, heading:0
 	//skillsauton();
-	// skillsprog(); // 	FOR GATEWAY
+	// PIDTest();
+	skillsprog(); // 	FOR GATEWAY
 	// gatewayRedPosQual();
 	gatewayRedPosElim();
 	gatewayRedMogoRushQual(); // slot 3
 	//ethanredpositivequal();
-	// qual5ringBlue(); // slot 4
+	// qual5ringBlue(); // slot 5
 	//qual5ringRed(); //slot 3
 	// qualredmogoside(); //slot 1
 	// qualbluemogoside(); //slot 2
@@ -283,9 +284,9 @@ void opcontrol() {
 	armsensor.set_position(0);
 	armsensor.reset_position();
 
-	pros::rtos::Task my_task_fn(color_sort_red_team);
+	// pros::rtos::Task my_task_fn(color_sort_red_team);
 	//pros::rtos::Task my_task_fn(color_sort_blue_team);
-	pros::rtos::Task my_task_2(setArmLoad1);
+	pros::rtos::Task my_task_2(setArmLoadNew);
 
 	// pros::Task screen_task([&]() {
     //     while (true) {
