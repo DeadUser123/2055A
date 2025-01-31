@@ -228,9 +228,9 @@ void gatewayRedPosElim()
         chassis.turnToHeading(-180, 800,{}, false);
         chassis.moveToPoint(-24,-52, 1000, {}, false);
         chassis.turnToHeading(-94, 750,{}, false);
-        chassis.moveToPose(-52,-34, 1000, {}, false);
+        chassis.moveToPoint(-52,-34, 1000, {}, false);
         chassis.turnToHeading(-160, 500,{}, false);
-        chassis.moveToPoint(-58,-46, 500,{}, false)
+        chassis.moveToPoint(-58,-46, 500,{}, false);
         doinker.set_value(true);
         chassis.turnToHeading(200,500, {}, false);
         
@@ -395,8 +395,8 @@ void qual5ringRed()
     chassis.moveToPoint(-35,55,1000,{},false); //last ring
     
     pros::delay(250);
-    chassis.moveToPose(14,18,225,{},false);
-    arm.move_velocity(600, 600);
+    chassis.moveToPoint(14,18,225,{},false);
+    arm.move_velocity(600);
     pros::delay(400);
 }
 
@@ -452,8 +452,8 @@ void qual5ringBlue() {
     chassis.moveToPoint(35,55,1000,{},false);
     
     pros::delay(250);
-    chassis.moveToPose(14,18,225,{},false);
-    arm.move_velocity(600, 600);
+    chassis.moveToPoint(14,18,225,{},false);
+    arm.move_velocity(600);
     pros::delay(400);
     
 
@@ -1352,5 +1352,14 @@ void gatewaytestblueneg() {
     chassis.moveToPoint(-47, 1, 800, {.maxSpeed = 95}, false);
     pros::delay(200);
     chassis.moveToPoint(-47, -10, 800, {}, false);
+
+}
+
+void intake() {
+    setIntake(127);
+    pros::delay(3000);
+    setIntake(0);
+    pros::delay(1000);
+    //setIntake(127);
 
 }

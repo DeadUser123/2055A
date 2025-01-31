@@ -16,6 +16,8 @@ void gatewayRedNegElim();
 void gatewayBlueNegElim();
 void PIDTest();
 void gatewaytestblueneg();
+void intake();
+
 
 
 void PID_Test();

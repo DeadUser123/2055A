@@ -37,8 +37,8 @@ int INTAKE2_PORT = -6; // bottom intake
 int arm_sensor = 11;
 
 
-int COLOR_SENSOR_PORT = 20; // 
-int DISTANCE_SENSOR_PORT = 12;
+int COLOR_SENSOR_PORT = 12; // 
+int DISTANCE_SENSOR_PORT = 13;
 
 
 //Drivetrain
