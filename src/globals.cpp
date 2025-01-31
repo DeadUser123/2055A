@@ -94,13 +94,8 @@ lemlib::Drivetrain drivetrain {
     2 // horizontal drift is 2 (for now)
 };
 
-<<<<<<< Updated upstream
 lemlib::ControllerSettings linear_controller {
     14, // proportional gain (kP) 13
-=======
-lemlib::ControllerSettings linearController {
-    13, // proportional gain (kP) 13
->>>>>>> Stashed changes
     0, // integral gain (kI)
     60, // derivative gain (kD) 60
     3, // anti windup
@@ -116,23 +111,12 @@ lemlib::ControllerSettings linearController {
 lemlib::ControllerSettings angular_controller {
     2.47,//, // proportional gain (kP) 2.47
     0, // integral gain (kI)
-<<<<<<< Updated upstream
     16,//, // derivative gain (kD) 16
     3, // anti windup
     1, // small error range, in degrees
     100, // small error range timeout, in milliseconds
     3, // large error range, in degrees
     500, // large error range timeout, in milliseconds
-=======
-    16,//7, // derivative gain (kD)
-    0, // integral gain (kI)
-    7, // derivative gain (kD)
-    0, // anti windup
-    0, // small error range, in degrees
-    0, // small error range timeout, in milliseconds
-    0, // large error range, in degrees
-    0, // large error range timeout, in milliseconds
->>>>>>> Stashed changes
     0 // maximum acceleration (slew)
 };
 

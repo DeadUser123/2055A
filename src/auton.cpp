@@ -36,9 +36,9 @@ void gatewayRedPosQual(){
     setIntake(127);
     chassis.moveToPoint(-22.5, -49, 600, {.forwards=true}, false);
     pros::delay(500);
-    setIntake(0);
 
     chassis.turnToHeading(113, 700, {}, false);
+    setIntake(0);
     chassis.moveToPoint(-59, -33, 750, {.forwards=false}, false);
 
 //to clear corner
@@ -52,6 +52,7 @@ void gatewayRedPosQual(){
     doinker.set_value(false);
     chassis.moveToPoint(-30, -47, 1000, {}, false);
     chassis.turnToHeading(0, 750, {}, false);
+    arm.move_velocity(600);
     chassis.moveToPoint(-23, 1, 1000, {.forwards=true}, false);
 }
 
@@ -108,9 +109,9 @@ void gatewayRedMogoRushQual()
     // doinker.set_value(true);
     chassis.setPose(-54, -60, 60);
     setIntake(127);
-    chassis.moveToPoint(-16, -46, 1500,  {}, false); // rush to middle mogo
+    chassis.moveToPoint(-16, -46, 1250,  {}, false); // rush to middle mogo
     setIntake(0);
-    chassis.turnToHeading(50, 500, {}, false);
+    chassis.turnToHeading(50, 250, {}, false);
     doinker.set_value(true); // clamp it with doinker
     pros::delay(250);
     chassis.moveToPoint(-35, -56, 1000, {.forwards=false}, false); // move mogo backwards
@@ -125,27 +126,27 @@ void gatewayRedMogoRushQual()
     pros::delay(100);
     setIntake(127);
     chassis.moveToPose(-61, -55, -90, 2500, {}, true); // move towards pre-load ring
-    chassis.waitUntil(40);
+    chassis.waitUntil(45);
     setIntake(0);
     chassis.waitUntilDone();
-    // chassis.setPose(-61, chassis.getPose().y, chassis.getPose().theta); // reset position
+    chassis.setPose(-61, chassis.getPose().y, chassis.getPose().theta); // reset position
     setDrive(-12000, -12000);
     pros::delay(300); 
     setDrive(0, 0);
     chassis.turnToHeading(90, 1000, {}, false);
     clamp.set_value(true);
     pros::delay(250);
-    chassis.moveToPoint(-23, -55, 1250, {}, false); // go towards mobile goal
-    pros::delay(1000); // delete later
+    chassis.moveToPoint(-42, -55, 1250, {.maxSpeed=75}, false); // go towards mobile goal
+    pros::delay(250); // delete later
     chassis.turnToHeading(180, 1000, {}, false);
-    pros::delay(1000); // delete later
-    chassis.moveToPoint(-23, -29, 1000, {.forwards=false}, false);
+    pros::delay(250); // delete later
+    chassis.moveToPoint(-42, -23, 1000, {.forwards=false}, false);
     clamp.set_value(false); // clamp mobile goal
     pros::delay(250);
-    setIntake(127);
-    pros::delay(250);
     chassis.turnToHeading(0, 750, {}, false); // turn towards ladder
-    chassis.moveToPoint(-23, 10, 2000, {}, false); // touch ladder
+    setIntake(127);
+    pros::delay(500);
+    chassis.moveToPoint(-42, 10, 2000, {}, false); // touch ladder
     setIntake(0);
 }
 
@@ -216,16 +217,23 @@ void gatewayRedPosElim()
         chassis.turnToHeading(120, 900, {}, false);
         setIntake(80);
         chassis.moveToPoint(-46,-7, 1200, {}, false);
-        pros::delay(220);
+        pros::delay(100);
         setIntake(0);
         pros::delay(200);
-        chassis.turnToHeading(-210, 900, {}, false);
+        chassis.turnToHeading(125, 900, {}, false);
         chassis.moveToPoint(-24,-24, 1200, {.forwards=false}, false);
         clamp.set_value(false);
         pros::delay(400);
         setIntake(127);
         chassis.turnToHeading(-180, 800,{}, false);
-        chassis.moveToPoint(-24,-57, 1000, {.forwards=true}, false);
+        chassis.moveToPoint(-24,-52, 1000, {}, false);
+        chassis.turnToHeading(-94, 750,{}, false);
+        chassis.moveToPose(-52,-34, 1000, {}, false);
+        chassis.turnToHeading(-160, 500,{}, false);
+        chassis.moveToPoint(-58,-46, 500,{}, false)
+        doinker.set_value(true);
+        chassis.turnToHeading(200,500, {}, false);
+        
 
 //         
 //         clamp.set_value(false);
@@ -250,9 +258,9 @@ void gatewayRedPosElim()
     //     setIntake(0);
     //     chassis.turnToHeading(180, 750, {}, false);
         
-        chassis.moveToPoint(-30, -26, 1000, {.forwards=false, .maxSpeed = 50}, false);
-        clamp.set_value(false);
-        setIntake(135); 
+        // chassis.moveToPoint(-30, -26, 1000, {.forwards=false, .maxSpeed = 50}, false);
+        // clamp.set_value(false);
+        // setIntake(135); 
 }
 /*
 void gatewayBluePosElim()
@@ -352,56 +360,53 @@ void qualbluemogoside() {
     //here
 }
 
-// // red negative qual
+// red negative qual
 void qual5ringRed()
 {
     chassis.setPose(-57.375, 15, 0);
     chassis.moveToPoint(-57.375, -2, 750, {.forwards=false}, false);
-    chassis.turnToHeading(-90, 750, {}, false);
+    chassis.turnToHeading(270, 750, {}, false);
     setDrive(6000, 6000);
-    pros::delay(200);
+    pros::delay(185);
     setDrive(0, 0);
     scoreAllianceStake();
 
-    // Get Mobile Goal
-    chassis.moveToPoint(chassis.getPose().x + 2, chassis.getPose().y, 500, {.forwards=false}, false);
-    chassis.turnToHeading(206, 500, {}, false);
-    chassis.moveToPoint(-47, 23, 800, {.forwards=false}, false);
-    chassis.turnToHeading(chassis.getPose().theta - 180, 750, {}, false);
+    //Get Mobile Goal
+    chassis.moveToPoint(chassis.getPose().x + 6, chassis.getPose().y, 500, {.forwards=false}, false); // this should probably be chassis.getPose().x - 2
+    chassis.turnToHeading(180-154, 750, {}, false);
     setIntake(127);
-    chassis.moveToPose(-21, 51, 40, 1250, {}, false); // pick up ring
+    chassis.moveToPoint(-35,13,750,{},false);
+    pros::delay(200);
     setIntake(0);
+    chassis.turnToHeading(235,750,{},false);
+    pros::delay(50);
 
-    chassis.turnToHeading(5, 500, {}, false); // turn to Mobile Goal
-    chassis.moveToPoint(-24, 19, 1750, {.forwards=false, .maxSpeed=80}); // go to Mobile Goal
-    chassis.waitUntil(16);
-    clamp.set_value(false);
+    chassis.moveToPoint(-24, 23, 1000, {.forwards=false, .maxSpeed=60}); // go to Mobile Goal
+    chassis.waitUntil(15);
+    clamp.set_value(false); // clamp Mobile Goal
     chassis.waitUntilDone();
     setIntake(127); // score 2nd ring
+    pros::delay(500);
 
-    chassis.moveToPoint(-21, 39, 750, {}, false);
-    chassis.turnToHeading(80, 500, {}, false);
-    chassis.moveToPose(-11, 42, 85, 1000, {}, false);
-    chassis.moveToPoint(chassis.getPose().x - 6, chassis.getPose().y, 400, {.forwards=false}, false);
-
-    chassis.turnToHeading(-172, 500, {}, false);
-    chassis.moveToPoint(-23, 10, 1000, {.minSpeed=60});
-    // chassis.turnToHeading(-189, 500, {}, false);
-
-    // setDrive(6000, 6000);
-    // arm.move_velocity(600);
-    // pros::delay(1000);
-    // setDrive(0, 0);
-    // arm.move_velocity(0);
+    chassis.moveToPose(-9,60,359,2500,{.maxSpeed=80},false); //speed added recently, test and see if it works
+    pros::delay(300);
+    chassis.moveToPoint(-24, 23, 1000, {.forwards=false}); //go back
+    pros::delay(100);
+    chassis.moveToPoint(-35,55,1000,{},false); //last ring
+    
+    pros::delay(250);
+    chassis.moveToPose(14,18,225,{},false);
+    arm.move_velocity(600, 600);
+    pros::delay(400);
 }
 
 //qual blue negative
-void  e() {  
+void qual5ringBlue() {  
     chassis.setPose(57.375, 15, 0);
     chassis.moveToPoint(57.375, -2, 750, {.forwards=false}, false);
     chassis.turnToHeading(90, 750, {}, false);
     setDrive(6000, 6000);
-    pros::delay(150);
+    pros::delay(175);
     setDrive(0, 0);
     // can reset here
     // score on alliance wall stake
@@ -445,7 +450,12 @@ void  e() {
     chassis.moveToPoint(24, 23, 1000, {.forwards=false});
     pros::delay(100);
     chassis.moveToPoint(35,55,1000,{},false);
-
+    
+    pros::delay(250);
+    chassis.moveToPose(14,18,225,{},false);
+    arm.move_velocity(600, 600);
+    pros::delay(400);
+    
 
     /*
     //chassis.turntoHeading(315, 300, {}, false);
@@ -1326,13 +1336,17 @@ void gatewaytestblueneg() {
 
     chassis.turnToHeading(50,600,{},false);
     setIntake(127);
-    chassis.moveToPoint(-13.5, 33.3, 1000, {.forwards = false}, false);
+    chassis.moveToPoint(-13.5, 33.3, 1000, {}, false);
     chassis.swingToHeading(0, DriveSide::RIGHT, 900, {.direction = AngularDirection::CCW_COUNTERCLOCKWISE}, false);
 
-    chassis.moveToPoint(-8.5, 44, 1000, {.forwards = false}, false);
-    chassis.turnToHeading(270,600,{},false);
+    chassis.moveToPoint(-8.5, 44, 1000, {}, false);
+    chassis.turnToHeading(13,600,{},false);
 
-    chassis.moveToPoint(-23, 48.5, 1000, {.forwards = false}, false);
+    chassis.moveToPoint(-14, 27, 1000, {}, false);
+    chassis.turnToHeading(330,600,{},false);
+
+    chassis.moveToPoint(-23, 4, 1000, {}, false);
+
     chassis.moveToPose(-47, 22, 180, 2000, {}, false);
 
     chassis.moveToPoint(-47, 1, 800, {.maxSpeed = 95}, false);

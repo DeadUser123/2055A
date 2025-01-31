@@ -112,7 +112,9 @@ void color_sort_blue_team() {
  */
 void initialize() {
 	chassis.calibrate();
+	pros::lcd::set_text(5, "chassis calibrated");
 	pros::lcd::initialize();
+	pros::lcd::set_text(4, "pros initialized");
 	// imu.reset();
 	
 
@@ -131,7 +133,7 @@ void initialize() {
 	armsensor.set_position(0);
 	armsensor.reset_position();
 
-	lvgl_init();
+	// lvgl_init();
 	armsensor.set_position(0);
 	// colorsensor.set_led_pwm(100); // turn on colorsensor LED -- TURN ON for colorsort
 }
@@ -180,12 +182,13 @@ void autonomous() {
 	// set position to x:0, y:0, heading:0
 	//skillsauton();
 	// PIDTest();
-	skillsprog(); // 	FOR GATEWAY
-	// gatewayRedPosQual();
+	// skillsprog(); // 	FOR GATEWAY
+	//gatewayRedPosQual();
 	//gatewayRedPosElim();
 	//gatewayRedMogoRushQual(); // slot 2
+	gatewaytestblueneg();
 	//ethanredpositivequal();
-	// qual5ringBlue(); // slot 5
+	//qual5ringBlue(); // slot 5
 	//qual5ringRed(); //slot 3
 	// qualredmogoside(); //slot 1
 	// qualbluemogoside(); //slot 2
@@ -287,7 +290,7 @@ void opcontrol() {
 
 	// pros::rtos::Task my_task_fn(color_sort_red_team);
 	//pros::rtos::Task my_task_fn(color_sort_blue_team);
-	//pros::rtos::Task my_task_2(setArmLoadNew);
+	pros::rtos::Task my_task_2(setArmLoadNew);
 
 	// pros::Task screen_task([&]() {
     //     while (true) {

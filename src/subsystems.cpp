@@ -230,7 +230,7 @@ void driveArm()
 {
     int arm_power = 600 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) - controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2));
 
-    if (armsensor.get_angle() > 12550 && armsensor.get_angle() < 35800) {
+    if (armsensor.get_angle() > 13000 && armsensor.get_angle() < 35800) {
 
         if (arm_power > 0)
         {

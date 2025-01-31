@@ -36,3 +36,4 @@ void ethanskills();
 void ethanredpositivequal();
 void skillsprog();
 void skillsauton();
+void gatewaytestblueneg();
