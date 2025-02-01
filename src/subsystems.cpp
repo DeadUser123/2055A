@@ -18,7 +18,7 @@
 //     }
 // }
 
-bool clampState = true;
+bool clampState = false;
 void driveClamp()
 {
     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A))
@@ -41,7 +41,7 @@ int currentAngle;
 int error = 1064;
 const double kP = 0.03;
 const int deadband = 250;
-const int targetAngle = 1070;
+const int targetAngle = 1360;
 bool hold;
 
 void setArmLoadNew()
@@ -219,7 +219,7 @@ void antiJamTask()
 
 bool doink_status = false;
 void doink() {
-    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
+    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)) {
         doink_status = !doink_status;
         doinker.set_value(doink_status);
     }
@@ -242,7 +242,7 @@ void driveArm()
 
 }
     
-bool clawState = false;
+bool clawState = true;
 void driveClaw()
 {
     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X))

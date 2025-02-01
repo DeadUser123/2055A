@@ -133,7 +133,16 @@ void ethandrive() {
 }
 
 void setDriveMotors() {
+    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)) // mogo tip
+    {
+        setDrive(12000, -12000);
+        pros::delay(1000);
+        clamp.set_value(true);
+        pros::delay(250);
+    }
     //Arcade();
-    ethandrive();
-    // Tank();
-}
+    else
+    {
+        ethandrive();
+    }
+}    // Tank();

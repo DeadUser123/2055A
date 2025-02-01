@@ -16,4 +16,5 @@ void armtest();
 void setarm();
 void nextstate();
 void setArmLoad1();
+void mogoTip();
 
