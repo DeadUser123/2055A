@@ -220,19 +220,25 @@ void gatewayRedPosElim()
         pros::delay(100);
         setIntake(0);
         pros::delay(200);
-        chassis.turnToHeading(125, 900, {}, false);
+        chassis.turnToHeading(305, 900, {}, false);
         chassis.moveToPoint(-24,-24, 1200, {.forwards=false}, false);
         clamp.set_value(false);
         pros::delay(400);
         setIntake(127);
         chassis.turnToHeading(-180, 800,{}, false);
         chassis.moveToPoint(-24,-52, 1000, {}, false);
-        chassis.turnToHeading(-94, 750,{}, false);
-        chassis.moveToPoint(-52,-34, 1000, {}, false);
-        chassis.turnToHeading(-160, 500,{}, false);
-        chassis.moveToPoint(-58,-46, 500,{}, false);
+        chassis.turnToHeading(320, 750,{}, false);
+        chassis.moveToPoint(-52,-25, 1000, {}, false);
+        chassis.turnToHeading(195, 700, {}, false);
+        chassis.moveToPoint(-58,-48, 1000, {}, false);
         doinker.set_value(true);
-        chassis.turnToHeading(200,500, {}, false);
+        chassis.turnToHeading(200, 750, {}, false);
+
+        // chassis.moveToPoint(-52,-34, 1000, {}, false);
+        // chassis.turnToHeading(-160, 500,{}, false);
+        // chassis.moveToPoint(-58,-46, 500,{}, false);
+        // doinker.set_value(true);
+        // chassis.turnToHeading(200,500, {}, false);
         
 
 //         
