@@ -553,8 +553,8 @@ void qual5ringBlue() {
     //chassis.turnToHeading(chassis.getPose().theta - 180, 750, {}, false);
     chassis.turnToHeading(154 - 190, 750, {}, false);
     setIntake(127);
-    chassis.moveToPoint(35.5,13,1000,{},false);
-    pros::delay(200);
+    chassis.moveToPoint(38,13,1000,{},false);
+    pros::delay(100);
     setIntake(0);
     chassis.turnToHeading(125,750,{},false);
     //chassis.moveToPose(19, 53, -40, 1250, {}, false); // pick up ring
@@ -573,7 +573,9 @@ void qual5ringBlue() {
 
     //chassis.moveToPose(14,29,-9,500,{.maxSpeed=75},false); //move to rings
     //pros::delay(200);
-    chassis.moveToPose(4,60,1,2500,{.maxSpeed=80},false); //speed added recently, test and see if it works
+    chassis.turnToHeading(315,500,{},false);
+    pros::delay(200);
+    chassis.moveToPose(7,62,1,2500,{.maxSpeed=80},false); //speed added recently, test and see if it works
     //chassis.turnToHeading(1,500,{},false);
     //pros::delay(15000);
     pros::delay(300);
@@ -583,7 +585,8 @@ void qual5ringBlue() {
     chassis.moveToPoint(35,55,1000,{},false);
     
     pros::delay(250);
-    chassis.moveToPoint(14,18,2000,{.maxSpeed=75},false);
+    //chassis.moveToPoint(18,12,2000,{.maxSpeed=75},false);
+    chassis.moveToPoint(25,0,2000,{.maxSpeed=60},false);
     arm.move_velocity(600);
     pros::delay(400);
     

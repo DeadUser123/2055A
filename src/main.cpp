@@ -210,7 +210,7 @@ void autonomous() {
 	//intake();
 	//gatewaytestblueneg();
 	//ethanredpositivequal();
-	//qual5ringBlue(); // slot 5
+	qual5ringBlue(); // slot 5
 	// gatewayblueneg();
 	//mogorushblue();
 	//qual5ringRed(); //slot 3
@@ -219,7 +219,7 @@ void autonomous() {
 	// newskillsprog(); // slot 8
 	// soloauton_AWP_Blue_Negative_Sig();
 	// mogorushred(); // slot 3
-	mogorushblue(); // slot 6
+	//mogorushblue(); // slot 6
 	//testredpos();
 	//testbluepos();	
 	
