@@ -199,7 +199,7 @@ void autonomous() {
 	// set position to x:0, y:0, heading:0
 	//skillsauton();
 	// PIDTest();
-	//skillsprog(); // 	FOR PIKES PEAK
+	skillsprog(); // FOR PIKES PEAK
 	// gatewayRedPosQual(); 
 	// gatewayBluePosQual();
 	//gatewayRedPosElim();
@@ -222,7 +222,7 @@ void autonomous() {
 	//testredpos();
 	//testbluepos();	
 	//pikepeakringrushblue();
-	peakpikesredpos4ringred();
+	// peakpikesredpos4ringred();
 	
 
 // 	Auton selector;

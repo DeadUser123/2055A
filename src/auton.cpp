@@ -1206,20 +1206,21 @@ void skillsprog()
     setIntake(0);
     chassis.moveToPoint(-41,-1.5,800, {.maxSpeed = 120}, true);
     chassis.turnToHeading(180,500, {}, true);
-    chassis.moveToPoint(-41,22,1200, {.forwards = false, .maxSpeed = 65}, false);
-    pros::delay(150);
+    chassis.moveToPoint(-41,22,1200, {.forwards = false, .maxSpeed = 65}, true);
+    chassis.waitUntil(20);
     clamp.set_value(false);
-    pros::delay(200);
+    chassis.waitUntilDone();
+    pros::delay(150);
 
     //First Goal
     chassis.turnToHeading(90,520, {}, false);
     setIntake(127);
-    chassis.moveToPoint(-18,22,900, {}, false);
+    chassis.moveToPoint(-18,20,900, {}, false);
     chassis.swingToHeading(55, DriveSide::RIGHT, 1000, {.direction = AngularDirection::CCW_COUNTERCLOCKWISE}, false);
     //chassis.turnToHeading(35, 450, {}, true);
     //chassis.moveToPoint(-11,34.5,1000,{},false);
     chassis.moveToPoint(29, 44.4, 1800, {}, true); //25,49.5
-    chassis.waitUntil(8);
+    // chassis.waitUntil(5);
     setarm();
     chassis.waitUntilDone();
     pros::delay(500);
@@ -1441,8 +1442,9 @@ void skillsauton() {
 }
 
 void PIDTest() {
-    chassis.setPose(0, 0, 0);
-    chassis.moveToPoint(0, 24, 1000, {}, false);
+    setarm();
+    pros::delay(127);
+    setIntake(127);
     //chassis.moveToPose(-47,-180, 2500);    
 }
 
