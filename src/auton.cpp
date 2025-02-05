@@ -620,6 +620,43 @@ void qual5ringBlue() {
 */
 }
 
+void ppblueneg() {
+    //get mogo, score preload
+    chassis.setPose(49,24,90);
+    chassis.moveToPoint(32,24,500,{.forwards=false,.maxSpeed=75},false);
+    chassis.waitUntil(17);
+    clamp.set_value(false);
+    pros::delay(50);
+    setIntake(127);
+    pros::delay(250);
+
+    //go mid
+    chassis.turnToHeading(315,500,{},false);
+    pros::delay(200);
+    chassis.moveToPose(7,62,1,2500,{.maxSpeed=80},false);
+    pros::delay(400);
+
+    //go back, get 3rd ring
+    chassis.moveToPoint(24, 23, 1000, {.forwards=false});
+    pros::delay(100);
+    chassis.moveToPoint(35,55,1000,{},false);
+    pros::delay(500);
+
+    //go for mid ring
+    chassis.turnToHeading(150,300,{},false);
+    pros::delay(100);
+    chassis.moveToPoint(44,18,750,{.maxSpeed=80});
+    pros::delay(100);
+    doinker.set_value(true);
+    chassis.moveToPoint(chassis.getPose().x - 12, chassis.getPose().y-12, 750, {.forwards=false,.maxSpeed=60}, false);
+    pros::delay(100);
+    doinker.set_value(false);
+    pros::delay(200);
+    chassis.moveToPoint(42,14,750,{},false); //test maxspeed
+
+    //if theres time, touch ladder
+
+}
 
 // // Latest version -- last updated Oct 6, 2024
 void prog_skills_new()
