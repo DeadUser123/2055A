@@ -20,7 +20,8 @@ void gatewaytestblueneg();
 void testredpos();
 void testbluepos();
 void intake();
-
+void pikepeakringrushblue();
+void peakpikesredpos4ringred();
 
 
 void PID_Test();

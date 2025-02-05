@@ -142,24 +142,24 @@ void setArmLoad1()
 
 void setarm() {
     arm.set_brake_mode(MOTOR_BRAKE_HOLD);
+        currentAngle = armsensor.get_angle();
+        if (30000 <= currentAngle && currentAngle <= 36000) 
+        {
+            currentAngle = 0 - (36000 - currentAngle);
+        }
+        error = targetAngle - currentAngle;
+        while (abs(error) > deadband)
+        {
             currentAngle = armsensor.get_angle();
             if (30000 <= currentAngle && currentAngle <= 36000) 
             {
                 currentAngle = 0 - (36000 - currentAngle);
             }
             error = targetAngle - currentAngle;
-            while (abs(error) > deadband)
-            {
-                currentAngle = armsensor.get_angle();
-                if (30000 <= currentAngle && currentAngle <= 36000) 
-                {
-                    currentAngle = 0 - (36000 - currentAngle);
-                }
-                error = targetAngle - currentAngle;
-                arm.move_velocity(error * kP);
-                pros::delay(1);
-            }
-            arm.move_velocity(0);
+            arm.move_velocity(error * kP);
+            pros::delay(1);
+        }
+        arm.move_velocity(0);
     }
 
 bool checkForJam = false;

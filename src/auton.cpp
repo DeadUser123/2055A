@@ -1195,27 +1195,7 @@ void newskillsprog() {
     
 }
 
-// void ethanskills() {
-//     chassis.setPose(-57, -1, -90);
-//     scoreAllianceStake();
-//     chassis.turnToHeading(120, 500)
-//     chassis.moveToPoint(-25, 22, 1000)
-//     chassis.setIntake(60)
-//   
-//     chassis.turntoHeading(90, 300)
-//     chassis.setPose(-36, 25, 300)
-//     chassissetIntake(0)
-//     clamp.set_value(false)
-//     chassis.setIntake(127)
-//     
-//     chassis.turntoHeading(45, 200)
-//     chassis.setPose(-10,60, 1000)
-//     chassis.turntoHeading(20, 100)
-//     chassis.setIntake(127)
-//     chassis.setPose()
-//     
-// }
-
+// FOR PIKES PEAK
 void skillsprog() 
 {
 
@@ -1234,13 +1214,15 @@ void skillsprog()
     //First Goal
     chassis.turnToHeading(90,520, {}, false);
     setIntake(127);
-    chassis.moveToPoint(-18,24.2,900, {}, false);
+    chassis.moveToPoint(-18,22,900, {}, false);
     chassis.swingToHeading(55, DriveSide::RIGHT, 1000, {.direction = AngularDirection::CCW_COUNTERCLOCKWISE}, false);
     //chassis.turnToHeading(35, 450, {}, true);
     //chassis.moveToPoint(-11,34.5,1000,{},false);
-    chassis.moveToPoint(29, 46.4, 1800, {}, true); //25,49.5
+    chassis.moveToPoint(29, 44.4, 1800, {}, true); //25,49.5
+    chassis.waitUntil(8);
     setarm();
     chassis.waitUntilDone();
+    pros::delay(500);
     // //chassis.moveToPose(25,48,90,2900,{}, false);
 
     // // //Wall Stake
@@ -1355,10 +1337,6 @@ void skillsprog()
 
     chassis.turnToHeading(180,600,{},false);
     chassis.moveToPoint(45,-50,1600,{},false);
-    
-
-    
-
 }
 
 void skillsauton() {
@@ -1632,5 +1610,57 @@ void intake() {
     setIntake(0);
     pros::delay(1000);
     //setIntake(127);
+
+}
+
+void pikepeakringrushblue() {
+
+    chassis.setPose(50,31,-75);
+    setIntake(127);
+    chassis.moveToPoint(8,42,1300,{},false); //10
+    pros::delay(100);
+    setIntake(0);
+
+    chassis.moveToPoint(34.7,33.6,1300,{.forwards = false},false);
+    chassis.turnToHeading(45,600,{},false);
+    chassis.moveToPoint(20,26,1300,{.forwards = false, .maxSpeed = 60},false);
+    pros::delay(50);
+    clamp.set_value(false);
+    pros::delay(155);
+
+    setIntake(127);
+    chassis.turnToHeading(213,600,{},false);
+    pros::delay(500);
+    setIntake(0);
+    chassis.moveToPoint(7.8,13.6,1500,{},false); //9.2,14.3
+    doinker.set_value(true);
+
+}
+
+void peakpikesredpos4ringred() {
+    
+    chassis.setPose(-57,-12,-60);
+    scoreAllianceStake();
+
+    //Get Mobile Goal
+    //chassis.moveToPoint(-40,-16,1000,{.forwards = false},false);
+    chassis.moveToPoint(-25,-21.5,1500,{.forwards = false, .maxSpeed = 60},false);
+    // chassis.turnToHeading(-79, 600, {}, false);
+    // chassis.moveToPoint(-24,-23,1500,{.forwards = false, .maxSpeed = 60},false);
+    pros::delay(50);
+    clamp.set_value(false);
+    pros::delay(125);
+
+    //Get Centre 2 Rings
+    chassis.turnToHeading(38, 600, {}, false);
+    pros::delay(1000);
+    chassis.moveToPoint(-11.1,-6,1500,{},false);
+    doinker.set_value(true);
+
+
+
+
+
+
 
 }

@@ -148,7 +148,6 @@ void initialize() {
 	armsensor.reset_position();
 
 	// lvgl_init();
-	armsensor.set_position(0);
 	// colorsensor.set_led_pwm(100); // turn on colorsensor LED -- TURN ON for colorsort
 }
 
@@ -200,7 +199,7 @@ void autonomous() {
 	// set position to x:0, y:0, heading:0
 	//skillsauton();
 	// PIDTest();
-	//skillsprog(); // 	FOR GATEWAY
+	//skillsprog(); // 	FOR PIKES PEAK
 	// gatewayRedPosQual(); 
 	// gatewayBluePosQual();
 	//gatewayRedPosElim();
@@ -219,9 +218,11 @@ void autonomous() {
 	// newskillsprog(); // slot 8
 	// soloauton_AWP_Blue_Negative_Sig();
 	// mogorushred(); // slot 3
-	mogorushblue(); // slot 6
+	//mogorushblue(); // slot 6
 	//testredpos();
 	//testbluepos();	
+	//pikepeakringrushblue();
+	peakpikesredpos4ringred();
 	
 
 // 	Auton selector;
