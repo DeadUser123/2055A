@@ -21,11 +21,12 @@
 bool clampState = false;
 void driveClamp()
 {
-    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A))
-    {
-        clampState = !clampState;
-        clamp.set_value(clampState);
-    }
+    // if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2))
+    // {
+        clamp.set_value(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2));
+        //clampState = !clampState;
+        //clamp.set_value(clampState);
+    //}
 }
 
 // void setarm() {
@@ -39,9 +40,9 @@ void driveClamp()
 
 int currentAngle;
 int error = 1064;
-const double kP = 0.03;
-const int deadband = 250;
-const int targetAngle = 1220;
+const double kP = 0.06;
+const int deadband = 350;
+const int targetAngle = 800;
 bool hold;
 
 void setArmLoadNew()
@@ -91,7 +92,7 @@ void setArmLoadNew()
 }
 
 const int numstates = 2;
-int states[numstates] = {0, 1070};
+int states[numstates] = {0, 800};
 int currState = 0;
 
 
@@ -228,9 +229,9 @@ void doink() {
 // HOLDING L1 RAISES THE ARM, HOLDING L2 LOWERS THE ARM UNTIL YOU LET GO.
 void driveArm()
 {
-    int arm_power = 600 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) - controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2));
+    int arm_power = 600 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1));
 
-    if (armsensor.get_angle() > 13000 && armsensor.get_angle() < 35800) {
+    if (armsensor.get_angle() > 13500 && armsensor.get_angle() < 30800) {
 
         if (arm_power > 0)
         {
