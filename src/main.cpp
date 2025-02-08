@@ -40,7 +40,7 @@ void color_sort_red_team() {
 	while (true) {
 		colorvalue = colorsensor.get_hue();
 		int distancevalue = distancesensor.get(); // gets currently measured distance in mm
-		if (colorvalue >= 45 && colorvalue <= 90) 
+		if (colorvalue >= 65 && colorvalue <= 120) 
 		{
 			pros::delay(22);
 			//pros::lcd::set_text(4, "BLUE RING DETECTED! :(");
@@ -79,7 +79,7 @@ void color_sort_blue_team() {
 	while (true) {
 		colorvalue = colorsensor.get_hue();
 		int distancevalue = distancesensor.get(); // gets currently measured distance in mm
-		if (colorvalue >= 0 && colorvalue <= 20) 
+		if (colorvalue >= 0 && colorvalue <= 32) 
 		{
 			pros::delay(30);
 			//pros::lcd::set_text(4, "BLUE RING DETECTED! :(");
@@ -194,12 +194,31 @@ void autonomous() {
     });
 
 	//pros::rtos::Task my_task_fn(color_sort_red_team);
-	// pros::rtos::Task my_task_fn(color_sort_blue_team);
+	//pros::rtos::Task my_task_fn(color_sort_blue_team);
 
 	// set position to x:0, y:0, heading:0
-	//skillsauton();
-	// PIDTest();
+
 	skillsprog(); // FOR PIKES PEAK
+
+	//QUALIFICATION
+	//peakpikesredneg3ringqual();
+	//peakpikesblueneg3ringqual();
+	//peakpikesredpos3ringqual();
+	//peakpikesbluepos3ringqual();
+
+
+	//peakpikesredneg5ringelim()
+	//pikepeakringrushblue();
+	//peakpikesredpos4ringred(); //slot 7
+	//ppblueneg(); //slot 6
+
+
+
+	//qual5ringBlue(); // slot 5
+
+
+
+
 	// gatewayRedPosQual(); 
 	// gatewayBluePosQual();
 	//gatewayRedPosElim();
@@ -209,7 +228,7 @@ void autonomous() {
 	//intake();
 	//gatewaytestblueneg();
 	//ethanredpositivequal();
-	qual5ringBlue(); // slot 5
+	//qual5ringBlue(); // slot 5
 	// gatewayblueneg();
 	//mogorushblue();
 	//qual5ringRed(); //slot 3
@@ -297,7 +316,7 @@ void opcontrol() {
 	armsensor.reset_position();
 
 	
-	pros::rtos::Task my_task_2(setArmLoadNew);
+	pros::rtos::Task my_task_2(setArmLoad1);
 	pros::rtos::Task my_task(color_sort_blue_team);
 
 	// pros::Task screen_task([&]() {
