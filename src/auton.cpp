@@ -1595,14 +1595,14 @@ void ppblueneg() {
     pros::delay(150);
     setIntake(127);
     pros::delay(100);
-    setIntake(-127);
+    setIntake(-50);
 
     //go mid
     chassis.turnToHeading(315,500,{},false);
     setIntake(127);
-    pros::delay(200);
+    pros::delay(100);
     chassis.moveToPose(12,62,1,2500,{.maxSpeed=80},false);
-    pros::delay(400);
+    pros::delay(300);
     setIntake(0);
     //pros::delay(15000);
 
@@ -1618,25 +1618,27 @@ void ppblueneg() {
     //pros::delay(15000);
 
     //chassis.moveToPose(72,62,90,2000,{.maxSpeed=80},false);
-    chassis.moveToPoint(65,62,2000,{.maxSpeed=90},false);//test maxspeed
-    chassis.moveToPoint(72,62,1000,{.maxSpeed=50},false);
-    pros::delay(250);
+    chassis.moveToPoint(65,62,2000,{},false);//test maxspeed
+    chassis.moveToPoint(72,58,1000,{.maxSpeed=50},false);
+    pros::delay(200);
     chassis.moveToPoint(chassis.getPose().x-3,chassis.getPose().y-1,500,{},false);
-    pros::delay(250);
+    pros::delay(200);
     chassis.moveToPoint(35,55,1000,{.forwards=false},false);
     pros::delay(150);
 
     //go for mid ring
-    chassis.turnToHeading(150,500,{},false);
+    chassis.turnToHeading(150,300,{},false);
     pros::delay(100);
-    chassis.moveToPoint(54,18,1000,{},false);
+    chassis.moveToPoint(54,21,1000,{},false);
     pros::delay(100);
     doinker.set_value(true);
-    chassis.moveToPoint(chassis.getPose().x - 12, chassis.getPose().y-12, 750, {.forwards=false,.maxSpeed=80}, false);
-    pros::delay(100);
-    doinker.set_value(false);
+    chassis.moveToPoint(chassis.getPose().x - 12, chassis.getPose().y, 750, {.forwards=false,.maxSpeed=80}, false);
     pros::delay(200);
-    chassis.moveToPoint(60,9,750,{},false); //test maxspeed
+    doinker.set_value(false);
+    pros::delay(100);
+    chassis.moveToPoint(chassis.getPose().x + 14, chassis.getPose().y, 750, {}, false);
+
+    //chassis.moveToPoint(60,9,750,{},false); //test maxspeed
 
     //if theres time, touch ladder
 
