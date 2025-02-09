@@ -198,7 +198,7 @@ void autonomous() {
 
 	// set position to x:0, y:0, heading:0
 
-	skillsprog(); // FOR PIKES PEAK
+	//skillsprog(); // FOR PIKES PEAK
 
 	//QUALIFICATION
 	//peakpikesredneg3ringqual();
@@ -210,7 +210,7 @@ void autonomous() {
 	//peakpikesredneg5ringelim()
 	//pikepeakringrushblue();
 	//peakpikesredpos4ringred(); //slot 7
-	//ppblueneg(); //slot 6
+	ppblueneg(); //slot 6
 
 
 
