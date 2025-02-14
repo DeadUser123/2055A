@@ -14,6 +14,8 @@
 PUT GATEWAY AUTONS BELOW THIS
 */
 
+void bra
+
 void gatewayRedPosQual(){
     clamp.set_value(true);
     chassis.setPose(-57.375, -15, 180);
@@ -256,34 +258,34 @@ void gatewayBlueSoloAWP()
 
 }
 */
-void gatewayRedPosElim()
-    {   clamp.set_value(true);
-        chassis.setPose(-57.375, -15, 180);
-        chassis.moveToPoint(-57.375, 1, 1000, {.forwards=false}, false);
-        chassis.turnToHeading(-90, 750, {}, false);
-        setDrive(6000, 6000);
-        pros::delay(220);
-        setDrive(0, 0);
-        scoreAllianceStake();   
-        chassis.turnToHeading(120, 900, {}, false);
-        setIntake(80);
-        chassis.moveToPoint(-46,-7, 1200, {}, false);
-        pros::delay(100);
-        setIntake(0);
-        pros::delay(200);
-        chassis.turnToHeading(305, 900, {}, false);
-        chassis.moveToPoint(-24,-24, 1200, {.forwards=false}, false);
-        clamp.set_value(false);
-        pros::delay(400);
-        setIntake(127);
-        chassis.turnToHeading(-180, 800,{}, false);
-        chassis.moveToPoint(-24,-52, 1000, {}, false);
-        chassis.turnToHeading(320, 750,{}, false);
-        chassis.moveToPoint(-52,-25, 1000, {}, false);
-        chassis.turnToHeading(195, 700, {}, false);
-        chassis.moveToPoint(-58,-48, 1000, {}, false);
-        doinker.set_value(true);
-        chassis.turnToHeading(200, 750, {}, false);
+// void gatewayRedPosElim()
+//     {   clamp.set_value(true);
+//         chassis.setPose(-57.375, -15, 180);
+//         chassis.moveToPoint(-57.375, 1, 1000, {.forwards=false}, false);
+//         chassis.turnToHeading(-90, 750, {}, false);
+//         setDrive(6000, 6000);
+//         pros::delay(220);
+//         setDrive(0, 0);
+//         scoreAllianceStake();   
+//         chassis.turnToHeading(120, 900, {}, false);
+//         setIntake(80);
+//         chassis.moveToPoint(-46,-7, 1200, {}, false);
+//         pros::delay(100);
+//         setIntake(0);
+//         pros::delay(200);
+//         chassis.turnToHeading(305, 900, {}, false);
+//         chassis.moveToPoint(-24,-24, 1200, {.forwards=false}, false);
+//         clamp.set_value(false);
+//         pros::delay(400);
+//         setIntake(127);
+//         chassis.turnToHeading(-180, 800,{}, false);
+//         chassis.moveToPoint(-24,-52, 1000, {}, false);
+//         chassis.turnToHeading(320, 750,{}, false);
+//         chassis.moveToPoint(-52,-25, 1000, {}, false);
+//         chassis.turnToHeading(195, 700, {}, false);
+//         chassis.moveToPoint(-58,-48, 1000, {}, false);
+//         doinker.set_value(true);
+//         chassis.turnToHeading(200, 750, {}, false);
 
         // chassis.moveToPoint(-52,-34, 1000, {}, false);
         // chassis.turnToHeading(-160, 500,{}, false);
@@ -321,7 +323,7 @@ void gatewayRedPosElim()
         // clamp.set_value(false);
         // setIntake(135);
 
-}
+//}
 
 void gatewayBluePosElim()
 {
@@ -2298,4 +2300,7 @@ void peakpikesredneg5ringelim() {
 
 
 
+}
+void bramptontwoblueposqual() {
+    
 }
