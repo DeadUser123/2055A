@@ -37,18 +37,20 @@ void on_center_button() {
 
 void color_sort_red_team() {
 	double colorvalue;
+	double colordistance;
 	while (true) {
 		colorvalue = colorsensor.get_hue();
-		int distancevalue = distancesensor.get(); // gets currently measured distance in mm
-		if (colorvalue >= 65 && colorvalue <= 120) 
+		colordistance = colorsensor.get_proximity();
+		pros::lcd::set_text(6, "Ticks: " + std::to_string(colorvalue));
+		pros::lcd::set_text(7, "Newtick: " + std::to_string(colordistance));
+		//int distancevalue = distancesensor.get(); // gets currently measured distance in mm
+		if (colorvalue >= 200 && colorvalue <= 225) 
 		{
 			pros::delay(22);
 			//pros::lcd::set_text(4, "BLUE RING DETECTED! :(");
 			//pros::delay(5);
 			// int ticks = intake1.get_position();
 			// int newtick = ticks + 5;
-			// pros::lcd::set_text(6, "Ticks: " + std::to_string(ticks));
-			// pros::lcd::set_text(7, "Newtick: " + std::to_string(newtick));
 			// while ((newtick - ticks) > 100) 
 			// {
 			// 	setIntake(127);
@@ -146,6 +148,8 @@ void initialize() {
 
 	armsensor.set_position(0);
 	armsensor.reset_position();
+	//colorsensor.set_led_pwm(80);
+	colorsensor.disable_gesture();
 
 	// lvgl_init();
 	// colorsensor.set_led_pwm(100); // turn on colorsensor LED -- TURN ON for colorsort
@@ -201,7 +205,31 @@ void autonomous() {
 	//skillsprog(); // FOR PIKES PEAK
 	//blueposelim();
 
-	//QUALIFICATION
+
+	//QUALIFICATION PROVS
+
+
+
+
+
+
+	//ELIM PROVS
+
+	//peakpikesblueneg5ringelim(); DONE
+	//mogorushblue(); //NOT DONE
+
+	//peakpikesredpos4ringred(); NOT CONSISTENT
+	peakpikesredneg5ringelim();
+
+
+
+
+
+
+
+
+
+
 	//peakpikesredneg3ringqual();
 	//peakpikesblueneg3ringqual();
  	//peakpikesredpos3ringqualmogo();
@@ -210,9 +238,9 @@ void autonomous() {
 	//peakpikesbluepos3ringqual();
 
 
-	//peakpikesredneg5ringelim()
+	//peakpikesblueneg5ringelim();
 	//pikepeakringrushblue();
-	peakpikesredpos4ringred(); //slot 7
+	//peakpikesredpos4ringred(); //slot 7
 	//ppblueneg(); //slot 6
 	//ppbluepos3ring();
 	//mogorushblue();
@@ -322,7 +350,10 @@ void opcontrol() {
 
 	
 	pros::rtos::Task my_task_2(setArmLoad1);
-	pros::rtos::Task my_task(color_sort_blue_team);
+	//pros::rtos::Task my_task(color_sort_blue_team);
+	pros::rtos::Task my_task(color_sort_red_team);
+
+	//skillsdriver();
 
 	// pros::Task screen_task([&]() {
     //     while (true) {

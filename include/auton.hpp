@@ -21,11 +21,13 @@ void ppblueneg();
 void testredpos();
 void testbluepos();
 void intake();
+void skillsdriver();
+void peakpikesredneg5ringelim();
 
 void pikepeakringrushblue();
 void peakpikesredpos4ringred();
 void peakpikesredneg3ringqual();
-void peakpikesredneg5ringelim();
+void peakpikesblueneg5ringelim();
 void peakpikesblueneg3ringqual();
 void peakpikesredpos3ringqual();
 void peakpikesbluepos3ringqual();

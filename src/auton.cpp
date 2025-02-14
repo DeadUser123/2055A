@@ -1944,34 +1944,75 @@ void peakpikesredneg3ringqual() {
 
 }
 
-void peakpikesredneg5ringelim() {
+void peakpikesblueneg5ringelim() {
 
-    chassis.setPose(-57,16,235);
-    scoreAllianceStake();
-    chassis.turnToHeading(252, 600, {}, false);
-
-    chassis.moveToPoint(-23, 24, 1500, {.forwards = false, .maxSpeed = 63}, false);
-    pros::delay(35);
+    chassis.setPose(51,24,90);
+    chassis.moveToPoint(28,24,1500,{.forwards=false,.maxSpeed=60},false);
+    chassis.waitUntil(17);
     clamp.set_value(false);
-    pros::delay(125);
-
+    pros::delay(150);
     setIntake(127);
-    chassis.turnToHeading(42, 600, {}, false);
-    chassis.moveToPoint(-9.7, 39.2, 700, {}, false); //-10.6, 38.8
-    chassis.turnToHeading(0, 600, {}, false);
-    chassis.moveToPoint(-9.7, 49.2, 700, {}, false); 
+    pros::delay(100);
+    setIntake(-50); //if anyone asks abt this antijam, it is 100% necessary
 
-    chassis.moveToPoint(-9.7, 39.2, 700, {.forwards = false}, true); 
-    chassis.swingToHeading(90, DriveSide::RIGHT, 1500, {.direction = AngularDirection::CW_CLOCKWISE}, false);
+    //go mid
+    chassis.turnToHeading(315,500,{},false);
+    setIntake(127);
+    pros::delay(100);
+    chassis.moveToPose(12,60,1,2500,{.maxSpeed=80},false); //DO y=62 IF FIRST STAGE ShiTs ITSELF
+    setIntake(-50);
     pros::delay(300);
+    setIntake(127);
+    //setIntake(0);
+    //pros::delay(15000);
 
-    chassis.turnToHeading(0, 600, {}, false);
-    chassis.moveToPoint(-24, 48, 700, {.maxSpeed = 85}, false); 
-    chassis.moveToPoint(-57.5, 62, 1500, {.maxSpeed = 100}, false);
+    //go back, get 3rd ring
+    chassis.moveToPoint(24, 26, 1000, {.forwards=false});
+    //setIntake(-127);
+    pros::delay(100);
+    setIntake(127);
+    chassis.moveToPoint(35,55,750,{},false);
+    pros::delay(100);
+    chassis.moveToPoint(35,30,750,{},false);
+    pros::delay(250);
+    //chassis.turnToHeading(75,300,{},false);
+    //pros::delay(15000);
 
-    chassis.moveToPoint(-46, 57, 1500, {.forwards = false}, false);
-    chassis.turnToHeading(180, 600, {}, false);
-    setDrive(8000,8000);
+    //go corner
+    //chassis.moveToPose(72,62,90,2000,{.maxSpeed=80},false);
+    chassis.moveToPoint(50,53,1500,{.maxSpeed=90},false);//test maxspeed
+    pros::delay(1000);
+    setDrive(6000,4000);
+    pros::delay(1000);
+    //chassis.moveToPoint(72,58,1000,{.maxSpeed=20},false);
+    setDrive(0,0);
+    pros::delay(200);
+    chassis.moveToPoint(chassis.getPose().x-3,chassis.getPose().y-1,500,{},false);
+    pros::delay(200);
+    chassis.moveToPoint(35,55,1000,{.forwards=false},true);
+    pros::delay(150);
+
+    arm.move_velocity(600);
+    chassis.moveToPoint(9,14,2000,{},false);
+    /*
+    //go for mid ring
+    chassis.turnToHeading(150,300,{},false);
+    pros::delay(100);
+    chassis.moveToPoint(54,21,1000,{},false);
+    pros::delay(100);
+    doinker.set_value(true);
+    pros::delay(15000);
+    pros::delay(500);
+    chassis.moveToPoint(chassis.getPose().x - 12, chassis.getPose().y, 750, {.forwards=false,.maxSpeed=80}, false);
+    pros::delay(200);
+    doinker.set_value(false);
+    pros::delay(100);
+    chassis.moveToPoint(chassis.getPose().x + 14, chassis.getPose().y, 750, {}, false);
+
+    //chassis.moveToPoint(60,9,750,{},false); //test maxspeed*/
+
+
+
     
 }
 
@@ -2193,6 +2234,71 @@ void blueposelim() {
 
     doinker.set_value(true);
     pros::delay(50);
+
+
+}
+
+void skillsdriver() {
+
+    chassis.setPose(-54, -1.5, 90);
+    setIntake(100);
+    pros::delay(200);
+    setIntake(0);
+    chassis.moveToPoint(-41,-1.5,800, {.maxSpeed = 120}, true);
+    chassis.turnToHeading(180,500, {}, true);
+    chassis.moveToPoint(-41,22,1200, {.forwards = false, .maxSpeed = 65}, true);
+    chassis.waitUntil(20);
+    clamp.set_value(false);
+    chassis.waitUntilDone();
+
+}
+
+void peakpikesredneg5ringelim() {
+
+    chassis.setPose(-51,24,270);
+    chassis.moveToPoint(-28,24,1500,{.forwards=false,.maxSpeed=60},false);
+    chassis.waitUntil(17);
+    clamp.set_value(false);
+    pros::delay(150);
+    setIntake(127);
+    pros::delay(100);
+    setIntake(-50);
+
+    chassis.turnToHeading(45,500,{},false);
+    setIntake(127);
+    pros::delay(100);
+    chassis.moveToPose(-12,61.5,1,2500,{.maxSpeed=80},false); //DO y=62 IF FIRST STAGE ShiTs ITSELF
+    setIntake(-50);
+    pros::delay(300);
+    setIntake(127);
+    //setIntake(0);
+    //pros::delay(15000);
+
+    //go back, get 3rd ring
+    chassis.moveToPoint(-24, 26, 1000, {.forwards=false});
+    //setIntake(-127);
+    pros::delay(100);
+    setIntake(127);
+    chassis.moveToPoint(-35,55,750,{},false);
+    pros::delay(100);
+    chassis.moveToPoint(-35,30,750,{},false);
+    pros::delay(250);
+
+    chassis.moveToPoint(-50,53,1500,{.maxSpeed=90},false);//test maxspeed
+    pros::delay(1000);
+    setDrive(6000,4000);
+    pros::delay(1000);
+    //chassis.moveToPoint(72,58,1000,{.maxSpeed=20},false);
+    setDrive(0,0);
+    pros::delay(200);
+    chassis.moveToPoint(chassis.getPose().x-3,chassis.getPose().y-1,500,{},false);
+    pros::delay(200);
+    chassis.moveToPoint(-35,55,1000,{.forwards=false},true);
+    pros::delay(150);
+
+    arm.move_velocity(600);
+    chassis.moveToPoint(-9,14,2000,{},false);
+
 
 
 }
