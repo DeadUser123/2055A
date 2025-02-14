@@ -60,27 +60,27 @@ void Arcade() {
             turn = 0;
         }
         else if (x > 105) { //95
-            turn = 0.72*(12.7 / (1.0 + exp(-(3.0/4.0)*(LjoyX - 6.0)))) * 10.0 - 3.0; //0.8
+            turn = 0.9*(12.7 / (1.0 + exp(-(3.0/4.0)*(LjoyX - 6.0)))) * 10.0 - 3.0; //0.72
             // turn = 0.45*(12.7 / (1.0 + exp(-(3.0/4.0)*(LjoyX - 6.0)))) * 10.0 - 3.0;
 
         }
 
         else if (x > 85 && x < 105) {
-            turn = 0.64*(12.7 / (1.0 + exp(-(3.0/4.0)*(LjoyX - 6.0)))) * 10.0 - 3.0;
+            turn = 0.8*(12.7 / (1.0 + exp(-(3.0/4.0)*(LjoyX - 6.0)))) * 10.0 - 3.0;
         }
 
         else if (x > 55 && x <= 85) {
-            turn = 0.35*(12.7 / (1.0 + exp(-(3.0/4.0)*(LjoyX - 6.0)))) * 10.0 - 3.0;
+            turn = 0.6*(12.7 / (1.0 + exp(-(3.0/4.0)*(LjoyX - 6.0)))) * 10.0 - 3.0;
             // 0.37 initial value
             // turn = 0.4*(12.7 / (1.0 + exp(-(3.0/4.0)*(LjoyX - 6.0)))) * 10.0 - 10.0;
         }
 
         else if (x > 35 && x <= 55) {
-            turn = 0.25*(12.7 / (1.0 + exp(-(3.0/4.0)*(LjoyX - 6.0)))) * 10.0 - 3.0;
+            turn = 0.5*(12.7 / (1.0 + exp(-(3.0/4.0)*(LjoyX - 6.0)))) * 10.0 - 3.0;
         }
 
         else {
-            turn = 0.2*(12.7 / (1.0 + exp(-(3.0/4.0)*(LjoyX - 6.0)))) * 10.0 - 3.0;
+            turn = 0.25*(12.7 / (1.0 + exp(-(3.0/4.0)*(LjoyX - 6.0)))) * 10.0 - 3.0;
             // 0.32 initial value
             // turn = 0.45*5*pow((1.0/5.5)*(LjoyX), 3.0) * 12.7;
         }
@@ -120,7 +120,7 @@ void ethandrive() {
         double x = abs(controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X));
         double y = abs(controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y));
         double power = y;
-        double turn = x * (0.64 + y / 68 * 0.1);
+        double turn = x * (0.64 + y / 50 * 0.1);
         if (controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y) < 0)   {
             power = -power;
         }
@@ -133,7 +133,17 @@ void ethandrive() {
 }
 
 void setDriveMotors() {
+    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)) // mogo tip
+    {
+        setDrive(12000, -12000);
+        pros::delay(1000);
+        clamp.set_value(true);
+        pros::delay(250);
+    }
     //Arcade();
-    ethandrive();
-    // Tank();
-}
+    else
+    {
+        //ethandrive();
+        Arcade();
+    }
+}    // Tank();

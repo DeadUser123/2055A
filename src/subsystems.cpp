@@ -18,14 +18,15 @@
 //     }
 // }
 
-bool clampState = true;
+bool clampState = false;
 void driveClamp()
 {
-    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A))
-    {
-        clampState = !clampState;
-        clamp.set_value(clampState);
-    }
+    // if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2))
+    // {
+        clamp.set_value(controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2));
+        //clampState = !clampState;
+        //clamp.set_value(clampState);
+    //}
 }
 
 // void setarm() {
@@ -39,9 +40,9 @@ void driveClamp()
 
 int currentAngle;
 int error = 1064;
-const double kP = 0.03;
-const int deadband = 250;
-const int targetAngle = 1070;
+const double kP = 0.06;
+const int deadband = 350;
+const int targetAngle = 800;
 bool hold;
 
 void setArmLoadNew()
@@ -91,7 +92,7 @@ void setArmLoadNew()
 }
 
 const int numstates = 2;
-int states[numstates] = {0, 1070};
+int states[numstates] = {0, 800};
 int currState = 0;
 
 
@@ -142,24 +143,24 @@ void setArmLoad1()
 
 void setarm() {
     arm.set_brake_mode(MOTOR_BRAKE_HOLD);
+        currentAngle = armsensor.get_angle();
+        if (30000 <= currentAngle && currentAngle <= 36000) 
+        {
+            currentAngle = 0 - (36000 - currentAngle);
+        }
+        error = targetAngle - currentAngle;
+        while (abs(error) > deadband)
+        {
             currentAngle = armsensor.get_angle();
             if (30000 <= currentAngle && currentAngle <= 36000) 
             {
                 currentAngle = 0 - (36000 - currentAngle);
             }
             error = targetAngle - currentAngle;
-            while (abs(error) > deadband)
-            {
-                currentAngle = armsensor.get_angle();
-                if (30000 <= currentAngle && currentAngle <= 36000) 
-                {
-                    currentAngle = 0 - (36000 - currentAngle);
-                }
-                error = targetAngle - currentAngle;
-                arm.move_velocity(error * kP);
-                pros::delay(1);
-            }
-            arm.move_velocity(0);
+            arm.move_velocity(error * kP);
+            pros::delay(1);
+        }
+        arm.move_velocity(0);
     }
 
 bool checkForJam = false;
@@ -219,7 +220,7 @@ void antiJamTask()
 
 bool doink_status = false;
 void doink() {
-    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
+    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)) {
         doink_status = !doink_status;
         doinker.set_value(doink_status);
     }
@@ -228,9 +229,9 @@ void doink() {
 // HOLDING L1 RAISES THE ARM, HOLDING L2 LOWERS THE ARM UNTIL YOU LET GO.
 void driveArm()
 {
-    int arm_power = 600 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1) - controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2));
+    int arm_power = 600 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1));
 
-    if (armsensor.get_angle() > 13000 && armsensor.get_angle() < 35800) {
+    if (armsensor.get_angle() > 13500 && armsensor.get_angle() < 30800) {
 
         if (arm_power > 0)
         {
@@ -242,7 +243,7 @@ void driveArm()
 
 }
     
-bool clawState = false;
+bool clawState = true;
 void driveClaw()
 {
     if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X))

@@ -37,18 +37,20 @@ void on_center_button() {
 
 void color_sort_red_team() {
 	double colorvalue;
+	double colordistance;
 	while (true) {
 		colorvalue = colorsensor.get_hue();
-		int distancevalue = distancesensor.get(); // gets currently measured distance in mm
-		if (colorvalue >= 45 && colorvalue <= 90) 
+		colordistance = colorsensor.get_proximity();
+		pros::lcd::set_text(6, "Ticks: " + std::to_string(colorvalue));
+		pros::lcd::set_text(7, "Newtick: " + std::to_string(colordistance));
+		//int distancevalue = distancesensor.get(); // gets currently measured distance in mm
+		if (colorvalue >= 200 && colorvalue <= 225) 
 		{
 			pros::delay(22);
 			//pros::lcd::set_text(4, "BLUE RING DETECTED! :(");
 			//pros::delay(5);
 			// int ticks = intake1.get_position();
 			// int newtick = ticks + 5;
-			// pros::lcd::set_text(6, "Ticks: " + std::to_string(ticks));
-			// pros::lcd::set_text(7, "Newtick: " + std::to_string(newtick));
 			// while ((newtick - ticks) > 100) 
 			// {
 			// 	setIntake(127);
@@ -79,7 +81,7 @@ void color_sort_blue_team() {
 	while (true) {
 		colorvalue = colorsensor.get_hue();
 		int distancevalue = distancesensor.get(); // gets currently measured distance in mm
-		if (colorvalue >= 8 && colorvalue <= 30) 
+		if (colorvalue >= 0 && colorvalue <= 32) 
 		{
 			pros::delay(30);
 			//pros::lcd::set_text(4, "BLUE RING DETECTED! :(");
@@ -101,6 +103,7 @@ void color_sort_blue_team() {
 			//pros::lcd::set_text(4, "DONE!");
 			setIntake(-127);
 			pros::delay(180);
+			setIntake(127);
 		}
 	// 	else 
 	// 	{
@@ -145,9 +148,10 @@ void initialize() {
 
 	armsensor.set_position(0);
 	armsensor.reset_position();
+	//colorsensor.set_led_pwm(80);
+	colorsensor.disable_gesture();
 
 	// lvgl_init();
-	armsensor.set_position(0);
 	// colorsensor.set_led_pwm(100); // turn on colorsensor LED -- TURN ON for colorsort
 }
 
@@ -193,27 +197,85 @@ void autonomous() {
         }
     });
 
-	pros::rtos::Task my_task_fn(color_sort_red_team);
+	//pros::rtos::Task my_task_fn(color_sort_red_team);
 	//pros::rtos::Task my_task_fn(color_sort_blue_team);
 
 	// set position to x:0, y:0, heading:0
-	//skillsauton();
-	// PIDTest();
-	//skillsprog(); // 	FOR GATEWAY
-	//gatewayRedPosQual(); 
+
+	//skillsprog(); // FOR PIKES PEAK
+	//blueposelim();
+
+
+	//QUALIFICATION PROVS
+
+
+
+
+
+
+	//ELIM PROVS
+
+	//peakpikesblueneg5ringelim(); DONE
+	//mogorushblue(); //NOT DONE
+
+	//peakpikesredpos4ringred(); NOT CONSISTENT
+	peakpikesredneg5ringelim();
+
+
+
+
+
+
+
+
+
+
+	//peakpikesredneg3ringqual();
+	//peakpikesblueneg3ringqual();
+ 	//peakpikesredpos3ringqualmogo();
+
+	//peakpikesredpos3ringqual();
+	//peakpikesbluepos3ringqual();
+
+
+	//peakpikesblueneg5ringelim();
+	//pikepeakringrushblue();
+	//peakpikesredpos4ringred(); //slot 7
+	//ppblueneg(); //slot 6
+	//ppbluepos3ring();
+	//mogorushblue();
+
+
+
+	//qual5ringBlue(); // slot 5
+
+
+
+
+	// gatewayRedPosQual(); 
+	// gatewayBluePosQual();
 	//gatewayRedPosElim();
+	//gatewayBluePosElim();
 	//gatewayRedMogoRushQual(); // slot 1
+	// gatewayBlueMogoRushQual();
 	//intake();
 	//gatewaytestblueneg();
 	//ethanredpositivequal();
 	//qual5ringBlue(); // slot 5
-	qual5ringRed(); //slot 3
+	// gatewayblueneg();
+	//mogorushblue();
+	//qual5ringRed(); //slot 3
 	// qualredmogoside(); //slot 1
-	// qualbluemogoside(); //slot 2
+	// qualbluemogoside(); //slot 2 
 	// newskillsprog(); // slot 8
 	// soloauton_AWP_Blue_Negative_Sig();
 	// mogorushred(); // slot 3
 	//mogorushblue(); // slot 6
+	//ppblueneg();
+	//testredpos();
+	//testbluepos();	
+	//pikepeakringrushblue();
+	// peakpikesredpos4ringred();
 	
 
 // 	Auton selector;
@@ -287,7 +349,11 @@ void opcontrol() {
 	armsensor.reset_position();
 
 	
-	pros::rtos::Task my_task_2(setArmLoadNew);
+	pros::rtos::Task my_task_2(setArmLoad1);
+	//pros::rtos::Task my_task(color_sort_blue_team);
+	pros::rtos::Task my_task(color_sort_red_team);
+
+	//skillsdriver();
 
 	// pros::Task screen_task([&]() {
     //     while (true) {

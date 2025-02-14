@@ -1,7 +1,7 @@
 #include "main.h"
 
 void gatewayRedPosQual();
-void gatewayblueposqual();
+void gatewayBluePosQual();
 void gatewayRedMogoRushQual();
 void gatewayBlueMogoRushQual();
 // put red negative qual here:
@@ -15,9 +15,25 @@ void gatewayBlueMogoRushElim();
 void gatewayRedNegElim();
 void gatewayBlueNegElim();
 void PIDTest();
+void gatewayblueneg();
 void gatewaytestblueneg();
+void ppblueneg();
+void testredpos();
+void testbluepos();
 void intake();
+void skillsdriver();
+void peakpikesredneg5ringelim();
 
+void pikepeakringrushblue();
+void peakpikesredpos4ringred();
+void peakpikesredneg3ringqual();
+void peakpikesblueneg5ringelim();
+void peakpikesblueneg3ringqual();
+void peakpikesredpos3ringqual();
+void peakpikesbluepos3ringqual();
+void peakpikesredpos3ringqualmogo();
+void blueposelim();
+void ppbluepos3ring();
 
 
 void PID_Test();
