@@ -29,6 +29,9 @@ void peakpikesredneg5ringelim();
 void peakpikesblueneg3ringqual();
 void peakpikesredpos3ringqual();
 void peakpikesbluepos3ringqual();
+void peakpikesredpos3ringqualmogo();
+void blueposelim();
+void ppbluepos3ring();
 
 
 void PID_Test();
