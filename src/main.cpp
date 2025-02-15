@@ -215,11 +215,11 @@ void autonomous() {
 
 	//ELIM PROVS
 
-	//peakpikesblueneg5ringelim(); DONE
+	//peakpikesblueneg5ringelim(); 
 	//mogorushblue(); //NOT DONE
 
 	//peakpikesredpos4ringred(); NOT CONSISTENT
-	peakpikesredneg5ringelim();
+	//peakpikesredneg5ringelim();
 
 
 
@@ -235,7 +235,7 @@ void autonomous() {
  	//peakpikesredpos3ringqualmogo();
 
 	//peakpikesredpos3ringqual();
-	//peakpikesbluepos3ringqual();
+	// peakpikesbluepos3ringqual();
 
 
 	//peakpikesblueneg5ringelim();
@@ -276,7 +276,7 @@ void autonomous() {
 	//testbluepos();	
 	//pikepeakringrushblue();
 	// peakpikesredpos4ringred();
-	//bramptonBluePosQual();
+	bramptonBluePosQual();
 
 // 	Auton selector;
 //     switch (selector::auton) {
@@ -345,8 +345,8 @@ void opcontrol() {
 	
 	arm.set_brake_mode(MOTOR_BRAKE_HOLD);
 
-	armsensor.set_position(0);
-	armsensor.reset_position();
+	// armsensor.set_position(0);
+	// armsensor.reset_position();
 
 	
 	pros::rtos::Task my_task_2(setArmLoad1);
