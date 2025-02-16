@@ -15,35 +15,44 @@ PUT GATEWAY AUTONS BELOW THIS
 */
 void bramptonBluePosQual(){
     clamp.set_value(true);
-    chassis.setPose(57.375, -15, 180);
-    chassis.moveToPoint(57.375, 2, 1200, {.forwards=false}, false);
-    chassis.turnToHeading(90, 800, {}, false);
-    setDrive(6000, 6000);
-    pros::delay(400);
-    setDrive(0, 0);
-    scoreAllianceStake();
-    chassis.moveToPoint(57.375, 2, 90, {.forwards=false}, false); // go back
-    chassis.turnToHeading(180, 600, {}, false); 
-    chassis.moveToPoint(57.375, -23, 1000, {}, false);
-    chassis.turnToHeading(90, 650, {}, false);
-    chassis.moveToPoint(23, -23, 1500, {.forwards=false, .maxSpeed=70}, true);
+    //chassis.setPose(57.375, -15, 180);
+    // chassis.moveToPoint(57.375, 2, 1200, {.forwards=false}, false);
+    // chassis.turnToHeading(90, 800, {}, false);
+    // setDrive(6000, 6000);
+    // pros::delay(400);
+    // setDrive(0, 0);
+    // scoreAllianceStake();
+    // chassis.moveToPoint(57.375, 2, 90, {.forwards=false}, false); // go back
+    // chassis.turnToHeading(180, 600, {}, false); 
+    chassis.setPose(51, -23, 90);
+
+    // chassis.moveToPoint(57.375, -23, 1000, {}, false);
+    // chassis.turnToHeading(90, 650, {}, false);
+    chassis.moveToPoint(23, -23, 1500, {.forwards=false, .maxSpeed=60}, true);
     chassis.waitUntil(26);
 
     clamp.set_value(false); // clamp mogo
     chassis.waitUntilDone(); 
     pros::delay(100);
+    setIntake(127);
     chassis.turnToHeading(180, 600, {}, false);
     setIntake(127);
-    chassis.moveToPoint(27, -46, 1800, {.maxSpeed=100}, false);
+    chassis.moveToPoint(29, -44, 1800, {}, false);
     pros::delay(300);
+    setIntake(-50);
     // setIntake(0);
 
     chassis.turnToHeading(107, 450, {}, false);
-    chassis.moveToPoint(58, -60, 2000, {}, false);
     setIntake(127);
+    chassis.moveToPoint(58, -60, 2000, {}, false);
+    // pros::delay(10000);
     setDrive(6000,6000);
-    pros::delay(500);
+    pros::delay(1000);
     setDrive(0,0);
+    setDrive(-3000, -3000);
+    pros::delay(400);
+    setDrive(0, 0);
+    pros::delay(1000);
     chassis.turnToHeading(325, 400, {}, false);
     arm.move_velocity(6000);
     chassis.moveToPoint(13,-18, 1700, {}, true);
@@ -101,26 +110,45 @@ void bramptonRedPosQual(){
     setDrive(0, 0);
     scoreAllianceStake();
     
-    chassis.turnToHeading(180, 1000, {}, false); 
+    chassis.moveToPoint(-57.375, 2, 500, {.forwards=false}, false); // go back
+    chassis.turnToHeading(180, 600, {}, false); 
     chassis.moveToPoint(-57.375, -23, 1500, {}, false);
     chassis.turnToHeading(-90, 750, {}, false);
     chassis.moveToPoint(-23, -23, 2500, {.forwards=false, .maxSpeed=60}, true);
-    chassis.waitUntil(30);
+    chassis.waitUntil(29);
+
     clamp.set_value(false); // clamp mogo
     chassis.waitUntilDone(); 
     pros::delay(100);
-    chassis.turnToHeading(180, 750, {}, false);
+    chassis.turnToHeading(180, 600, {}, false);
     setIntake(127);
-    chassis.moveToPoint(-23, -50, 2000, {}, false);
-    pros::delay(250);
-    setIntake(0);
-
-    
-    
+    chassis.moveToPoint(-23, -49, 2000, {.maxSpeed=100}, false);
+    pros::delay(300);
+    setIntake(-50);
+    chassis.turnToHeading(-107, 450, {}, false);
+    setIntake(127);
+    chassis.moveToPoint(-58, -60, 1000, {}, false);
+    setDrive(6000,6000);
+    setDrive(0,0);
+    chassis.turnToHeading(395, 400, {}, false);
+    arm.move_velocity(6000);
+    chassis.moveToPoint(-13,-18, 1700, {}, true);
+    chassis.waitUntil(36);
+    arm.move_velocity(0);
     chassis.waitUntilDone();
+
+    // setDrive(6000, 6000);
+    // pros::delay(500);
+    // setDrive(0, 0);
+    // chassis.turnToHeading(395, 400, {}, false);
+    // arm.move_velocity(6000);
+    // chassis.moveToPoint(-13, -18, 1700, {}, true);
+    // chassis.waitUntil(36);
+    // arm.move_velocity(0);
+    // chassis.waitUntilDone();
 }
 
-void gatewayRedPosQual(){
+void gatewayRedPosQual() {
     clamp.set_value(true);
     chassis.setPose(-57.375, -15, 180);
     chassis.moveToPoint(-57.375, 2, 1200, {.forwards=false}, false);
@@ -2092,7 +2120,7 @@ void peakpikesblueneg5ringelim() {
 
     //go corner
     //chassis.moveToPose(72,62,90,2000,{.maxSpeed=80},false);
-    chassis.moveToPoint(50,53,1500,{.maxSpeed=90},false);//test maxspeed
+    chassis.moveToPoint(56,53,1500,{.maxSpeed=90},false);//test maxspeed // originally 50, 53
     pros::delay(1000);
     setDrive(6000,4000);
     pros::delay(1000);
@@ -2103,9 +2131,11 @@ void peakpikesblueneg5ringelim() {
     pros::delay(200);
     chassis.moveToPoint(35,55,1000,{.forwards=false},true);
     pros::delay(150);
+    chassis.turnToHeading(160, 750, {}, false);
+    chassis.moveToPose(47, -32, 180, 5000, {.minSpeed=100}, false);
 
-    arm.move_velocity(600);
-    chassis.moveToPoint(9,14,2000,{},false);
+    // arm.move_velocity(600);
+    // chassis.moveToPoint(9,14,2000,{},false);
     /*
     //go for mid ring
     chassis.turnToHeading(150,300,{},false);
@@ -2407,9 +2437,11 @@ void peakpikesredneg5ringelim() {
     pros::delay(200);
     chassis.moveToPoint(-35,55,1000,{.forwards=false},true);
     pros::delay(150);
+    chassis.turnToHeading(180, 750, {}, false);
+    chassis.moveToPose(-44, -34, 180, 5000, {.minSpeed=100}, false);
 
-    arm.move_velocity(600);
-    chassis.moveToPoint(-9,14,2000,{},false);
+    // arm.move_velocity(600);
+    // chassis.moveToPoint(-9,14,2000,{},false);
 
 
 

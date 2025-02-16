@@ -147,7 +147,7 @@ void initialize() {
 	pros::lcd::register_btn1_cb(on_center_button);
 
 	armsensor.set_position(0);
-	armsensor.reset_position();
+	// armsensor.reset_position();
 	//colorsensor.set_led_pwm(80);
 	colorsensor.disable_gesture();
 
@@ -185,17 +185,17 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
-	pros::Task screen_task([&]() {
-        while (true) {
-            // print robot location to the brain screen
-			pros::lcd::set_text(5, "X: "  +  std::to_string(chassis.getPose().x)); // print the x position
-            pros::lcd::set_text(6, "Y: " + std::to_string(chassis.getPose().y)); // print the y position
-        	pros::lcd::set_text(7, "Angle: " + std::to_string(chassis.getPose().theta)); // print the heading
-			// pros::lcd::set_text(1, "Angle 2: " + std::to_string(imu.get_heading()));
-            // delay to save resources
-            pros::delay(20);
-        }
-    });
+	// pros::Task screen_task([&]() {
+    //     while (true) {
+    //         // print robot location to the brain screen
+	// 		pros::lcd::set_text(5, "X: "  +  std::to_string(chassis.getPose().x)); // print the x position
+    //         pros::lcd::set_text(6, "Y: " + std::to_string(chassis.getPose().y)); // print the y position
+    //     	pros::lcd::set_text(7, "Angle: " + std::to_string(chassis.getPose().theta)); // print the heading
+	// 		// pros::lcd::set_text(1, "Angle 2: " + std::to_string(imu.get_heading()));
+    //         // delay to save resources
+    //         pros::delay(20);
+    //     }
+    // });
 
 	//pros::rtos::Task my_task_fn(color_sort_red_team);
 	//pros::rtos::Task my_task_fn(color_sort_blue_team);
@@ -215,11 +215,11 @@ void autonomous() {
 
 	//ELIM PROVS
 
-	//peakpikesblueneg5ringelim(); 
+	peakpikesblueneg5ringelim(); 
 	//mogorushblue(); //NOT DONE
 
 	//peakpikesredpos4ringred(); NOT CONSISTENT
-	//peakpikesredneg5ringelim();
+	// peakpikesredneg5ringelim();
 
 
 
@@ -276,7 +276,8 @@ void autonomous() {
 	//testbluepos();	
 	//pikepeakringrushblue();
 	// peakpikesredpos4ringred();
-	bramptonBluePosQual();
+	// bramptonBluePosQual();
+	bramptonRedPosQual();
 
 // 	Auton selector;
 //     switch (selector::auton) {
@@ -345,15 +346,17 @@ void opcontrol() {
 	
 	arm.set_brake_mode(MOTOR_BRAKE_HOLD);
 
+	pros::lcd::set_text(7, std::to_string(armsensor.get_angle()));
+
 	// armsensor.set_position(0);
 	// armsensor.reset_position();
 
 	
 	pros::rtos::Task my_task_2(setArmLoad1);
 	//pros::rtos::Task my_task(color_sort_blue_team);
-	pros::rtos::Task my_task(color_sort_red_team);
+	// pros::rtos::Task my_task(color_sort_red_team);
 
-	//skillsdriver();
+	// skillsdriver();
 
 	// pros::Task screen_task([&]() {
     //     while (true) {

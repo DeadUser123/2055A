@@ -92,7 +92,7 @@ void setArmLoadNew()
 }
 
 const int numstates = 2;
-int states[numstates] = {0, 800};
+int states[numstates] = {0, 1000};
 int currState = 0;
 
 
