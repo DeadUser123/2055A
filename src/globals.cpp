@@ -26,7 +26,7 @@ int HOR_TRACKING_PORT = 16;
 int INERTIAL_PORT = 17;
 
 // Pneumatics
-char CLAMP_PORT = 'H';
+char CLAMP_PORT = 'A';
 char CLAW_PORT = 'G';
 char DOINKER_PORT = 'F';
 
@@ -65,7 +65,7 @@ pros::Controller controller(pros::E_CONTROLLER_MASTER);
 //Pneumatics
 // pros::adi::DigitalOut tilt('A', true);
 // pros::adi::DigitalOut doinker('B', false);
-pros::adi::DigitalOut clamp('H', true);
+pros::adi::DigitalOut clamp('A', true);
 pros::adi::DigitalOut claw(CLAW_PORT, false);
 pros::adi::DigitalOut doinker('F', false);
 

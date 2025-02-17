@@ -202,12 +202,13 @@ void autonomous() {
 
 	// set position to x:0, y:0, heading:0
 
-	// skillsprog(); // FOR PIKES PEAK
-	//blueposelim();
+ 	//blueposelim();
+	// skillsprog(); // FOR PROVINCIALS
 
 
 	//QUALIFICATION PROVS
-	
+	// bramptonBluePosQual();
+	// bramptonRedPosQual();
 
 
 
@@ -215,7 +216,7 @@ void autonomous() {
 
 	//ELIM PROVS
 
-	peakpikesblueneg5ringelim(); 
+	peakpikesblueneg5ringelim();
 	//mogorushblue(); //NOT DONE
 
 	//peakpikesredpos4ringred(); NOT CONSISTENT
@@ -276,8 +277,7 @@ void autonomous() {
 	//testbluepos();	
 	//pikepeakringrushblue();
 	// peakpikesredpos4ringred();
-	// bramptonBluePosQual();
-	bramptonRedPosQual();
+
 
 // 	Auton selector;
 //     switch (selector::auton) {

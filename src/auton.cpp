@@ -1343,7 +1343,7 @@ void newskillsprog() {
     
 }
 
-// FOR PIKES PEAK
+// FOR PROVINCIALS
 void skillsprog() 
 {
 
@@ -1369,7 +1369,9 @@ void skillsprog()
     //chassis.moveToPoint(-11,34.5,1000,{},false);
     chassis.moveToPoint(29, 40, 1800, {}, true); //29,44.4
     // chassis.waitUntil(5);
+    setIntake(-50);
     setarm();
+    setIntake(127);
     chassis.waitUntilDone();
     pros::delay(500);
     // //chassis.moveToPose(25,48,90,2900,{}, false);
@@ -1398,7 +1400,7 @@ void skillsprog()
     chassis.turnToHeading(0, 500, {}, false);
     setIntake(127);
 
-    chassis.moveToPoint(chassis.getPose().x, chassis.getPose().y + 36, 2000, {.maxSpeed=65}, false);
+    chassis.moveToPoint(chassis.getPose().x, chassis.getPose().y + 36, 1000, {.maxSpeed=40}, false);
     setDrive(5500,5500);
     pros::delay(300);
     setDrive(0,0);
@@ -1410,21 +1412,34 @@ void skillsprog()
     arm.move(-12000);
     pros::delay(850);
     chassis.turnToHeading(270,500,{},false);
+    setIntake(-50);
     arm.move_velocity(0);
-    chassis.moveToPoint(-46,51,1300,{.maxSpeed=60},false);
+    chassis.moveToPoint(-46,51,1300,{.maxSpeed=60},true);
+    chassis.waitUntil(10);
+    setIntake(127);
+    chassis.waitUntilDone();
+    // pros::delay(100);
+    // setIntake(-50);
+    // pros::delay(400);
+    // setIntake(127);
     pros::delay(500);
-    chassis.moveToPoint(-51, 51, 750, {.maxSpeed=60}, false);
+    chassis.moveToPoint(-46, 51, 750, {.maxSpeed=60}, false);
     pros::delay(500);
     chassis.moveToPoint(-59,51,1300,{.maxSpeed=85},false);
     chassis.setPose(-57.5,47.5,chassis.getPose().theta);
 
     pros::delay(250);
+    setIntake(-50);
     chassis.turnToHeading(33,600,{},false);
-    chassis.moveToPoint(-50,59,700);
+    setIntake(127);
+    // pros::delay(1000); // for testing
+    chassis.moveToPoint(-53,59,700);
+    // pros::delay(1000); // for testing
     pros::delay(250);
     chassis.turnToHeading(90,400);
     chassis.moveToPoint(-60,59,700,{.forwards = false},false);
     chassis.turnToHeading(135,500,{},false);
+    chassis.moveToPoint(-63, 62, 600, {.forwards=false}, false);
     clamp.set_value(true);
     setIntake(0);
 
@@ -1433,13 +1448,14 @@ void skillsprog()
     // // setIntake(0);
     //chassis.turnToHeading(0,450,{},false);
 
-    chassis.moveToPose(-51,52.5,chassis.getPose().theta,1500,{}, false);
-    chassis.turnToHeading(0,500,{},false);
+    chassis.moveToPose(-51,52.5,chassis.getPose().theta,2500,{}, false);
+    chassis.turnToHeading(0,1000,{},false);
+    pros::delay(1000); // for testing
     //chassis.swingToHeading(0, DriveSide::RIGHT, 400, {.direction = AngularDirection::CW_CLOCKWISE}, false);
     // chassis.moveToPose(-48.5,-10,0,1500,{.forwards=false},false);
     // chassis.moveToPose(-48.5,-24,0,1000,{.forwards=false},false);
-    chassis.moveToPoint(-53,-13,1500,{.forwards = false},false);
-    chassis.moveToPoint(-53,-23,1300,{.forwards = false, .maxSpeed = 55},true);
+    chassis.moveToPoint(-56,-13,1500,{.forwards = false},false);
+    chassis.moveToPoint(-56,-23,1300,{.forwards = false, .maxSpeed = 55},true);
     chassis.waitUntil(8);
     clamp.set_value(false);
     chassis.waitUntilDone();
@@ -2093,13 +2109,15 @@ void peakpikesblueneg5ringelim() {
     pros::delay(150);
     setIntake(127);
     pros::delay(100);
-    setIntake(-50); //if anyone asks abt this antijam, it is 100% necessary
+    // setIntake(-50); //if anyone asks abt this antijam, it is 100% necessary
 
     //go mid
     chassis.turnToHeading(315,500,{},false);
-    setIntake(127);
+    setIntake(-50); //if anyone asks abt this antijam, it is 100% necessary
+    //setIntake(127);
     pros::delay(100);
-    chassis.moveToPose(12,60,1,2500,{.maxSpeed=80},false); //DO y=62 IF FIRST STAGE ShiTs ITSELF
+    setIntake(127);
+    chassis.moveToPose(14,60,1,2500,{.maxSpeed=80},false); //DO y=62 IF FIRST STAGE ShiTs ITSELF (also )
     setIntake(-50);
     pros::delay(300);
     setIntake(127);
@@ -2120,7 +2138,7 @@ void peakpikesblueneg5ringelim() {
 
     //go corner
     //chassis.moveToPose(72,62,90,2000,{.maxSpeed=80},false);
-    chassis.moveToPoint(56,53,1500,{.maxSpeed=90},false);//test maxspeed // originally 50, 53
+    chassis.moveToPoint(56,51,1500,{.maxSpeed=90},false);//test maxspeed // originally 50, 53
     pros::delay(1000);
     setDrive(6000,4000);
     pros::delay(1000);
@@ -2129,13 +2147,21 @@ void peakpikesblueneg5ringelim() {
     pros::delay(200);
     chassis.moveToPoint(chassis.getPose().x-3,chassis.getPose().y-1,500,{},false);
     pros::delay(200);
+    
+    //for QUAL:
+    arm.move_velocity(600);
+    chassis.moveToPoint(9,14,2000,{},false);
+
+    //for ELIM:
+    /*
     chassis.moveToPoint(35,55,1000,{.forwards=false},true);
     pros::delay(150);
     chassis.turnToHeading(160, 750, {}, false);
     chassis.moveToPose(47, -32, 180, 5000, {.minSpeed=100}, false);
+    */
 
-    // arm.move_velocity(600);
-    // chassis.moveToPoint(9,14,2000,{},false);
+
+
     /*
     //go for mid ring
     chassis.turnToHeading(150,300,{},false);
