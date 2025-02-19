@@ -42,7 +42,7 @@ void bramptonBluePosQual(){
     setIntake(-50);
     // setIntake(0);
 
-    chassis.turnToHeading(107, 450, {}, false);
+    chassis.turnToHeading(112, 450, {}, false);
     setIntake(127);
     chassis.moveToPoint(58, -60, 2000, {}, false);
     // pros::delay(10000);
@@ -53,9 +53,12 @@ void bramptonBluePosQual(){
     pros::delay(400);
     setDrive(0, 0);
     pros::delay(1000);
-    chassis.turnToHeading(325, 400, {}, false);
+    chassis.turnToHeading(310, 400, {}, false);
+    chassis.moveToPoint(9,-15, 1700, {}, false);
+    pros::delay(500);
+    doinker.set_value(true);
+    chassis.moveToPoint(19,-28, 1500, {.forwards=false}, false);
     arm.move_velocity(6000);
-    chassis.moveToPoint(13,-18, 1700, {}, true);
     chassis.waitUntil(36);
     arm.move_velocity(0);
     chassis.waitUntilDone();
