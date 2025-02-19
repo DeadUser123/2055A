@@ -207,7 +207,7 @@ void autonomous() {
 
 
 	//QUALIFICATION PROVS
-	bramptonBluePosQual();
+	provincialsPosQualNoWallStake();
 	// bramptonRedPosQual();
 
 

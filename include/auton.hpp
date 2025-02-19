@@ -55,5 +55,5 @@ void ethanredpositivequal();
 void skillsprog();
 void skillsauton();
 void gatewaytestblueneg();
-void bramptonBluePosQual();
+void provincialsPosQualNoWallStake();
 void bramptonRedPosQual();
