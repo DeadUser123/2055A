@@ -53,11 +53,11 @@ void provincialsPosQualNoWallStake(){
     setDrive(0, 0);
     pros::delay(1000);
     chassis.turnToHeading(310, 400, {}, false);
-    chassis.moveToPoint(9,-15, 1700, {}, false);
-    pros::delay(500);
-    doinker.set_value(true);
-    chassis.moveToPoint(19,-28, 1500, {.forwards=false}, false);
     arm.move_velocity(6000);
+    chassis.moveToPoint(18,-27,1500, {}, false);
+    pros::delay(200);
+    // doinker.set_value(true);
+    // chassis.moveToPoint(19,-28, 1500, {.forwards=false}, false);
     chassis.waitUntil(36);
     arm.move_velocity(0);
     chassis.waitUntilDone();
