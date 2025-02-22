@@ -216,10 +216,10 @@ void autonomous() {
 
 	//ELIM PROVS
 
-	peakpikesblueneg5ringelim();
+	// peakpikesblueneg5ringelim();
 	//mogorushblue(); //NOT DONE
 
-	//peakpikesredpos4ringred(); NOT CONSISTENT
+	peakpikesredpos4ringred();
 	// peakpikesredneg5ringelim();
 
 
