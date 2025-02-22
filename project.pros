@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "red elim",
+    "project_name": "blue elim",
     "target": "v5",
     "templates": {
       "EZ-Template": {

@@ -14,7 +14,7 @@
 PUT GATEWAY AUTONS BELOW THIS
 */
 
-void peakpikesredpos4ringred() { //4ring
+void pos4ringred() { //4ring
     
     // chassis.setPose(-57,-13,310);
     // //scoreAllianceStake();
@@ -26,8 +26,9 @@ void peakpikesredpos4ringred() { //4ring
     chassis.moveToPoint(-23,-23.5, 1000, {.forwards = false, .maxSpeed = 68}, false);
     pros::delay(105);
     clamp.set_value(false);
-    setIntake(127);
     pros::delay(125);
+    setIntake(127);
+    pros::delay(75);
     //pros::delay(8000);
     chassis.turnToHeading(36, 600, {}, false);
     setIntake(0);
@@ -82,6 +83,80 @@ void peakpikesredpos4ringred() { //4ring
     doinker.set_value(true);
     setIntake(-127);
     chassis.turnToHeading(270, 1800, {}, false);
+    doinker.set_value(false);
+
+}
+
+void pos4ringblue() { //4ring
+    
+    // chassis.setPose(-57,-13,310);
+    // //scoreAllianceStake();
+
+    // chassis.moveToPoint(-43.8,-23.5, 800, {.forwards = false}, false);
+    // chassis.turnToHeading(270, 550, {}, false);
+
+    chassis.setPose(50,-22.5,-270);
+    chassis.moveToPoint(23,-23.5, 1000, {.forwards = false, .maxSpeed = 68}, false);
+    pros::delay(105);
+    clamp.set_value(false);
+    pros::delay(125);
+    setIntake(127);
+    //pros::delay(8000);
+    pros::delay(75);
+    chassis.turnToHeading(-36, 600, {}, false);
+    setIntake(0);
+
+    // //Get Mobile Goal
+    chassis.moveToPoint(15,-18.4, 700, {}, false); //-15.6,-11.6
+    chassis.turnToHeading(-77, 500, {}, false); //42
+    pros::delay(200);
+    doinker.set_value(true);
+    pros::delay(100);
+    setDrive(2000,2000);
+    pros::delay(100);
+    setDrive(0,0);
+    pros::delay(200);
+
+    // chassis.turnToHeading(45, 500, {}, false);
+    chassis.moveToPoint(35,-30.8,1500,{.forwards = false, .maxSpeed = 60},false);
+    chassis.turnToHeading(-100, 600, {}, false);
+    doinker.set_value(false);
+
+    chassis.turnToHeading(-65, 500, {}, false);
+    setIntake(127);
+    chassis.moveToPoint(19.5,-26, 600,{},false);
+    chassis.turnToHeading(-90, 500, {}, false);
+
+    chassis.moveToPoint(23.5, chassis.getPose().y, 800, {.forwards = false}, false);
+    chassis.turnToHeading(-180, 600, {}, false);
+    chassis.moveToPoint(23.5, -44, 800, {.minSpeed = 127}, false);
+    chassis.moveToPoint(23.5, -25, 800, {.forwards = false}, false);
+    pros::delay(300);
+    // //chassis.moveToPoint(chassis.getPose().x, -36.6, 800, {.forwards = false}, false);
+
+    chassis.turnToHeading(-90, 700, {}, false);
+    chassis.moveToPoint(67,-32, 800, {.forwards = false}, false);
+    chassis.turnToHeading(-200, 700, {}, false);
+
+    setDrive(5000,5000);
+    pros::delay(2050);
+
+    // // chassis.setPose(-56,-58,chassis.getPose().theta);
+
+    setDrive(-9000,-9000);
+    pros::delay(300);
+    setDrive(0,0);
+
+    // // // chassis.turnToHeading(260, 600, {}, false);
+    // pros::delay(50);
+    // // pros::delay(100);
+
+    chassis.turnToHeading(-90, 1800, {.direction = AngularDirection::CCW_COUNTERCLOCKWISE}, false);
+    chassis.moveToPoint(35, chassis.getPose().y, 1000, {}, true);
+    clamp.set_value(true);
+    doinker.set_value(true);
+    setIntake(-127);
+    chassis.turnToHeading(-270, 1800, {}, false);
     doinker.set_value(false);
 
 }

@@ -25,7 +25,7 @@ void skillsdriver();
 void peakpikesredneg5ringelim();
 
 void pikepeakringrushblue();
-void peakpikesredpos4ringred();
+// void peakpikesredpos4ringred();
 void peakpikesredneg3ringqual();
 void peakpikesblueneg5ringelim();
 void peakpikesblueneg3ringqual();
@@ -57,3 +57,6 @@ void skillsauton();
 void gatewaytestblueneg();
 void provincialsPosQualNoWallStake();
 void bramptonRedPosQual();
+
+void pos4ringred();
+void pos4ringblue();

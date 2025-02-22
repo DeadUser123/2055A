@@ -219,7 +219,8 @@ void autonomous() {
 	// peakpikesblueneg5ringelim();
 	//mogorushblue(); //NOT DONE
 
-	peakpikesredpos4ringred();
+	// pos4ringred();
+	pos4ringblue();
 	// peakpikesredneg5ringelim();
 
 
