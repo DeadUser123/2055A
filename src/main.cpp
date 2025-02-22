@@ -203,11 +203,11 @@ void autonomous() {
 	// set position to x:0, y:0, heading:0
 
  	//blueposelim();
-	// skillsprog(); // FOR PROVINCIALS
+	//skillsprog(); // FOR PROVINCIALS
 
 
 	//QUALIFICATION PROVS
-	provincialsPosQualNoWallStake();
+	//provincialsPosQualNoWallStake();
 	// bramptonRedPosQual();
 
 
@@ -216,7 +216,7 @@ void autonomous() {
 
 	//ELIM PROVS
 
-	//peakpikesblueneg5ringelim();
+	peakpikesblueneg5ringelim();
 	//mogorushblue(); //NOT DONE
 
 	//peakpikesredpos4ringred(); NOT CONSISTENT
@@ -356,7 +356,7 @@ void opcontrol() {
 	//pros::rtos::Task my_task(color_sort_blue_team);
 	// pros::rtos::Task my_task(color_sort_red_team);
 
-	// skillsdriver();
+	skillsdriver();
 
 	// pros::Task screen_task([&]() {
     //     while (true) {
