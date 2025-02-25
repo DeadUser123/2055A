@@ -23,6 +23,7 @@ void testbluepos();
 void intake();
 void skillsdriver();
 void peakpikesredneg5ringelim();
+void provposblueelim();
 
 void pikepeakringrushblue();
 // void peakpikesredpos4ringred();

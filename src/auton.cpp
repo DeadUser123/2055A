@@ -2507,14 +2507,11 @@ void skillsdriver() {
 
     chassis.setPose(-54, -1.5, 90);
     setIntake(100);
-    pros::delay(200);
+    pros::delay(100);
     setIntake(0);
-    chassis.moveToPoint(-41,-1.5,800, {.maxSpeed = 120}, true);
-    chassis.turnToHeading(180,500, {}, true);
-    chassis.moveToPoint(-41,22,1200, {.forwards = false, .maxSpeed = 65}, true);
-    chassis.waitUntil(20);
-    clamp.set_value(false);
-    chassis.waitUntilDone();
+    chassis.moveToPoint(-41,-1.5,700, {}, false);
+    chassis.turnToHeading(180,500, {}, false);
+
 
 }
 
@@ -2602,4 +2599,77 @@ void peakpikesredneg5ringelim() {
     
 }
 
+void provposblueelim() {
+
+    chassis.setPose(48, -33, -112);
+    setIntake(127);
+    chassis.moveToPoint(21,-43, 2000, {.minSpeed = 120}, false); //19, -44
+    doinker.set_value(true);
+
+    setIntake(0);
+    chassis.moveToPoint(25,-42,600, {.forwards = false}, false);
+    chassis.turnToHeading(180, 500, {}, false);
+    doinker.set_value(false);
+    chassis.turnToHeading(180, 600, {}, false);
+
+    chassis.moveToPoint(chassis.getPose().x, -22, 700, {.forwards = false, .maxSpeed = 70}, false);
+    chassis.waitUntil(19);
+    clamp.set_value(false);
+    pros::delay(100);
+    setIntake(127);
+
+    chassis.turnToHeading(90, 750, {}, false);
+    // pros::delay(1000);
+    chassis.moveToPoint(48,-22, 800, {}, false);
+
+    // chassis.turnToHeading(-63, 500, {}, false);
+    // chassis.moveToPoint(15,-14, 700, {}, false);
+    //chassis.turnToHeading(-66, 500, {}, false);
+    //doinker.set_value(true);
+
+    // chassis.moveToPoint(28,-22, 600, {.forwards = false}, false);
+    // chassis.turnToHeading(90, 800, {.direction = AngularDirection::CCW_COUNTERCLOCKWISE}, false);
+    // setIntake(127);
+    // doinker.set_value(false);
+
+    // chassis.turnToHeading(100, 600, {}, false);
+    // pros::delay(100);
+    // chassis.moveToPoint(54, -25, 1000, {.maxSpeed = 70}, false);
+
+    chassis.turnToHeading(162, 900, {}, false);
+    setDrive(9000, 9000);
+    pros::delay(1900);
+    setDrive(-5000, -5000);
+    pros::delay(400);
+    setIntake(0);
+    doinker.set_value(true);
+    setDrive(5000, 5000);
+    pros::delay(300);
+
+    chassis.turnToHeading(30, 1500, {.direction = AngularDirection::CCW_COUNTERCLOCKWISE}, false);
+    doinker.set_value(false);
+    chassis.turnToHeading(-90, 800, {}, false);
+
+    chassis.setPose(44, -49, -90);
+    chassis.moveToPoint(27,-49, 1200, {}, false);
+    chassis.waitUntil(10);
+    clamp.set_value(true);
+
+    chassis.turnToHeading(-275, 800, {}, false);
+    chassis.moveToPoint(16,-50, 900, {.forwards = false, .maxSpeed = 75}, false);
+    clamp.set_value(false);
+    setIntake(127);
+
+
+
+
+
+
+
+
+
+
+
+
+}
     

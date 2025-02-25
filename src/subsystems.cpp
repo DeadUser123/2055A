@@ -49,7 +49,7 @@ void setArmLoadNew()
 {
     while (true)
     {
-        if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B))
+        if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A))
         {
             arm.set_brake_mode(MOTOR_BRAKE_HOLD);
             currentAngle = armsensor.get_angle();
@@ -76,23 +76,23 @@ void setArmLoadNew()
             // arm.set_brake_mode(MOTOR_BRAKE_HOLD);
             // arm.move_velocity(0);
         }
-        else
-        {
-            // hold arm in place if in loading position
-            // if (hold)
-            // {
-            //     // 100 too fast, 40 too fast, 20 too fast, 10 too fast, 5 too fast, 2 too fast
-            //     // this is the velocity at which the arm will move upwards to hold
-            //     arm.move_velocity(0);
-            // }
-            driveArm();
-            pros::delay(1);
-        }
+        // else
+        // {
+        //     // hold arm in place if in loading position
+        //     // if (hold)
+        //     // {
+        //     //     // 100 too fast, 40 too fast, 20 too fast, 10 too fast, 5 too fast, 2 too fast
+        //     //     // this is the velocity at which the arm will move upwards to hold
+        //     //     arm.move_velocity(0);
+        //     // }
+        //     driveArm();
+        //     pros::delay(1);
+        // }
     }
 }
 
 const int numstates = 2;
-int states[numstates] = {0, 1000};
+int states[numstates] = {0, 1000}; //1000
 int currState = 0;
 
 
@@ -231,7 +231,7 @@ void driveArm()
 {
     int arm_power = 600 * (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L1));
 
-    if (armsensor.get_angle() > 13500 && armsensor.get_angle() < 30800) {
+    if (armsensor.get_angle() > 13500 && armsensor.get_angle() < 20800) {
 
         if (arm_power > 0)
         {

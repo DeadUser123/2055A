@@ -220,7 +220,8 @@ void autonomous() {
 	//mogorushblue(); //NOT DONE
 
 	// pos4ringred();
-	pos4ringblue();
+	//pos4ringblue();
+	provposblueelim();
 	// peakpikesredneg5ringelim();
 
 
@@ -354,6 +355,7 @@ void opcontrol() {
 
 	
 	pros::rtos::Task my_task_2(setArmLoad1);
+	//pros::rtos::Task my_task_3(setArmLoadNew);
 	//pros::rtos::Task my_task(color_sort_blue_team);
 	// pros::rtos::Task my_task(color_sort_red_team);
 
