@@ -1583,7 +1583,7 @@ void skillsprog()
     chassis.turnToHeading(33,600,{},false);
     setIntake(127);
     // pros::delay(1000); // for testing
-    chassis.moveToPoint(-53,59,700);
+    chassis.moveToPoint(-53,59,1000, {}, false);
     // pros::delay(1000); // for testing
     pros::delay(250);
     chassis.turnToHeading(90,400);
@@ -1598,19 +1598,19 @@ void skillsprog()
     // // setIntake(0);
     //chassis.turnToHeading(0,450,{},false);
 
-    chassis.moveToPose(-51,52.5,chassis.getPose().theta,2500,{}, false);
+    chassis.moveToPose(-54,56,chassis.getPose().theta,2500,{}, false);
     chassis.turnToHeading(0,1000,{},false);
     pros::delay(1000); // for testing
     //chassis.swingToHeading(0, DriveSide::RIGHT, 400, {.direction = AngularDirection::CW_CLOCKWISE}, false);
     // chassis.moveToPose(-48.5,-10,0,1500,{.forwards=false},false);
     // chassis.moveToPose(-48.5,-24,0,1000,{.forwards=false},false);
-    chassis.moveToPoint(-56,-13,1500,{.forwards = false},false);
-    chassis.moveToPoint(-56,-23,1300,{.forwards = false, .maxSpeed = 55},true);
-    chassis.waitUntil(8);
+    chassis.moveToPoint(-54,16,2000,{.forwards = false},false);
+    chassis.moveToPoint(-54,-23,3000,{.forwards = false, .maxSpeed = 55},true);
+    chassis.waitUntil(28);
     clamp.set_value(false);
     chassis.waitUntilDone();
     pros::delay(250);
-    chassis.setPose(-46,-30,0);
+    chassis.setPose(-46,-30,chassis.getPose().theta);
 
 
     // chassis.turnToHeading(90,600,{},false);
@@ -1653,6 +1653,7 @@ void skillsprog()
     chassis.turnToHeading(45,500,{},false);
 
     clamp.set_value(true);
+    pros::delay(250);
     chassis.moveToPoint(-46.2,-46,800,{}, false);
     chassis.turnToHeading(90,500,{},false);
     chassis.moveToPoint(0,-45,1600, {}, false);

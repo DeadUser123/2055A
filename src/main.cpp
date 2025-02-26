@@ -203,7 +203,7 @@ void autonomous() {
 	// set position to x:0, y:0, heading:0
 
  	//blueposelim();
-	//skillsprog(); // FOR PROVINCIALS
+	skillsprog(); // FOR PROVINCIALS
 
 
 	//QUALIFICATION PROVS
@@ -221,7 +221,7 @@ void autonomous() {
 
 	// pos4ringred();
 	//pos4ringblue();
-	provposblueelim();
+	// provposblueelim();
 	// peakpikesredneg5ringelim();
 
 
