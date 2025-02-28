@@ -359,7 +359,7 @@ void opcontrol() {
 	//pros::rtos::Task my_task(color_sort_blue_team);
 	// pros::rtos::Task my_task(color_sort_red_team);
 
-	//skillsdriver();
+	skillsdriver();
 
 	// pros::Task screen_task([&]() {
     //     while (true) {
