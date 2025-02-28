@@ -202,7 +202,7 @@ void autonomous() {
 
 	// set position to x:0, y:0, heading:0
 
- 	//blueposelim();
+ 	// blueposelim();
 	skillsprog(); // FOR PROVINCIALS
 
 
@@ -220,7 +220,7 @@ void autonomous() {
 	//mogorushblue(); //NOT DONE
 
 	// pos4ringred();
-	//pos4ringblue();
+	// pos4ringblue();
 	// provposblueelim();
 	// peakpikesredneg5ringelim();
 
@@ -241,7 +241,7 @@ void autonomous() {
 	// peakpikesbluepos3ringqual();
 
 
-	//peakpikesblueneg5ringelim();
+	// peakpikesblueneg5ringelim();
 	//pikepeakringrushblue();
 	//peakpikesredpos4ringred(); //slot 7
 	//ppblueneg(); //slot 6
@@ -359,7 +359,7 @@ void opcontrol() {
 	//pros::rtos::Task my_task(color_sort_blue_team);
 	// pros::rtos::Task my_task(color_sort_red_team);
 
-	skillsdriver();
+	//skillsdriver();
 
 	// pros::Task screen_task([&]() {
     //     while (true) {
