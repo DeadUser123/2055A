@@ -203,27 +203,44 @@ void autonomous() {
 	// set position to x:0, y:0, heading:0
 
  	// blueposelim();
+	// provsbluenegqual();
 	skillsprog(); // FOR PROVINCIALS
 
 
 	//QUALIFICATION PROVS
-	//provincialsPosQualNoWallStake();
-	// bramptonRedPosQual();
+	//////////////////////////////////////////////////
 
+	//provsrednegqual();
+	// provincialsBluePosQual();
+	//provincialsRedPosQual
 
-
+	///////////////////////////////////////////////////
 
 
 	//ELIM PROVS
+	///////////////////////////////////////////////////
 
 	// peakpikesblueneg5ringelim();
-	//mogorushblue(); //NOT DONE
-
-	// pos4ringred();
-	// pos4ringblue();
-	// provposblueelim();
 	// peakpikesredneg5ringelim();
 
+	// provposblueelim();
+
+
+	//mogorushblue(); //NOT DONE
+	//blueposelim();
+	// pos4ringred();
+	// pos4ringblue();
+
+	///////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+	// bramptonRedPosQual();
 
 
 
@@ -359,7 +376,7 @@ void opcontrol() {
 	//pros::rtos::Task my_task(color_sort_blue_team);
 	// pros::rtos::Task my_task(color_sort_red_team);
 
-	skillsdriver();
+	// skillsdriver();
 
 	// pros::Task screen_task([&]() {
     //     while (true) {

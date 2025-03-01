@@ -6,6 +6,7 @@ void gatewayRedMogoRushQual();
 void gatewayBlueMogoRushQual();
 // put red negative qual here:
 // put blue negative qual here:
+void provsrednegqual();
 void gatewayRedSoloAWP();
 void gatewayBlueSoloAWP();
 void gatewayRedPosElim();
@@ -56,7 +57,8 @@ void ethanredpositivequal();
 void skillsprog();
 void skillsauton();
 void gatewaytestblueneg();
-void provincialsPosQualNoWallStake();
+void provincialsBluePosQual();
+void provincialsRedPosQual();
 void bramptonRedPosQual();
 
 void pos4ringred();
