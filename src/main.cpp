@@ -211,8 +211,8 @@ void autonomous() {
 	//////////////////////////////////////////////////
 
 	//provsrednegqual();
-	// provincialsBluePosQual();
-	provincialsRedPosQual();
+	//provincialsBluePosQual();
+	// provincialsRedPosQual();
 
 	///////////////////////////////////////////////////
 
@@ -220,15 +220,16 @@ void autonomous() {
 	//ELIM PROVS
 	///////////////////////////////////////////////////
 
-	// peakpikesblueneg5ringelim();
-	// peakpikesredneg5ringelim();
+	peakpikesblueneg5ringelim();
+	//peakpikesredneg5ringelim();
 
-	// provposblueelim();
+	//provposblueelim();
+	//provsredelim();
 
 
 	//mogorushblue(); //NOT DONE
 	//blueposelim();
-	// pos4ringred();
+	//pos4ringred();
 	// pos4ringblue();
 
 	///////////////////////////////////////////////////

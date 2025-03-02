@@ -45,7 +45,7 @@ void pos4ringred() { //4ring
     pros::delay(200);
 
     // chassis.turnToHeading(45, 500, {}, false);
-    chassis.moveToPoint(-35,-34.8,1500,{.forwards = false, .maxSpeed = 60},false);
+    chassis.moveToPoint(-35,-34.8,1500,{.forwards = false, .maxSpeed = 100},false); //60
     doinker.set_value(false);
     chassis.turnToHeading(72, 600, {}, false);
 
@@ -77,13 +77,17 @@ void pos4ringred() { //4ring
     // pros::delay(50);
     // // pros::delay(100);
 
-    chassis.turnToHeading(90, 1800, {.direction = AngularDirection::CCW_COUNTERCLOCKWISE}, false);
-    chassis.moveToPoint(-35, chassis.getPose().y, 1000, {}, true);
+    chassis.turnToHeading(90, 600, {.direction = AngularDirection::CCW_COUNTERCLOCKWISE}, false);
+    // chassis.moveToPoint(-35, chassis.getPose().y, 1000, {}, true);
+    // clamp.set_value(true);
+    // doinker.set_value(true);
+    // setIntake(-127);
+    // chassis.turnToHeading(270, 1800, {}, false);
+    // doinker.set_value(false);
+
+    chassis.moveToPoint(-18, chassis.getPose().y, 1800, {}, true);
     clamp.set_value(true);
-    doinker.set_value(true);
-    setIntake(-127);
-    chassis.turnToHeading(270, 1800, {}, false);
-    doinker.set_value(false);
+
 
 }
 
@@ -241,7 +245,7 @@ void provincialsBluePosQual(){
     chassis.turnToHeading(180, 600, {}, false); 
     // chassis.setPose(51, -23, 90);
 
-    chassis.moveToPoint(57.375, -24, 1000, {}, false);
+    chassis.moveToPoint(57.375, -26, 1000, {}, false);
     chassis.turnToHeading(90, 650, {}, false);
     chassis.moveToPoint(23, -24, 1500, {.forwards=false, .maxSpeed=60}, true);
     chassis.waitUntil(34);
@@ -256,7 +260,11 @@ void provincialsBluePosQual(){
     // setIntake(0);
 
     chassis.turnToHeading(112, 450, {}, false);
-    setIntake(127);
+    // setIntake(127);
+    setDrive(6000,6000);
+    pros::delay(350);
+    setDrive(0,0);
+    chassis.turnToHeading(135,300,{},false);
     chassis.moveToPoint(58, -60, 2000, {}, false);
     // pros::delay(10000);
     setDrive(6000,6000);
@@ -2414,6 +2422,7 @@ void peakpikesblueneg5ringelim() {
     chassis.setPose(51,24,90);
     chassis.moveToPoint(28,24,1500,{.forwards=false,.maxSpeed=80},false);//60
     //chassis.waitUntil(17);
+    chassis.waitUntilDone();
     clamp.set_value(false);
     pros::delay(100);
     setIntake(127);
@@ -2440,6 +2449,7 @@ void peakpikesblueneg5ringelim() {
 
     //go corner
     chassis.moveToPoint(56,51,2000,{.maxSpeed=90},false);//test maxspeed // originally 50, 53
+    chassis.turnToHeading(50,500,{},false);
     setDrive(6000,6000);
     pros::delay(700);
     setDrive(0,0);
@@ -2930,7 +2940,7 @@ void provposblueelim() {
 
     chassis.setPose(48, -33, -112);
     setIntake(127);
-    chassis.moveToPoint(21,-43, 2000, {.minSpeed = 120}, false); //19, -44
+    chassis.moveToPoint(19,-44,1600, {.minSpeed = 127}, false); //21, -43
     doinker.set_value(true);
 
     setIntake(0);
@@ -2982,8 +2992,8 @@ void provposblueelim() {
     chassis.waitUntil(10);
     clamp.set_value(true);
 
-    chassis.turnToHeading(-275, 800, {}, false);
-    chassis.moveToPoint(16,-50, 900, {.forwards = false, .maxSpeed = 75}, false);
+    chassis.turnToHeading(-270, 800, {}, false);
+    chassis.moveToPoint(11,-49, 900, {.forwards = false, .maxSpeed = 75}, false);
     clamp.set_value(false);
     setIntake(127);
 
@@ -3032,6 +3042,55 @@ void provsrednegqual() {
     chassis.turnToHeading(180, 450, {}, false);
 
     setDrive(7000,7000);
+
+}
+
+void provsredelim() {
+
+    chassis.setPose(-48, -58, 68);
+    setIntake(127);
+    chassis.moveToPoint(-20,-48, 1200, {.minSpeed = 127}, false); //21, -43
+    doinker.set_value(true);
+
+    setIntake(0);
+    chassis.moveToPoint(-25,-50,600, {.forwards = false}, false);
+    chassis.turnToHeading(180, 800, {}, false);
+    doinker.set_value(false);
+    chassis.turnToHeading(-45, 300, {}, false);
+
+    // chassis.moveToPoint(chassis.getPose().x, -20, 700, {.forwards = false, .maxSpeed = 70}, false);
+    // chassis.waitUntil(19);
+    // clamp.set_value(false);
+    // pros::delay(100);
+    // setIntake(127);
+
+    // chassis.turnToHeading(270, 750, {}, false);
+    // // pros::delay(1000);
+    // chassis.moveToPoint(-48,chassis.getPose().y, 1000, {}, false);
+
+    // chassis.turnToHeading(205, 900, {}, false);
+    // setDrive(9000, 9000);
+    // pros::delay(1900);
+    // setDrive(-5000, -5000);
+    // pros::delay(400);
+    // setIntake(0);
+    // doinker.set_value(true);
+    // setDrive(5000, 5000);
+    // pros::delay(300);
+
+    // chassis.turnToHeading(70, 1500, {.direction = AngularDirection::CCW_COUNTERCLOCKWISE}, false);
+    // doinker.set_value(false);
+    // chassis.turnToHeading(90, 800, {}, false);
+
+    // chassis.setPose(44, -49, 90);
+    // chassis.moveToPoint(-27,-49, 1200, {}, false);
+    // chassis.waitUntil(10);
+    // clamp.set_value(true);
+
+    // chassis.turnToHeading(270, 800, {}, false);
+    // chassis.moveToPoint(-11,-49, 900, {.forwards = false, .maxSpeed = 75}, false);
+    // clamp.set_value(false);
+    // setIntake(127);
 
 }
     
