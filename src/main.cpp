@@ -204,7 +204,7 @@ void autonomous() {
 
  	// blueposelim();
 	// provsbluenegqual();
-	skillsprog(); // FOR PROVINCIALS
+	// skillsprog(); // FOR PROVINCIALS
 
 
 	//QUALIFICATION PROVS
@@ -212,7 +212,7 @@ void autonomous() {
 
 	//provsrednegqual();
 	// provincialsBluePosQual();
-	//provincialsRedPosQual
+	provincialsRedPosQual();
 
 	///////////////////////////////////////////////////
 

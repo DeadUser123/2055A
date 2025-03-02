@@ -233,30 +233,26 @@ void provincialsBluePosQual(){
     clamp.set_value(true);
     chassis.setPose(57.375, -15, 180);
     chassis.moveToPoint(57.375, 2, 1200, {.forwards=false}, false);
-    chassis.turnToHeading(270, 800, {}, false);
-    setDrive(-4000, -4000);
-    pros::delay(350);
+    chassis.turnToHeading(90, 800, {}, false);
+    setDrive(6000, 6000);
+    pros::delay(400);
     setDrive(0, 0);
-    pros::delay(500);
-    setIntake(127);
-    pros::delay(300);
+    scoreAllianceStake();
     chassis.turnToHeading(180, 600, {}, false); 
     // chassis.setPose(51, -23, 90);
 
-    chassis.moveToPoint(57.375, -25, 1000, {}, false);
+    chassis.moveToPoint(57.375, -24, 1000, {}, false);
     chassis.turnToHeading(90, 650, {}, false);
-    chassis.moveToPoint(21, -25, 1500, {.forwards=false, .maxSpeed=60}, true);
-    chassis.waitUntil(26);
+    chassis.moveToPoint(23, -24, 1500, {.forwards=false, .maxSpeed=60}, true);
+    chassis.waitUntil(34);
 
     clamp.set_value(false); // clamp mogo
     chassis.waitUntilDone(); 
     pros::delay(100);
-    setIntake(127);
     chassis.turnToHeading(180, 600, {}, false);
     setIntake(127);
     chassis.moveToPoint(29, -44, 1800, {}, false);
     pros::delay(300);
-    setIntake(-50);
     // setIntake(0);
 
     chassis.turnToHeading(112, 450, {}, false);
@@ -267,13 +263,124 @@ void provincialsBluePosQual(){
     pros::delay(1000);
     setDrive(0,0);
     setDrive(-3000, -3000);
-    pros::delay(500);
+    pros::delay(400);
     setDrive(0, 0);
-    pros::delay(1000);
+    pros::delay(500);
     chassis.turnToHeading(310, 400, {}, false);
     arm.move_velocity(6000);
-    chassis.moveToPoint(18,-27,1500, {}, false);
+    chassis.moveToPoint(18,-27,1500, {}, true);
+    chassis.waitUntil(24);
+    setIntake(0);
     pros::delay(200);
+    // doinker.set_value(true);
+    // chassis.moveToPoint(19,-28, 1500, {.forwards=false}, false);
+    chassis.waitUntil(36);
+    arm.move_velocity(0);
+    chassis.waitUntilDone();
+
+
+    // KEVIN'S VERSION
+    // clamp.set_value(true);
+    // chassis.setPose(57.375, -15, 180);
+    // chassis.moveToPoint(57.375, 2, 1200, {.forwards=false}, false);
+    // chassis.turnToHeading(270, 800, {}, false);
+    // setDrive(-4000, -4000);
+    // pros::delay(350);
+    // setDrive(0, 0);
+    // pros::delay(500);
+    // setIntake(127);
+    // pros::delay(300);
+    // chassis.turnToHeading(180, 600, {}, false); 
+    // // chassis.setPose(51, -23, 90);
+
+    // chassis.moveToPoint(57.375, -25, 1000, {}, false);
+    // chassis.turnToHeading(90, 650, {}, false);
+    // chassis.moveToPoint(21, -25, 1500, {.forwards=false, .maxSpeed=60}, true);
+    // chassis.waitUntil(26);
+
+    // clamp.set_value(false); // clamp mogo
+    // chassis.waitUntilDone(); 
+    // pros::delay(100);
+    // setIntake(127);
+    // chassis.turnToHeading(180, 600, {}, false);
+    // setIntake(127);
+    // chassis.moveToPoint(29, -44, 1800, {}, false);
+    // pros::delay(300);
+    // setIntake(-50);
+    // // setIntake(0);
+
+    // chassis.turnToHeading(112, 450, {}, false);
+    // setIntake(127);
+    // chassis.moveToPoint(58, -60, 2000, {}, false);
+    // // pros::delay(10000);
+    // setDrive(6000,6000);
+    // pros::delay(1000);
+    // setDrive(0,0);
+    // setDrive(-3000, -3000);
+    // pros::delay(500);
+    // setDrive(0, 0);
+    // pros::delay(1000);
+    // chassis.turnToHeading(310, 400, {}, false);
+    // arm.move_velocity(6000);
+    // chassis.moveToPoint(18,-27,1500, {}, false);
+    // pros::delay(200);
+    // // doinker.set_value(true);
+    // // chassis.moveToPoint(19,-28, 1500, {.forwards=false}, false);
+    // chassis.waitUntil(36);
+    // arm.move_velocity(0);
+    // chassis.waitUntilDone();
+}
+
+void provincialsRedPosQual(){
+    clamp.set_value(true);
+    chassis.setPose(-57.375, -15, 180);
+    chassis.moveToPoint(-57.375, 2, 1200, {.forwards=false}, false);
+    chassis.turnToHeading(-90, 800, {}, false);
+    setDrive(6000, 6000);
+    pros::delay(400);
+    setDrive(0, 0);
+    scoreAllianceStake();
+    setDrive(-6000,-6000);
+    pros::delay(250);
+    setDrive(0,0);
+    chassis.turnToHeading(180, 600, {}, false);
+    setIntake(127);
+    // chassis.setPose(51, -23, 90);
+
+    // chassis.moveToPoint(-57.375, -23, 1000, {}, false);
+    chassis.moveToPoint(-57.375, -23, 1000, {}, false);
+    setIntake(0);
+    //chassis.turnToHeading(-90, 650, {}, false);
+    chassis.moveToPoint(-17, -20, 1700, {.forwards=false, .maxSpeed=60}, true);
+    chassis.waitUntil(30);
+
+    clamp.set_value(false); // clamp mogo
+    chassis.waitUntilDone(); 
+    pros::delay(100);
+    chassis.turnToHeading(180, 600, {}, false);
+    setIntake(127);
+    chassis.moveToPoint(-29, -36, 1800, {}, false);
+    pros::delay(300);
+    // setIntake(0);
+
+    // chassis.turnToHeading(-112, 450, {}, false);
+    chassis.turnToHeading(-145, 450, {}, false);
+    setIntake(127);
+    chassis.moveToPoint(-58, -60, 2000, {}, false);
+    pros::delay(200);
+    setDrive(4000,4000);
+    pros::delay(1200);
+    setDrive(0,0);
+    setDrive(-3000, -3000);
+    pros::delay(400);
+    setDrive(0, 0);
+    pros::delay(100);
+    chassis.turnToHeading(-310, 400, {}, false);
+    arm.move_velocity(6000);
+    chassis.moveToPoint(-18,-27,1500, {}, true);
+    chassis.waitUntil(20);
+    setIntake(0);
+    // pros::delay(200);
     // doinker.set_value(true);
     // chassis.moveToPoint(19,-28, 1500, {.forwards=false}, false);
     chassis.waitUntil(36);
@@ -1587,7 +1694,7 @@ void skillsprog() {
     // pros::delay(300);
     // arm.move_velocity(0);
 
-    chassis.moveToPoint(-1, 44, 1900,{.forwards = false}, false); // was 0.5
+    chassis.moveToPoint(2, 44, 1900,{.forwards = false}, false); // was 0.5
     pros::delay(200);
     setIntake(-50);
     pros::delay(100);
@@ -1607,7 +1714,7 @@ void skillsprog() {
     //chassis.moveToPose(0,70, 0, 1800,{},false);
     scoreWallStake();
     
-    chassis.setPose(0,63.2,chassis.getPose().theta);
+    chassis.setPose(3,63.2,chassis.getPose().theta);
     chassis.moveToPoint(0,51,700,{.forwards=false},false);
     arm.move(-12000);
     pros::delay(850);
@@ -1795,7 +1902,7 @@ void skillsprog() {
     pros::delay(200);
     setDrive(0,0);
 
-    chassis.turnToHeading(50,900,{},false);
+    chassis.turnToHeading(50,550,{},false);
     setIntake(0);
     setDrive(-12000,-12000);
     pros::delay(1500);
