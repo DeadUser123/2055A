@@ -12,7 +12,7 @@
 #include "lemlib/api.hpp"
 #include <cstddef>
 
-int MOTOR_LB = -9; //-11
+int MOTOR_LB = -12; //-11
 int MOTOR_LM = -10; //-13
 int MOTOR_LF = -19; //-1
 
@@ -56,7 +56,7 @@ pros::Motor intake2(INTAKE2_PORT, pros::v5::MotorGears::green, pros::v5::MotorUn
 // pros::Motor intake2(MOTOR_INTAKE_2, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
 
 //MotorGroups
-pros::MotorGroup Left_Drive({-9, -10, -19}, pros::v5::MotorGears::blue);
+pros::MotorGroup Left_Drive({-12, -10, -19}, pros::v5::MotorGears::blue);
 pros::MotorGroup Right_Drive({18, 8, 5}, pros::v5::MotorGears::blue);
 
 //Controller

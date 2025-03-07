@@ -204,7 +204,7 @@ void autonomous() {
 
  	// blueposelim();
 	// provsbluenegqual();
-	// skillsprog(); // FOR PROVINCIALS
+	skillsprog(); // FOR PROVINCIALS
 
 
 	//QUALIFICATION PROVS
@@ -220,7 +220,7 @@ void autonomous() {
 	//ELIM PROVS
 	///////////////////////////////////////////////////
 
-	peakpikesblueneg5ringelim();
+	//peakpikesblueneg5ringelim();
 	//peakpikesredneg5ringelim();
 
 	//provposblueelim();
