@@ -42,7 +42,7 @@ int currentAngle;
 int error = 1064;
 const double kP = 0.06;
 const int deadband = 350;
-const int targetAngle = 1000;
+const int targetAngle = 900;
 bool hold;
 
 void setArmLoadNew()

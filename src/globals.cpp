@@ -37,8 +37,7 @@ int INTAKE2_PORT = -6; // bottom intake
 int arm_sensor = 11;
 
 
-int COLOR_SENSOR_PORT = 12; // 
-int DISTANCE_SENSOR_PORT = 13;
+int COLOR_SENSOR_PORT = 20; // 
 
 
 //Drivetrain
@@ -79,7 +78,7 @@ pros::IMU imu(INERTIAL_PORT);
 
 // pros::Optical colorsensor(OPTICAL_SENSOR);
 pros::Optical colorsensor(COLOR_SENSOR_PORT);
-pros::Distance distancesensor(DISTANCE_SENSOR_PORT);
+// pros::Distance distancesensor(DISTANCE_SENSOR_PORT);
 
 //Tracking Wheels
 lemlib::TrackingWheel vert_tracking(&vert_encoder, 1.975, -0.75); // 0.75 inches left of the tracking center

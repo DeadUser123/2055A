@@ -1521,6 +1521,7 @@ void mogorushred() {
 }
 
 void newskillsprog() {
+
     chassis.setPose(-59, 0, 270);
     scoreAllianceStake();
     chassis.moveToPose(-47, 0, 270, 820, {.forwards=false}, false);
@@ -1662,41 +1663,55 @@ void newskillsprog() {
 // FOR PROVINCIALS
 void skillsprog() {
     
-    //Get Mobile 
+    // Score alliance stake
+    colorsensor.set_led_pwm(100);
     chassis.setPose(-53, -1.5, 90);
     setIntake(100);
     pros::delay(600);
     setIntake(0);
-    chassis.moveToPoint(-40,-1.5,700, {}, false); //-41
+    chassis.moveToPoint(-41,-1.5,700, {}, false); //-41
+
+    // Get 1st mobile goal
     chassis.turnToHeading(180,500, {}, true);
     chassis.moveToPoint(-40,22,1000, {.forwards = false, .maxSpeed = 65}, true);
     chassis.waitUntil(20);
     clamp.set_value(false);
     pros::delay(150);
 
-    //First Goal
+    //Score a ring and put another ring in our arm
     chassis.turnToHeading(90,520, {}, false);
     setIntake(127);
-    chassis.moveToPoint(-20,chassis.getPose().y,900, {}, false);
+    chassis.moveToPoint(-24,chassis.getPose().y,900, {}, false); // was x = -20 before
     chassis.swingToHeading(55, DriveSide::RIGHT, 400, {.direction = AngularDirection::CCW_COUNTERCLOCKWISE}, false);
     //chassis.turnToHeading(35, 450, {}, true);
     //chassis.moveToPoint(-11,34.5,1000,{},false);
-    chassis.moveToPoint(29, 40, 1100, {}, false); //29,44.4
+    chassis.moveToPoint(29, 40, 1500, {}, true); //29,44.4
     chassis.waitUntil(5);
     setarm();
+    chassis.waitUntilDone();
+
+    // back up to alliance line
+    setDrive(-6000, -6000);
+    pros::delay(500);
+    setDrive(-3000, -3000);
+    while (colorsensor.get_hue() < 33) {
+        pros::delay(10);
+    }
+    setDrive(0, 0);
+    // pros::delay(1000);
     //setIntake(127);
     //chassis.waitUntilDone();
     // pros::delay(500);
     // //chassis.moveToPose(25,48,90,2900,{}, false);
 
     // // //Wall Stake
-    chassis.turnToHeading(0,700,{},false);
-    setDrive(6000, 6000);
-    pros::delay(700);
-    setDrive(0, 0);     
-    chassis.setPose(17, 61, 0);
-    chassis.moveToPoint(chassis.getPose().x, 45.5, 580,{.forwards = false}, false);
-    chassis.turnToHeading(270,500,{}, false);
+    // chassis.turnToHeading(0,700,{},false);
+    // setDrive(6000, 6000);
+    // pros::delay(700);
+    // setDrive(0, 0);     
+    // chassis.setPose(17, 61, 0);
+    // chassis.moveToPoint(chassis.getPose().x, 45.5, 580,{.forwards = false}, false);
+    // chassis.turnToHeading(270,500,{}, false);
     // pros::delay(200);
     // setIntake(-50);
     // pros::delay(100);
@@ -1705,7 +1720,9 @@ void skillsprog() {
     // pros::delay(300);
     // arm.move_velocity(0);
 
-    chassis.moveToPoint(5, chassis.getPose().y , 700,{}, false); // was 0.5 2 44
+    // chassis.moveToPoint(5, chassis.getPose().y , 700,{}, false); // was 0.5 2 44
+
+    // Score on neutral wall stake
     setIntake(-50);
     pros::delay(100);
     setIntake(0);
@@ -1726,12 +1743,15 @@ void skillsprog() {
     arm.move(-12000);
     pros::delay(650);
     
+    // wall reset at wall stake
     chassis.setPose(4.6,63.2,chassis.getPose().theta);
     chassis.moveToPoint(chassis.getPose().x,52,700,{.forwards=false},false);
     chassis.turnToHeading(270,500,{},false);
     setIntake(-50);
     arm.move_velocity(0);
     setIntake(127);
+
+    // score 3 more rings
     chassis.moveToPoint(-46, chassis.getPose().y, 800, {},false); //51
     //chassis.waitUntilDone();
     // pros::delay(100);
