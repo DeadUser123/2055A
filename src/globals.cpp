@@ -39,6 +39,7 @@ int arm_sensor = 11;
 
 int COLOR_SENSOR_PORT = 20; // 
 
+int DISTANCE_PORT = 13;
 
 //Drivetrain
 pros::Motor drive_LB(MOTOR_LB, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
@@ -79,6 +80,9 @@ pros::IMU imu(INERTIAL_PORT);
 // pros::Optical colorsensor(OPTICAL_SENSOR);
 pros::Optical colorsensor(COLOR_SENSOR_PORT);
 // pros::Distance distancesensor(DISTANCE_SENSOR_PORT);
+
+//distance
+pros::Distance distancesensor(DISTANCE_PORT);
 
 //Tracking Wheels
 lemlib::TrackingWheel vert_tracking(&vert_encoder, 1.975, -0.75); // 0.75 inches left of the tracking center

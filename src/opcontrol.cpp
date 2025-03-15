@@ -11,6 +11,7 @@
 #include "pros/vision.hpp"
 #include "lemlib/api.hpp"
 
+
 void my_opcontrol()
 {
     // pros::rtos::Task my_task(my_task_fn);
@@ -23,6 +24,8 @@ void my_opcontrol()
         // pros::lcd::set_text(5, "X: "  +  std::to_string(chassis.getPose().x)); // print the x position
         // pros::lcd::set_text(6, "Y: " + std::to_string(chassis.getPose().y)); // print the y position
         // pros::lcd::set_text(7, "Angle: " + std::to_string(chassis.getPose().theta)); // print the heading
+        pros::lcd::set_text(5,"d: "+std::to_string(distancesensor.get()));
+        pros::lcd::set_text(6,"c: "+std::to_string(distancesensor.get_confidence()));
         pros::delay(1);
     }
 }
