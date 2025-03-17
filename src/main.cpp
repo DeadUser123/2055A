@@ -204,7 +204,7 @@ void autonomous() {
 
  	// blueposelim();
 	// provsbluenegqual();
-	skillsprog(); // FOR PROVINCIALS
+	// skillsprog(); // FOR PROVINCIALS
 
 
 	//QUALIFICATION PROVS
@@ -379,16 +379,16 @@ void opcontrol() {
 
 	// skillsdriver();
 
-	// pros::Task screen_task([&]() {
-    //     while (true) {
-    //         // print robot location to the brain screen
-	// 		pros::lcd::set_text(5, "X: "  +  std::to_string(chassis.getPose().x)); // print the x position
-    //         pros::lcd::set_text(6, "Y: " + std::to_string(chassis.getPose().y)); // print the y position
-    //     	//pros::lcd::set_text(7, "Angle: " + std::to_string(chassis.getPose().theta)); // print the heading
-    //         // delay to save resources
-    //         pros::delay(20);
-    //     }
-    // });
+	pros::Task screen_task([&]() {
+        while (true) {
+            // print robot location to the brain screen
+			pros::lcd::set_text(5, "X: "  +  std::to_string(chassis.getPose().x)); // print the x position
+            pros::lcd::set_text(6, "Y: " + std::to_string(chassis.getPose().y)); // print the y position
+        	pros::lcd::set_text(7, "Angle: " + std::to_string(chassis.getPose().theta)); // print the heading
+            // delay to save resources
+            pros::delay(20);
+        }
+    });
 
 	my_opcontrol();
 }

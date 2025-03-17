@@ -27,6 +27,7 @@ int INERTIAL_PORT = 17;
 
 // Pneumatics
 char CLAMP_PORT = 'A';
+char HANG_PORT = 'B';
 char CLAW_PORT = 'G';
 char DOINKER_PORT = 'F';
 
@@ -34,7 +35,7 @@ char DOINKER_PORT = 'F';
 int MOTOR_INTAKE_1= -7; // top intake
 int ARM_PORT = 1;
 int INTAKE2_PORT = -6; // bottom intake
-int arm_sensor = 11;
+int ARM_SENSOR = 11;
 
 
 int COLOR_SENSOR_PORT = 20; // 
@@ -50,10 +51,10 @@ pros::Motor drive_RB(MOTOR_RB, pros::v5::MotorGears::blue, pros::v5::MotorUnits:
 pros::Motor drive_RM(MOTOR_RM, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
 pros::Motor drive_RF(MOTOR_RF, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
 
+// Other motors
 pros::Motor intake1(MOTOR_INTAKE_1, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
-pros::Motor arm(ARM_PORT, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
 pros::Motor intake2(INTAKE2_PORT, pros::v5::MotorGears::green, pros::v5::MotorUnits::degrees);
-// pros::Motor intake2(MOTOR_INTAKE_2, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
+pros::Motor arm(ARM_PORT, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
 
 //MotorGroups
 pros::MotorGroup Left_Drive({-12, -10, -19}, pros::v5::MotorGears::blue);
@@ -63,23 +64,16 @@ pros::MotorGroup Right_Drive({18, 8, 5}, pros::v5::MotorGears::blue);
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 //Pneumatics
-// pros::adi::DigitalOut tilt('A', true);
-// pros::adi::DigitalOut doinker('B', false);
 pros::adi::DigitalOut clamp('A', true);
-pros::adi::DigitalOut claw(CLAW_PORT, false);
+pros::adi::DigitalOut hang_piston('B', false);
 pros::adi::DigitalOut doinker('F', false);
 
-
+//Sensors
 pros::Rotation vert_encoder(VERT_TRACKING_PORT);
 pros::Rotation hort_encoder(HOR_TRACKING_PORT);
-pros::Rotation armsensor(arm_sensor);
-
-//inertial
+pros::Rotation armsensor(ARM_SENSOR);
 pros::IMU imu(INERTIAL_PORT);
-
-// pros::Optical colorsensor(OPTICAL_SENSOR);
 pros::Optical colorsensor(COLOR_SENSOR_PORT);
-// pros::Distance distancesensor(DISTANCE_SENSOR_PORT);
 
 //distance
 pros::Distance distancesensor(DISTANCE_PORT);

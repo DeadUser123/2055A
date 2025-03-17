@@ -25,6 +25,7 @@ extern pros::Controller controller;
 // extern pros::adi::DigitalOut tilt;
 extern pros::adi::DigitalOut clamp;
 extern pros::adi::DigitalOut doinker;
+extern pros::adi::DigitalOut hang_piston;
 
 extern lemlib::Drivetrain drivetrain;
 extern lemlib::ControllerSettings linear_controller;

@@ -5,6 +5,7 @@ void driveClamp();
 void setIntake(int power);
 void driveIntake();
 void doink();
+void hang();
 void driveArm();
 void setarm();
 void driveClaw();

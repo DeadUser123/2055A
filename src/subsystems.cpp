@@ -226,6 +226,14 @@ void doink() {
     }
 }
 
+bool hang_status = false;
+void hang() {
+    if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X)) {
+        hang_status = !hang_status;
+        hang_piston.set_value(hang_status);
+    }
+}
+
 // HOLDING L1 RAISES THE ARM, HOLDING L2 LOWERS THE ARM UNTIL YOU LET GO.
 void driveArm()
 {

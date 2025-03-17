@@ -21,6 +21,7 @@ void my_opcontrol()
         driveIntake(); // sets intake based on L1 input -- comment this when running colorsort task
         driveClamp();
         doink();
+        hang();
         // pros::lcd::set_text(5, "X: "  +  std::to_string(chassis.getPose().x)); // print the x position
         // pros::lcd::set_text(6, "Y: " + std::to_string(chassis.getPose().y)); // print the y position
         // pros::lcd::set_text(7, "Angle: " + std::to_string(chassis.getPose().theta)); // print the heading
