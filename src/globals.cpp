@@ -42,6 +42,8 @@ int COLOR_SENSOR_PORT = 20; //
 
 int DISTANCE_PORT = 13;
 
+int GPS_PORT = 14;
+
 //Drivetrain
 pros::Motor drive_LB(MOTOR_LB, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
 pros::Motor drive_LM(MOTOR_LM, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
@@ -75,9 +77,8 @@ pros::Rotation armsensor(ARM_SENSOR);
 pros::IMU imu(INERTIAL_PORT);
 pros::Optical colorsensor(COLOR_SENSOR_PORT);
 
-//distance
 pros::Distance distancesensor(DISTANCE_PORT);
-
+pros::Gps gpssensor(GPS_PORT);
 //Tracking Wheels
 lemlib::TrackingWheel vert_tracking(&vert_encoder, 1.975, -0.75); // 0.75 inches left of the tracking center
 lemlib::TrackingWheel hort_tracking(&hort_encoder, 1.95, 0.75); // 0.75 inches forward of tracking center

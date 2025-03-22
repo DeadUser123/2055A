@@ -17,7 +17,6 @@
 // #include "lvgl/lvgl.h"
 #include <string>
 
-
 /**
  * A callback function for LLEMU's center button.
  *
@@ -153,6 +152,10 @@ void initialize() {
 
 	// lvgl_init();
 	// colorsensor.set_led_pwm(100); // turn on colorsensor LED -- TURN ON for colorsort
+	pros::Gps gpssensor(1, -1.5, -1.14, 270);
+	gpssensor.set_position(-1.5, -1.14, 270);
+	// gps_sensor.initialize_full(30, 60, 270, 0, 0);
+
 }
 
 /**
@@ -185,157 +188,7 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
-	// pros::Task screen_task([&]() {
-    //     while (true) {
-    //         // print robot location to the brain screen
-	// 		pros::lcd::set_text(5, "X: "  +  std::to_string(chassis.getPose().x)); // print the x position
-    //         pros::lcd::set_text(6, "Y: " + std::to_string(chassis.getPose().y)); // print the y position
-    //     	pros::lcd::set_text(7, "Angle: " + std::to_string(chassis.getPose().theta)); // print the heading
-	// 		// pros::lcd::set_text(1, "Angle 2: " + std::to_string(imu.get_heading()));
-    //         // delay to save resources
-    //         pros::delay(20);
-    //     }
-    // });
-
-	//pros::rtos::Task my_task_fn(color_sort_red_team);
-	//pros::rtos::Task my_task_fn(color_sort_blue_team);
-
-	// set position to x:0, y:0, heading:0
-
- 	// blueposelim();
-	// provsbluenegqual();
-	// skillsprog(); // FOR PROVINCIALS
-
-
-	//QUALIFICATION PROVS
-	//////////////////////////////////////////////////
-
-	//provsrednegqual();
-	//provincialsBluePosQual();
-	// provincialsRedPosQual();
-
-	///////////////////////////////////////////////////
-
-
-	//ELIM PROVS
-	///////////////////////////////////////////////////
-
-	//peakpikesblueneg5ringelim();
-	//peakpikesredneg5ringelim();
-
-	//provposblueelim();
-	//provsredelim();
-
-
-	//mogorushblue(); //NOT DONE
-	//blueposelim();
-	//pos4ringred();
-	// pos4ringblue();
-
-	///////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-	// bramptonRedPosQual();
-
-
-
-
-
-
-
-
-
-	//peakpikesredneg3ringqual();
-	//peakpikesblueneg3ringqual();
- 	//peakpikesredpos3ringqualmogo();
-
-	//peakpikesredpos3ringqual();
-	// peakpikesbluepos3ringqual();
-
-
-	// peakpikesblueneg5ringelim();
-	//pikepeakringrushblue();
-	//peakpikesredpos4ringred(); //slot 7
-	//ppblueneg(); //slot 6
-	//ppbluepos3ring();
-	//mogorushblue();
-
-
-
-	//qual5ringBlue(); // slot 5
-
-
-
-
-	// gatewayRedPosQual(); 
-	// gatewayBluePosQual();
-	//gatewayRedPosElim();
-	//gatewayBluePosElim();
-	//gatewayRedMogoRushQual(); // slot 1
-	// gatewayBlueMogoRushQual();
-	//intake();
-	//gatewaytestblueneg();
-	//ethanredpositivequal();
-	//qual5ringBlue(); // slot 5
-	// gatewayblueneg();
-	//mogorushblue();
-	//qual5ringRed(); //slot 3
-	// qualredmogoside(); //slot 1
-	// qualbluemogoside(); //slot 2 
-	// newskillsprog(); // slot 8
-	// soloauton_AWP_Blue_Negative_Sig();
-	// mogorushred(); // slot 3
-	//mogorushblue(); // slot 6
-	//ppblueneg();
-	//testredpos();
-	//testbluepos();	
-	//pikepeakringrushblue();
-	// peakpikesredpos4ringred();
-
-
-// 	Auton selector;
-//     switch (selector::auton) {
-//         case 1:
-// 			soloauton_AWP_Blue_Negative();
-//             // Safe 5 Triball Auton
-//             // offense_auton_safe();
-//             break;
-
-//         case 2:
-//             // 
-//             // offense_last_min();
-//             // offense_auton_midrush_new();
-//             break;
-
-//         case 3:
-//             // offense_auton_6balls_v2();
-//             break;
-        
-//         case -1:
-//             // Safe
-//             // defense_awp();
-//             break;
-        
-//         case -2:
-//             // Midrush
-//             // defense_last_min();
-//             break;
-
-//         case -3:
-//             // Max Potential
-//             // defense_auton_max_potential();
-//             break;
-
-//         case 0:
-//             prog_skills_new();
-//             break;
-//     } 
+	
 }
 
 /**
@@ -354,7 +207,6 @@ void autonomous() {
 void opcontrol() {
 	pros::lcd::initialize();
 	pros::lcd::register_btn0_cb(on_center_button);
-	pros::lcd::set_text(5, "Intiailized");
 
 	drive_LB.set_brake_mode(MOTOR_BRAKE_BRAKE);
 	drive_LM.set_brake_mode(MOTOR_BRAKE_BRAKE);
@@ -366,7 +218,7 @@ void opcontrol() {
 	
 	arm.set_brake_mode(MOTOR_BRAKE_HOLD);
 
-	pros::lcd::set_text(7, std::to_string(armsensor.get_angle()));
+	// pros::lcd::set_text(7, std::to_string(armsensor.get_angle()));
 
 	// armsensor.set_position(0);
 	// armsensor.reset_position();
@@ -391,4 +243,4 @@ void opcontrol() {
     });
 
 	my_opcontrol();
-}
+}                                                                                       n
