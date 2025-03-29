@@ -44,6 +44,7 @@ extern pros::Motor intake2;
 
 extern pros::Optical colorsensor;
 extern pros::Distance distancesensor;
+extern pros::Gps gpssensor;
 
 
 extern pros::Rotation armsensor;

@@ -14,6 +14,7 @@
 #include "pros/rtos.hpp"
 #include "pros/vision.h"
 #include "auton.hpp"
+
 // #include "lvgl/lvgl.h"
 #include <string>
 
@@ -152,9 +153,10 @@ void initialize() {
 
 	// lvgl_init();
 	// colorsensor.set_led_pwm(100); // turn on colorsensor LED -- TURN ON for colorsort
-	pros::Gps gpssensor(1, -1.5, -1.14, 270);
+	// pros::Gps gpssensor(1, -1.5, -1.14, 270);
+	gpssensor.initialize_full(30, 60, 270, 0, 0);
 	gpssensor.set_position(-1.5, -1.14, 270);
-	// gps_sensor.initialize_full(30, 60, 270, 0, 0);
+	
 
 }
 
