@@ -55,7 +55,7 @@ typedef struct {
     lv_draw_arc_dsc_t  *
     arc_dsc;       /**< A draw descriptor that can be modified to changed what LVGL will draw. Set only for arc-like parts*/
     const lv_point_t *
-    p1;              /**< A point calculated during drawing. E.g. a point of chart or the center of an arc.*/
+    d1;              /**< A point calculated during drawing. E.g. a point of chart or the center of an arc.*/
     const lv_point_t * p2;        /**< A point calculated during drawing. E.g. a point of chart.*/
     char * text;                  /**< A text calculated during drawing. Can be modified. E.g. tick labels on a chart axis.*/
     uint32_t text_length;         /**< Size of the text buffer containing null-terminated text string calculated during drawing.*/

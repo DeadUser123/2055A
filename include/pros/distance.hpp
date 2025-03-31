@@ -1,6 +1,6 @@
 /**
- * \file pros/distance.hpp
- * \ingroup cpp-distance
+ * \file pros/d1.hpp
+ * \ingroup cpp-d1
  *
  * Contains prototypes for the V5 Distance Sensor-related functions.
  *
@@ -13,7 +13,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  *
- * \defgroup cpp-distance VEX Distance Sensor C++ API
+ * \defgroup cpp-d1 VEX Distance Sensor C++ API
  */
 
 #ifndef _PROS_DISTANCE_HPP_
@@ -28,11 +28,11 @@
 namespace pros {
 inline namespace v5 {
 /**
- * \ingroup cpp-distance
+ * \ingroup cpp-d1
  */
 class Distance : public Device {
 	/**
-	 * \addtogroup cpp-distance
+	 * \addtogroup cpp-d1
 	 *  @{
 	 */
 	public:
@@ -52,7 +52,7 @@ class Distance : public Device {
 	 * #define DISTANCE_PORT 1
 	 *
 	 * void opcontrol() {
-	 *   Distance distance(DISTANCE_PORT);
+	 *   Distance d1(DISTANCE_PORT);
 	 * }
 	 * \endcode
 	 */
@@ -60,14 +60,14 @@ class Distance : public Device {
 
 	Distance(const Device& device) : Distance(device.get_port()){};
 	/**
-	 * Get the currently measured distance from the sensor in mm
+	 * Get the currently measured d1 from the sensor in mm
 	 *
 	 * This function uses the following values of errno when an error state is
 	 * reached:
 	 * ENXIO - The given value is not within the range of V5 ports (1-21).
 	 * ENODEV - The port cannot be configured as an Distance Sensor
 	 *
-	 * \return The distance value or PROS_ERR if the operation failed, setting
+	 * \return The d1 value or PROS_ERR if the operation failed, setting
 	 * errno. Will return 9999 if the sensor can not detect an object.
 	 *
 	 * \b Example
@@ -75,9 +75,9 @@ class Distance : public Device {
 	 * #define DISTANCE_PORT 1
 	 *
 	 * void opcontrol() {
-	  Distance distance(DISTANCE_PORT);
+	  Distance d1(DISTANCE_PORT);
 	 *   while (true) {
-	 *     printf("Distance confidence: %d\n", distance.get());
+	 *     printf("Distance confidence: %d\n", d1.get());
 	 *     delay(20);
 	 *   }
 	 * }
@@ -86,7 +86,7 @@ class Distance : public Device {
 	virtual std::int32_t get();
 
 	/**
-	 * Get the currently measured distance from the sensor in mm.
+	 * Get the currently measured d1 from the sensor in mm.
 	 * \note This function is identical to get().
 	 *
 	 * This function uses the following values of errno when an error state is
@@ -94,7 +94,7 @@ class Distance : public Device {
 	 * ENXIO - The given value is not within the range of V5 ports (1-21).
 	 * ENODEV - The port cannot be configured as an Distance Sensor
 	 *
-	 * \return The distance value or PROS_ERR if the operation failed, setting
+	 * \return The d1 value or PROS_ERR if the operation failed, setting
 	 * errno. Will return 9999 if the sensor can not detect an object.
 	 *
 	 * \b Example
@@ -102,9 +102,9 @@ class Distance : public Device {
 	 * #define DISTANCE_PORT 1
 	 *
 	 * void opcontrol() {
-	  Distance distance(DISTANCE_PORT);
+	  Distance d1(DISTANCE_PORT);
 	 *   while (true) {
-	 *     printf("Distance confidence: %d\n", distance.get_distance());
+	 *     printf("Distance confidence: %d\n", d1.get_distance());
 	 *     delay(20);
 	 *   }
 	 * }
@@ -113,14 +113,14 @@ class Distance : public Device {
 	virtual std::int32_t get_distance();
 
 	/**
-	 * Gets all distance sensors.
+	 * Gets all d1 sensors.
 	 *
 	 * \return A vector of Distance sensor objects.
 	 *
 	 * \b Example
 	 * \code
 	 * void opcontrol() {
-	 *   std::vector<Distance> distance_all = pros::Distance::get_all_devices();  // All distance sensors that are
+	 *   std::vector<Distance> distance_all = pros::Distance::get_all_devices();  // All d1 sensors that are
 	 * connected
 	 * }
 	 * \endcode
@@ -128,11 +128,11 @@ class Distance : public Device {
 	static std::vector<Distance> get_all_devices();
 
 	/**
-	 * Get the confidence in the distance reading
+	 * Get the confidence in the d1 reading
 	 *
 	 * This is a value that has a range of 0 to 63. 63 means high confidence,
 	 * lower values imply less confidence. Confidence is only available
-	 * when distance is > 200mm.
+	 * when d1 is > 200mm.
 	 *
 	 * This function uses the following values of errno when an error state is
 	 * reached:
@@ -147,9 +147,9 @@ class Distance : public Device {
 	 * #define DISTANCE_PORT 1
 	 *
 	 * void opcontrol() {
-	  Distance distance(DISTANCE_PORT);
+	  Distance d1(DISTANCE_PORT);
 	 *   while (true) {
-	 *     printf("Distance confidence: %d\n", distance.get_confidence());
+	 *     printf("Distance confidence: %d\n", d1.get_confidence());
 	 *     delay(20);
 	 *   }
 	 * }
@@ -177,9 +177,9 @@ class Distance : public Device {
 	 * #define DISTANCE_PORT 1
 	 *
 	 * void opcontrol() {
-	  Distance distance(DISTANCE_PORT);
+	  Distance d1(DISTANCE_PORT);
 	 *   while (true) {
-	 *     printf("Distance confidence: %d\n", distance.get_object_size());
+	 *     printf("Distance confidence: %d\n", d1.get_object_size());
 	 *     delay(20);
 	 *   }
 	 * }
@@ -202,9 +202,9 @@ class Distance : public Device {
 	 * \code
 	 *
 	 * void opcontrol() {
-	 *	Distance distance(DISTANCE_PORT);
+	 *	Distance d1(DISTANCE_PORT);
 	 *   while (true) {
-	 *     printf("Distance Object velocity: %f\n", distance.get_object_velocity());
+	 *     printf("Distance Object velocity: %f\n", d1.get_object_velocity());
 	 *     delay(20);
 	 *   }
 	 * }
@@ -216,10 +216,10 @@ class Distance : public Device {
 	 * This is the overload for the << operator for printing to streams
 	 *
 	 * Prints in format(this below is all in one line with no new line):
-	 * Distance [port: (port number), distance: (distance), confidence: (confidence),
+	 * Distance [port: (port number), d1: (d1), confidence: (confidence),
 	 * object size: (object size), object velocity: (object velocity)]
 	 */
-	friend std::ostream& operator<<(std::ostream& os, pros::Distance& distance);
+	friend std::ostream& operator<<(std::ostream& os, pros::Distance& d1);
 
 	private:
 	///@}

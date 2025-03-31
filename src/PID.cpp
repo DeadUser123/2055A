@@ -83,7 +83,7 @@ void driveDistance(const double targetdistance, double maxspeed, double kP, doub
         hortcurrentdistance = ((1.017*2) * pi) * (ticks / 36000);
         error = targetdistance - currentdistance;
         pros::lcd::set_text(3, "error: " + std::to_string(error));
-        pros::lcd::set_text(4, "current distance: " + std::to_string(currentdistance));
+        pros::lcd::set_text(4, "current d1: " + std::to_string(currentdistance));
 
         currentangle = chassis.getPose().theta;
         angleerror = targetangle - currentangle;

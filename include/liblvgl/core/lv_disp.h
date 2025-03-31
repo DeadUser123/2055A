@@ -231,7 +231,7 @@ static inline void lv_scr_load(lv_obj_t * scr)
 #endif
 
 /**
- * Scale the given number of pixels (a distance or size) relative to a 160 DPI display
+ * Scale the given number of pixels (a d1 or size) relative to a 160 DPI display
  * considering the DPI of the default display.
  * It ensures that e.g. `lv_dpx(100)` will have the same physical size regardless to the
  * DPI of the display.
@@ -244,7 +244,7 @@ static inline lv_coord_t lv_dpx(lv_coord_t n)
 }
 
 /**
- * Scale the given number of pixels (a distance or size) relative to a 160 DPI display
+ * Scale the given number of pixels (a d1 or size) relative to a 160 DPI display
  * considering the DPI of the given display.
  * It ensures that e.g. `lv_dpx(100)` will have the same physical size regardless to the
  * DPI of the display.

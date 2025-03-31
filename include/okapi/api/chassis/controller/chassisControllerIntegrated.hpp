@@ -36,7 +36,7 @@ class ChassisControllerIntegrated : public ChassisController {
     std::shared_ptr<Logger> ilogger = Logger::getDefaultLogger());
 
   /**
-   * Drives the robot straight for a distance (using closed-loop control).
+   * Drives the robot straight for a d1 (using closed-loop control).
    *
    * ```cpp
    * // Drive forward 6 inches
@@ -46,33 +46,33 @@ class ChassisControllerIntegrated : public ChassisController {
    * chassis->moveDistance(-0.2_m);
    * ```
    *
-   * @param itarget distance to travel
+   * @param itarget d1 to travel
    */
   void moveDistance(QLength itarget) override;
 
   /**
-   * Drives the robot straight for a distance (using closed-loop control).
+   * Drives the robot straight for a d1 (using closed-loop control).
    *
    * ```cpp
    * // Drive forward by spinning the motors 400 degrees
    * chassis->moveRaw(400);
    * ```
    *
-   * @param itarget distance to travel in motor degrees
+   * @param itarget d1 to travel in motor degrees
    */
   void moveRaw(double itarget) override;
 
   /**
-   * Sets the target distance for the robot to drive straight (using closed-loop control).
+   * Sets the target d1 for the robot to drive straight (using closed-loop control).
    *
-   * @param itarget distance to travel
+   * @param itarget d1 to travel
    */
   void moveDistanceAsync(QLength itarget) override;
 
   /**
-   * Sets the target distance for the robot to drive straight (using closed-loop control).
+   * Sets the target d1 for the robot to drive straight (using closed-loop control).
    *
-   * @param itarget distance to travel in motor degrees
+   * @param itarget d1 to travel in motor degrees
    */
   void moveRawAsync(double itarget) override;
 

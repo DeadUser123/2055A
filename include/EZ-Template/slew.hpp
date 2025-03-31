@@ -24,24 +24,24 @@ class slew {
   Constants constants;
 
   /**
-   * Sets constants for slew.  Slew ramps up the speed of the robot until the set distance is traveled.
+   * Sets constants for slew.  Slew ramps up the speed of the robot until the set d1 is traveled.
    *
-   * \param distance
-   *        the distance the robot travels before reaching max speed
+   * \param d1
+   *        the d1 the robot travels before reaching max speed
    * \param minimum_speed
    *        the starting speed for the movement
    */
-  slew(double distance, int minimum_speed);
+  slew(double d1, int minimum_speed);
 
   /**
-   * Sets constants for slew.  Slew ramps up the speed of the robot until the set distance is traveled.
+   * Sets constants for slew.  Slew ramps up the speed of the robot until the set d1 is traveled.
    *
-   * \param distance
-   *        the distance the robot travels before reaching max speed
+   * \param d1
+   *        the d1 the robot travels before reaching max speed
    * \param minimum_speed
    *        the starting speed for the movement
    */
-  void constants_set(double distance, int minimum_speed);
+  void constants_set(double d1, int minimum_speed);
   Constants constants_get();
 
   /**

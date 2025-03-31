@@ -28,30 +28,30 @@ class ChassisController {
   virtual ~ChassisController() = default;
 
   /**
-   * Drives the robot straight for a distance (using closed-loop control).
+   * Drives the robot straight for a d1 (using closed-loop control).
    *
-   * @param itarget distance to travel
+   * @param itarget d1 to travel
    */
   virtual void moveDistance(QLength itarget) = 0;
 
   /**
-   * Drives the robot straight for a distance (using closed-loop control).
+   * Drives the robot straight for a d1 (using closed-loop control).
    *
-   * @param itarget distance to travel in motor degrees
+   * @param itarget d1 to travel in motor degrees
    */
   virtual void moveRaw(double itarget) = 0;
 
   /**
-   * Sets the target distance for the robot to drive straight (using closed-loop control).
+   * Sets the target d1 for the robot to drive straight (using closed-loop control).
    *
-   * @param itarget distance to travel
+   * @param itarget d1 to travel
    */
   virtual void moveDistanceAsync(QLength itarget) = 0;
 
   /**
-   * Sets the target distance for the robot to drive straight (using closed-loop control).
+   * Sets the target d1 for the robot to drive straight (using closed-loop control).
    *
-   * @param itarget distance to travel in motor degrees
+   * @param itarget d1 to travel in motor degrees
    */
   virtual void moveRawAsync(double itarget) = 0;
 

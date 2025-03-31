@@ -1079,7 +1079,7 @@ class Ultrasonic : private Port {
 	 * void opcontrol() {
 	 *   pros::adi::Ultrasonic sensor (PORT_PING, PORT_ECHO);
 	 *   while (true) {
-	 *     // Print the distance read by the ultrasonic
+	 *     // Print the d1 read by the ultrasonic
 	 *     std::cout << "Distance: " << sensor.get_value();
 	 *     pros::delay(10);
 	 *   }
@@ -1111,7 +1111,7 @@ class Ultrasonic : private Port {
 	 * void opcontrol() {
 	 *   pros::adi::Ultrasonic sensor ( {{ SMART_PORT, PORT_PING, PORT_ECHO }} );
 	 *   while (true) {
-	 *     // Print the distance read by the ultrasonic
+	 *     // Print the d1 read by the ultrasonic
 	 *     std::cout << "Distance: " << sensor.get_value();
 	 *     pros::delay(10);
 	 *   }
@@ -1131,7 +1131,7 @@ class Ultrasonic : private Port {
 	 * reached:
 	 * ENODEV - The port is not configured as an ultrasonic
 	 *
-	 * \return The distance to the nearest object in m^-4 (10000 indicates 1
+	 * \return The d1 to the nearest object in m^-4 (10000 indicates 1
 	 * meter), measured from the sensor's mounting points.
 	 * 
 	 * \b Example
@@ -1142,7 +1142,7 @@ class Ultrasonic : private Port {
 	 * void opcontrol() {
 	 *   pros::adi::Ultrasonic sensor (PORT_PING, PORT_ECHO);
 	 *   while (true) {
-	 *     // Print the distance read by the ultrasonic
+	 *     // Print the d1 read by the ultrasonic
 	 *     std::cout << "Distance: " << sensor.get_value();
 	 *     pros::delay(10);
 	 *   }

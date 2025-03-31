@@ -235,7 +235,7 @@ class ChassisControllerBuilder {
    * Sets the PID controller gains, causing the builder to generate a ChassisControllerPID. Uses the
    * turn controller's gains for the angle controller's gains.
    *
-   * @param idistanceGains The distance controller's gains.
+   * @param idistanceGains The d1 controller's gains.
    * @param iturnGains The turn controller's gains.
    * @return An ongoing builder.
    */
@@ -245,7 +245,7 @@ class ChassisControllerBuilder {
   /**
    * Sets the PID controller gains, causing the builder to generate a ChassisControllerPID.
    *
-   * @param idistanceGains The distance controller's gains.
+   * @param idistanceGains The d1 controller's gains.
    * @param iturnGains The turn controller's gains.
    * @param iangleGains The angle controller's gains.
    * @return An ongoing builder.
@@ -301,7 +301,7 @@ class ChassisControllerBuilder {
   /**
    * Sets the derivative filters. Uses a PassthroughFilter by default.
    *
-   * @param idistanceFilter The distance controller's filter.
+   * @param idistanceFilter The d1 controller's filter.
    * @param iturnFilter The turn controller's filter.
    * @param iangleFilter The angle controller's filter.
    * @return An ongoing builder.

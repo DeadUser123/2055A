@@ -1,4 +1,4 @@
- #include "main.h"
+#include "main.h"
 #include "api.h"
 #include "pros/adi.hpp"
 #include "pros/gps.h"
@@ -22,18 +22,40 @@ void my_opcontrol()
         driveClamp();
         doink();
         hang();
+        istherearobot();
         // pros::lcd::set_text(5, "X: "  +  std::to_string(chassis.getPose().x)); // print the x position
         // pros::lcd::set_text(6, "Y: " + std::to_string(chassis.getPose().y)); // print the y position
         // pros::lcd::set_text(7, "Angle: " + std::to_string(chassis.getPose().theta)); // print the heading
-        // pros::lcd::set_text(5,"distance: "+std::to_string(distancesensor.get()));
+        pros::lcd::set_text(5,"d: "+std::to_string(distancesensor.get()));
         // pros::lcd::set_text(6,"confidence: "+std::to_string(distancesensor.get_confidence()));
         // pros::lcd::set_text(7,"size: "+std::to_string(distancesensor.get_object_size()));
-        // pros::lcd::set_text(8,"velocity: "+std::to_string(distancesensor.get_object_velocity()));
+        pros::lcd::set_text(6,"velocity: "+std::to_string(distancesensor.get_object_velocity()));
 
-        pros::lcd::set_text(5,"x: "+std::to_string(gpssensor.get_position_x()));
-        pros::lcd::set_text(6,"y: "+std::to_string(gpssensor.get_position_y()));
+        // if (istherearobot()==false) {
+        //     pros::lcd::set_text(7,":)");
+        // }
+        // else if (istherearobot()==true) {
+        //     pros::lcd::set_text(7,"FUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
+        // }
+
+        if (distancesensor.get_object_velocity()<0.09) {
+            pros::lcd::set_text(7,":)");
+        }
+        else if (distancesensor.get_object_velocity()>0.09) {
+            pros::lcd::set_text(1,"CKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
+            pros::lcd::set_text(2,"FUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
+            // pros::lcd::set_text(3,"KFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
+            // pros::lcd::set_text(4,"UCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
+            pros::lcd::set_text(5,"CKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
+            pros::lcd::set_text(6,"FUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
+            pros::lcd::set_text(7,"KFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
+
+        }
+
+        // pros::lcd::set_text(5,"x: "+std::to_string(gpssensor.get_position_x()));
+        // pros::lcd::set_text(6,"y: "+std::to_string(gpssensor.get_position_y()));
         // pros::screen::print(TEXT_MEDIUM, 1, "X Position: %3f", gpssensor.get_position_x());
-        // pros::screen::print(TEXT_MEDIUM, 2, "Y Position: %3f", gpssensor.get_position_y());         
+        // pros::screen::print(TEXT_MEDIUM, 2, "Y Position: %3f", gpssensor.get_position_y());
 
         pros::delay(1);
     }

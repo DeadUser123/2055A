@@ -23,7 +23,7 @@ class ChassisControllerPID : public ChassisController {
    *
    * @param itimeUtil The TimeUtil.
    * @param imodel The ChassisModel used to read from sensors/write to motors.
-   * @param idistanceController The PID controller that controls chassis distance for driving
+   * @param idistanceController The PID controller that controls chassis d1 for driving
    * straight.
    * @param iturnController The PID controller that controls chassis angle for turning.
    * @param iangleController The PID controller that controls chassis angle for driving straight.
@@ -49,7 +49,7 @@ class ChassisControllerPID : public ChassisController {
   ~ChassisControllerPID() override;
 
   /**
-   * Drives the robot straight for a distance (using closed-loop control).
+   * Drives the robot straight for a d1 (using closed-loop control).
    *
    * ```cpp
    * // Drive forward 6 inches
@@ -59,33 +59,33 @@ class ChassisControllerPID : public ChassisController {
    * chassis->moveDistance(-0.2_m);
    * ```
    *
-   * @param itarget distance to travel
+   * @param itarget d1 to travel
    */
   void moveDistance(QLength itarget) override;
 
   /**
-   * Drives the robot straight for a distance (using closed-loop control).
+   * Drives the robot straight for a d1 (using closed-loop control).
    *
    * ```cpp
    * // Drive forward by spinning the motors 400 degrees
    * chassis->moveRaw(400);
    * ```
    *
-   * @param itarget distance to travel in motor degrees
+   * @param itarget d1 to travel in motor degrees
    */
   void moveRaw(double itarget) override;
 
   /**
-   * Sets the target distance for the robot to drive straight (using closed-loop control).
+   * Sets the target d1 for the robot to drive straight (using closed-loop control).
    *
-   * @param itarget distance to travel
+   * @param itarget d1 to travel
    */
   void moveDistanceAsync(QLength itarget) override;
 
   /**
-   * Sets the target distance for the robot to drive straight (using closed-loop control).
+   * Sets the target d1 for the robot to drive straight (using closed-loop control).
    *
-   * @param itarget distance to travel in motor degrees
+   * @param itarget d1 to travel in motor degrees
    */
   void moveRawAsync(double itarget) override;
 
@@ -169,7 +169,7 @@ class ChassisControllerPID : public ChassisController {
   /**
    * Sets the gains for all controllers.
    *
-   * @param idistanceGains The distance controller gains.
+   * @param idistanceGains The d1 controller gains.
    * @param iturnGains The turn controller gains.
    * @param iangleGains The angle controller gains.
    */
@@ -180,7 +180,7 @@ class ChassisControllerPID : public ChassisController {
   /**
    * Gets the current controller gains.
    *
-   * @return The current controller gains in the order: distance, turn, angle.
+   * @return The current controller gains in the order: d1, turn, angle.
    */
   std::tuple<IterativePosPIDController::Gains,
              IterativePosPIDController::Gains,
@@ -249,7 +249,7 @@ class ChassisControllerPID : public ChassisController {
   void loop();
 
   /**
-   * Wait for the distance setup (distancePid and anglePid) to settle.
+   * Wait for the d1 setup (distancePid and anglePid) to settle.
    *
    * @return true if done settling; false if settling should be tried again
    */
@@ -267,7 +267,7 @@ class ChassisControllerPID : public ChassisController {
    */
   void stopAfterSettled();
 
-  typedef enum { distance, angle, none } modeType;
+  typedef enum { d1, angle, none } modeType;
   modeType mode{none};
 
   CrossplatformThread *task{nullptr};

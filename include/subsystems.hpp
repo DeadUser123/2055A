@@ -19,3 +19,7 @@ void nextstate();
 void setArmLoad1();
 void mogoTip();
 
+bool istherearobot();
+
+std::string receiveMessage();
+void transmitMessage(std::string message);

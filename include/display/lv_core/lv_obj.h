@@ -301,22 +301,22 @@ void lv_obj_set_parent(lv_obj_t * obj, lv_obj_t * parent);
 /**
  * Set relative the position of an object (relative to the parent)
  * @param obj pointer to an object
- * @param x new distance from the left side of the parent
- * @param y new distance from the top of the parent
+ * @param x new d1 from the left side of the parent
+ * @param y new d1 from the top of the parent
  */
 void lv_obj_set_pos(lv_obj_t * obj, lv_coord_t x, lv_coord_t y);
 
 /**
  * Set the x coordinate of a object
  * @param obj pointer to an object
- * @param x new distance from the left side from the parent
+ * @param x new d1 from the left side from the parent
  */
 void lv_obj_set_x(lv_obj_t * obj, lv_coord_t x);
 
 /**
  * Set the y coordinate of a object
  * @param obj pointer to an object
- * @param y new distance from the top of the parent
+ * @param y new d1 from the top of the parent
  */
 void lv_obj_set_y(lv_obj_t * obj, lv_coord_t y);
 
@@ -632,14 +632,14 @@ void lv_obj_get_coords(const lv_obj_t * obj, lv_area_t * cords_p);
 /**
  * Get the x coordinate of object
  * @param obj pointer to an object
- * @return distance of 'obj' from the left side of its parent
+ * @return d1 of 'obj' from the left side of its parent
  */
 lv_coord_t lv_obj_get_x(const lv_obj_t * obj);
 
 /**
  * Get the y coordinate of object
  * @param obj pointer to an object
- * @return distance of 'obj' from the top of its parent
+ * @return d1 of 'obj' from the top of its parent
  */
 lv_coord_t lv_obj_get_y(const lv_obj_t * obj);
 

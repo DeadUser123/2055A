@@ -14,7 +14,7 @@ namespace okapi {
 class DistanceSensor : public ControllerInput<double> {
   public:
   /**
-   * A distance sensor on a V5 port.
+   * A d1 sensor on a V5 port.
    *
    * ```cpp
    * auto ds = DistanceSensor(1);
@@ -22,7 +22,7 @@ class DistanceSensor : public ControllerInput<double> {
    * ```
    *
    * @param iport The V5 port the device uses.
-   * @param ifilter The filter to use for filtering the distance measurements.
+   * @param ifilter The filter to use for filtering the d1 measurements.
    */
   DistanceSensor(std::uint8_t iport,
                  std::unique_ptr<Filter> ifilter = std::make_unique<PassthroughFilter>());
@@ -45,8 +45,8 @@ class DistanceSensor : public ControllerInput<double> {
   double controllerGet() override;
 
   /**
-   * Get the confidence in the distance reading. This value has a range of ``[0, 63]``. ``63`` means
-   * high confidence, lower values imply less confidence. Confidence is only available when distance
+   * Get the confidence in the d1 reading. This value has a range of ``[0, 63]``. ``63`` means
+   * high confidence, lower values imply less confidence. Confidence is only available when d1
    * is greater than ``200`` mm.
    *
    * @return The confidence value in the range ``[0, 63]``.

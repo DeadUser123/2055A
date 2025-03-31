@@ -123,7 +123,7 @@ class Drivetrain {
          *
          * @param leftMotors pointer to the left motors
          * @param rightMotors pointer to the right motors
-         * @param trackWidth the track width of the robot, in inches. This is the distance from the left wheels to the
+         * @param trackWidth the track width of the robot, in inches. This is the d1 from the left wheels to the
          * right wheels
          * @param wheelDiameter the diameter of the wheel used on the drivetrain, in inches
          * @param rpm the rpm of the wheels
@@ -172,7 +172,7 @@ class Drivetrain {
 enum class AngularDirection {
     CW_CLOCKWISE, /** turn clockwise */
     CCW_COUNTERCLOCKWISE, /** turn counter-clockwise */
-    AUTO /** turn in the direction with the shortest distance to target */
+    AUTO /** turn in the direction with the shortest d1 to target */
 };
 
 /**
@@ -297,7 +297,7 @@ struct MoveToPoseParams {
         /** the minimum speed the robot can travel at. If set to a non-zero value, the exit conditions will switch to
          * less accurate but smoother ones. Value between 0-127. 0 by default */
         float minSpeed = 0;
-        /** distance between the robot and target point where the movement will exit. Only has an effect if minSpeed is
+        /** d1 between the robot and target point where the movement will exit. Only has an effect if minSpeed is
          * non-zero.*/
         float earlyExitRange = 0;
 };
@@ -318,7 +318,7 @@ struct MoveToPointParams {
         /** the minimum speed the robot can travel at. If set to a non-zero value, the exit conditions will switch to
          * less accurate but smoother ones. Value between 0-127. 0 by default */
         float minSpeed = 0;
-        /** distance between the robot and target point where the movement will exit. Only has an effect if minSpeed is
+        /** d1 between the robot and target point where the movement will exit. Only has an effect if minSpeed is
          * non-zero.*/
         float earlyExitRange = 0;
 };
@@ -428,11 +428,11 @@ class Chassis {
          */
         Pose getPose(bool radians = false, bool standardPos = false);
         /**
-         * @brief Wait until the robot has traveled a certain distance along the path
+         * @brief Wait until the robot has traveled a certain d1 along the path
          *
          * @note Units are in inches if current motion is moveToPoint, moveToPose or follow, degrees for everything else
          *
-         * @param dist the distance the robot needs to travel before returning
+         * @param dist the d1 the robot needs to travel before returning
          *
          * @b Example
          * @code {.cpp}
@@ -684,7 +684,7 @@ class Chassis {
          * @brief Move the chassis along a path
          *
          * @param path the path asset to follow
-         * @param lookahead the lookahead distance. Units in inches. Larger values will make the robot move
+         * @param lookahead the lookahead d1. Units in inches. Larger values will make the robot move
          * faster but will follow the path less accurately
          * @param timeout the maximum time the robot can spend moving
          * @param forwards whether the robot should follow the path going forwards. true by default

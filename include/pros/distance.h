@@ -1,6 +1,6 @@
 /**
- * \file pros/distance.h
- * \ingroup c-distance
+ * \file pros/d1.h
+ * \ingroup c-d1
  *
  * Contains prototypes for functions related to the VEX Distance sensor.
  *
@@ -13,7 +13,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  * 
- * \defgroup c-distance VEX Distance Sensor C API
+ * \defgroup c-d1 VEX Distance Sensor C API
  */
 
 #ifndef _PROS_DISTANCE_H_
@@ -29,16 +29,16 @@ namespace c {
 #endif
 
 /**
- * \ingroup c-distance
+ * \ingroup c-d1
  */
 
 /**
- * \addtogroup c-distance
+ * \addtogroup c-d1
  *  @{
  */
 
 /**
- * Get the currently measured distance from the sensor in mm
+ * Get the currently measured d1 from the sensor in mm
  *
  * This function uses the following values of errno when an error state is
  * reached:
@@ -46,7 +46,7 @@ namespace c {
  * ENODEV - The port cannot be configured as an Distance Sensor
  *
  * \param port The V5 Distance Sensor port number from 1-21
- * \return The distance value or PROS_ERR if the operation failed, setting
+ * \return The d1 value or PROS_ERR if the operation failed, setting
  * errno.
  * 
  * \b Example
@@ -64,11 +64,11 @@ namespace c {
 int32_t distance_get(uint8_t port);
 
 /**
- * Get the confidence in the distance reading
+ * Get the confidence in the d1 reading
  *
  * This is a value that has a range of 0 to 63. 63 means high confidence,
  * lower values imply less confidence. Confidence is only available
- * when distance is > 200mm (the value 10 is returned in this scenario).
+ * when d1 is > 200mm (the value 10 is returned in this scenario).
  *
  * This function uses the following values of errno when an error state is
  * reached:

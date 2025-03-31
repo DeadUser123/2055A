@@ -27,11 +27,11 @@ class Pose {
   Pose() = default;
 
   /**
-   * Calculates the Euclidean distance between this pose and another.
+   * Calculates the Euclidean d1 between this pose and another.
    *
-   * @param other The point from which the distance will be calculated.
+   * @param other The point from which the d1 will be calculated.
    *
-   * @return The distance between this pose and Other.
+   * @return The d1 between this pose and Other.
    */
   double dist(const Pose& other) const {
     return std::sqrt((x - other.x) * (x - other.x) +

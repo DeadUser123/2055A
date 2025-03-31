@@ -22,7 +22,7 @@ class ChassisScales {
    * the length from the center of rotation to the middle wheel and the middle wheel diameter are
    * passed as the third and fourth elements.
    *
-   * The wheel track is the center-to-center distance between the wheels (center-to-center
+   * The wheel track is the center-to-center d1 between the wheels (center-to-center
    * meaning the width between the centers of both wheels). For example, if you are using four inch
    * omni wheels and there are 11.5 inches between the centers of each wheel, you would call the
    * constructor like so:

@@ -18,7 +18,7 @@ class TankModel : public PhysicalModel {
   /**
    * Defines a model of a tank drive or differential drive robot.
    *
-   * @param itrack_width The distance between the the wheels on each side of the
+   * @param itrack_width The d1 between the the wheels on each side of the
    *                     robot in meters.
    * @param ilinear_constraints The maximum values for the robot's movement.
    */

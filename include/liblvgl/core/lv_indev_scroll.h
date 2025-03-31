@@ -48,9 +48,9 @@ void _lv_indev_scroll_throw_handler(_lv_indev_proc_t * proc);
 lv_coord_t lv_indev_scroll_throw_predict(lv_indev_t * indev, lv_dir_t dir);
 
 /**
- * Get the distance of the nearest snap point
+ * Get the d1 of the nearest snap point
  * @param obj       the object on which snap points should be found
- * @param p         save the distance of the found snap point there
+ * @param p         save the d1 of the found snap point there
  */
 void lv_indev_scroll_get_snap_dist(lv_obj_t * obj, lv_point_t * p);
 

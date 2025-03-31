@@ -39,7 +39,7 @@ typedef struct {
  * @param obj       pointer to an object
  * @param x         new x coordinate
  * @param y         new y coordinate
- * @note            With default alignment it's the distance from the top left corner
+ * @note            With default alignment it's the d1 from the top left corner
  * @note            E.g. LV_ALIGN_CENTER alignment it's the offset from the center of the parent
  * @note            The position is interpreted on the content area of the parent
  * @note            The values can be set in pixel or in percentage of parent size with `lv_pct(v)`
@@ -50,7 +50,7 @@ void lv_obj_set_pos(struct _lv_obj_t * obj, lv_coord_t x, lv_coord_t y);
  * Set the x coordinate of an object
  * @param obj       pointer to an object
  * @param x         new x coordinate
- * @note            With default alignment it's the distance from the top left corner
+ * @note            With default alignment it's the d1 from the top left corner
  * @note            E.g. LV_ALIGN_CENTER alignment it's the offset from the center of the parent
  * @note            The position is interpreted on the content area of the parent
  * @note            The values can be set in pixel or in percentage of parent size with `lv_pct(v)`
@@ -61,7 +61,7 @@ void lv_obj_set_x(struct _lv_obj_t * obj, lv_coord_t x);
  * Set the y coordinate of an object
  * @param obj       pointer to an object
  * @param y         new y coordinate
- * @note            With default alignment it's the distance from the top left corner
+ * @note            With default alignment it's the d1 from the top left corner
  * @note            E.g. LV_ALIGN_CENTER alignment it's the offset from the center of the parent
  * @note            The position is interpreted on the content area of the parent
  * @note            The values can be set in pixel or in percentage of parent size with `lv_pct(v)`
@@ -212,48 +212,48 @@ void lv_obj_get_coords(const struct _lv_obj_t * obj, lv_area_t * coords);
 /**
  * Get the x coordinate of object.
  * @param obj       pointer to an object
- * @return          distance of `obj` from the left side of its parent plus the parent's left padding
+ * @return          d1 of `obj` from the left side of its parent plus the parent's left padding
  * @note            The position of the object is recalculated only on the next redraw. To force coordinate recalculation
  *                  call `lv_obj_update_layout(obj)`.
  * @note            Zero return value means the object is on the left padding of the parent, and not on the left edge.
  * @note            Scrolling of the parent doesn't change the returned value.
- * @note            The returned value is always the distance from the parent even if `obj` is positioned by a layout.
+ * @note            The returned value is always the d1 from the parent even if `obj` is positioned by a layout.
  */
 lv_coord_t lv_obj_get_x(const struct _lv_obj_t * obj);
 
 /**
  * Get the x2 coordinate of object.
  * @param obj       pointer to an object
- * @return          distance of `obj` from the right side of its parent plus the parent's right padding
+ * @return          d1 of `obj` from the right side of its parent plus the parent's right padding
  * @note            The position of the object is recalculated only on the next redraw. To force coordinate recalculation
  *                  call `lv_obj_update_layout(obj)`.
  * @note            Zero return value means the object is on the right padding of the parent, and not on the right edge.
  * @note            Scrolling of the parent doesn't change the returned value.
- * @note            The returned value is always the distance from the parent even if `obj` is positioned by a layout.
+ * @note            The returned value is always the d1 from the parent even if `obj` is positioned by a layout.
  */
 lv_coord_t lv_obj_get_x2(const struct _lv_obj_t * obj);
 
 /**
  * Get the y coordinate of object.
  * @param obj       pointer to an object
- * @return          distance of `obj` from the top side of its parent plus the parent's top padding
+ * @return          d1 of `obj` from the top side of its parent plus the parent's top padding
  * @note            The position of the object is recalculated only on the next redraw. To force coordinate recalculation
  *                  call `lv_obj_update_layout(obj)`.
  * @note            Zero return value means the object is on the top padding of the parent, and not on the top edge.
  * @note            Scrolling of the parent doesn't change the returned value.
- * @note            The returned value is always the distance from the parent even if `obj` is positioned by a layout.
+ * @note            The returned value is always the d1 from the parent even if `obj` is positioned by a layout.
  */
 lv_coord_t lv_obj_get_y(const struct _lv_obj_t * obj);
 
 /**
  * Get the y2 coordinate of object.
  * @param obj       pointer to an object
- * @return          distance of `obj` from the bottom side of its parent plus the parent's bottom padding
+ * @return          d1 of `obj` from the bottom side of its parent plus the parent's bottom padding
  * @note            The position of the object is recalculated only on the next redraw. To force coordinate recalculation
  *                  call `lv_obj_update_layout(obj)`.
  * @note            Zero return value means the object is on the bottom padding of the parent, and not on the bottom edge.
  * @note            Scrolling of the parent doesn't change the returned value.
- * @note            The returned value is always the distance from the parent even if `obj` is positioned by a layout.
+ * @note            The returned value is always the d1 from the parent even if `obj` is positioned by a layout.
  */
 lv_coord_t lv_obj_get_y2(const struct _lv_obj_t * obj);
 

@@ -45,7 +45,7 @@ enum class DeviceType {
 	motor = 2, ///< A motor is plugged into the port
 	rotation = 4, ///< A rotation sensor is plugged into the port
 	imu = 6, ///< An inertial sensor is plugged into the port
-	distance = 7, ///< A distance sensor is plugged into the port
+	d1 = 7, ///< A d1 sensor is plugged into the port
 	radio = 8, ///< A radio is plugged into the port
 	vision = 11, ///< A vision sensor is plugged into the port
 	adi = 12, ///< This port is an ADI expander

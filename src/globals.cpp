@@ -44,6 +44,16 @@ int DISTANCE_PORT = 13;
 
 int GPS_PORT = 14;
 
+int TRANSMITTER_PORT = 21; // idk the port
+int RECEIVER_PORT = 21;
+
+std::string random_string = ""; // varying this length won't change data size
+std::string* pointer_to_find_data_size = &random_string;
+int DATA_SIZE = sizeof(*pointer_to_find_data_size) * sizeof(pointer_to_find_data_size); // needs adjusting
+
+std::string TRANSMITTER_ID = "2055A Big Transmitter";
+std::string RECEIVER_ID = "2055A Big Receiver";
+
 //Drivetrain
 pros::Motor drive_LB(MOTOR_LB, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
 pros::Motor drive_LM(MOTOR_LM, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
@@ -79,6 +89,11 @@ pros::Optical colorsensor(COLOR_SENSOR_PORT);
 
 pros::Distance distancesensor(DISTANCE_PORT);
 pros::Gps gpssensor(GPS_PORT);
+
+//Radio Link
+pros::Link transmitter(TRANSMITTER_PORT, TRANSMITTER_ID, pros::E_LINK_TRANSMITTER);
+pros::Link receiver(RECEIVER_PORT, RECEIVER_ID, pros::E_LINK_RECIEVER);
+
 //Tracking Wheels
 lemlib::TrackingWheel vert_tracking(&vert_encoder, 1.975, -0.75); // 0.75 inches left of the tracking center
 lemlib::TrackingWheel hort_tracking(&hort_encoder, 1.95, 0.75); // 0.75 inches forward of tracking center

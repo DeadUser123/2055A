@@ -43,7 +43,7 @@ void color_sort_red_team() {
 		colordistance = colorsensor.get_proximity();
 		pros::lcd::set_text(6, "Ticks: " + std::to_string(colorvalue));
 		pros::lcd::set_text(7, "Newtick: " + std::to_string(colordistance));
-		//int distancevalue = distancesensor.get(); // gets currently measured distance in mm
+		//int distancevalue = distancesensor.get(); // gets currently measured d1 in mm
 		if (colorvalue >= 200 && colorvalue <= 225) 
 		{
 			pros::delay(22);
@@ -80,7 +80,7 @@ void color_sort_blue_team() {
 	double colorvalue;
 	while (true) {
 		colorvalue = colorsensor.get_hue();
-		int distancevalue = distancesensor.get(); // gets currently measured distance in mm
+		int distancevalue = distancesensor.get(); // gets currently measured d1 in mm
 		if (colorvalue >= 0 && colorvalue <= 32) 
 		{
 			pros::delay(30);
@@ -233,16 +233,16 @@ void opcontrol() {
 
 	// skillsdriver();
 
-	pros::Task screen_task([&]() {
-        while (true) {
-            // print robot location to the brain screen
-			pros::lcd::set_text(5, "X: "  +  std::to_string(chassis.getPose().x)); // print the x position
-            pros::lcd::set_text(6, "Y: " + std::to_string(chassis.getPose().y)); // print the y position
-        	pros::lcd::set_text(7, "Angle: " + std::to_string(chassis.getPose().theta)); // print the heading
-            // delay to save resources
-            pros::delay(20);
-        }
-    });
+	// pros::Task screen_task([&]() {
+    //     while (true) {
+    //         // print robot location to the brain screen
+	// 		pros::lcd::set_text(5, "X: "  +  std::to_string(chassis.getPose().x)); // print the x position
+    //         pros::lcd::set_text(6, "Y: " + std::to_string(chassis.getPose().y)); // print the y position
+    //     	pros::lcd::set_text(7, "Angle: " + std::to_string(chassis.getPose().theta)); // print the heading
+    //         // delay to save resources
+    //         pros::delay(20);
+    //     }
+    // });
 
 	my_opcontrol();
-}                                                                                       n
+}

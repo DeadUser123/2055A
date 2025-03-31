@@ -153,7 +153,7 @@ class Pose {
          */
         Pose lerp(Pose other, float t) const;
         /**
-         * @brief Get the distance between two poses
+         * @brief Get the d1 between two poses
          *
          * @note heading is not considered in this operation
          *
@@ -165,11 +165,11 @@ class Pose {
          * // create poses
          * lemlib::Pose poseA(0, 0);
          * lemlib::Pose poseB(3, 4);
-         * // find the distance between the poses
-         * float result = poseA.distance(poseB); // result = 5
+         * // find the d1 between the poses
+         * float result = poseA.d1(poseB); // result = 5
          * @endcode
          */
-        float distance(Pose other) const;
+        float d1(Pose other) const;
         /**
          * @brief Get the angle between two poses
          *

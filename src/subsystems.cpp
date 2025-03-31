@@ -124,9 +124,9 @@ void setArmLoad1()
                 }
                 error = target - currentAngle;
                 arm.move_velocity(error * kP);
-                pros::lcd::set_text(3, "Target: " + std::to_string(currState));
-                pros::lcd::set_text(4, "Current Angle: " + std::to_string(currentAngle));
-                pros::lcd::set_text(5, "Error: " + std::to_string(error));
+                // pros::lcd::set_text(3, "Target: " + std::to_string(currState));
+                // pros::lcd::set_text(4, "Current Angle: " + std::to_string(currentAngle));
+                // pros::lcd::set_text(5, "Error: " + std::to_string(error));
                 pros::delay(1);
             }
             arm.move_velocity(0);
@@ -259,4 +259,47 @@ void driveClaw()
         clawState = !clawState;
         claw.set_value(clawState);
     }
+}
+
+double d1=distancesensor.get();
+double v=distancesensor.get_object_velocity();
+bool robot=false;
+bool istherearobot() {
+    // double d2=d1;
+    // pros::delay(50);
+    // d1=distancesensor.get();
+    v=distancesensor.get_object_velocity();
+    // if (double(d2) - double(d1)>=100) {
+    //     bool robot=true;
+    // }
+    // else if (double(d2) - double(d1)<=-100) {
+    //     bool robot=false;
+    // }
+    // double velocity = d1 - d2;
+    if (v>0.1) {
+        bool robot=true;
+    }
+    else if (v<=0.1) {
+        bool robot=false;
+    }
+    //d1=distancesensor.get();
+    //pros::delay(10);
+    pros::lcd::set_text(2, std::to_string(d1));
+    pros::lcd::set_text(1, std::to_string(robot));
+    // pros::lcd::set_text(3, std::to_string(velocity));
+    return(robot);
+
+}
+
+std::string receiveMessage() {
+    std::string* received_data;
+    std::string received_message;
+    receiver.receive((void*)received_data, DATA_SIZE);
+    received_message = *received_data;
+    return received_message;
+}
+
+void transmitMessage(std::string message) {
+    std::string* data_to_transmit = &message;
+    transmitter.transmit((void*)data_to_transmit, DATA_SIZE);
 }

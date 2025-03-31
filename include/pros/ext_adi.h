@@ -771,7 +771,7 @@ typedef int32_t ext_adi_ultrasonic_t;
  * \param ult
  *        The adi_ultrasonic_t object from adi_ultrasonic_init() to read
  *
- * \return The distance to the nearest object in m^-4 (10000 indicates 1 meter),
+ * \return The d1 to the nearest object in m^-4 (10000 indicates 1 meter),
  * measured from the sensor's mounting points.
  * 
  * \b Example
@@ -784,7 +784,7 @@ typedef int32_t ext_adi_ultrasonic_t;
  * void opcontrol() {
  *   ext_adi_ultrasonic_t ult = ext_adi_ultrasonic_init(ADI_EXPANDER_PORT, PORT_PING, PORT_ECHO);
  *   while (true) {
- *     // Print the distance read by the ultrasonic
+ *     // Print the d1 read by the ultrasonic
  *     printf("Distance: %d\n", ext_adi_ultrasonic_get(ult));
  *     delay(5);
  *   }
@@ -824,7 +824,7 @@ int32_t ext_adi_ultrasonic_get(ext_adi_ultrasonic_t ult);
  * void opcontrol() {
  *   ext_adi_ultrasonic_t ult = ext_adi_ultrasonic_init(ADI_EXPANDER_PORT, PORT_PING, PORT_ECHO);
  *   while (true) {
- *     // Print the distance read by the ultrasonic
+ *     // Print the d1 read by the ultrasonic
  *     printf("Distance: %d\n", ext_adi_ultrasonic_get(ult));
  *     delay(5);
  *   }
@@ -858,7 +858,7 @@ ext_adi_ultrasonic_t ext_adi_ultrasonic_init(uint8_t smart_port, uint8_t adi_por
  * void opcontrol() {
  *   ext_adi_ultrasonic_t ult = ext_adi_ultrasonic_init(ADI_EXPANDER_PORT, PORT_PING, PORT_ECHO);
  *   while (true) {
- *     // Print the distance read by the ultrasonic
+ *     // Print the d1 read by the ultrasonic
  *     printf("Distance: %d\n", ext_adi_ultrasonic_get(ult));
  *     delay(5);
  *   }

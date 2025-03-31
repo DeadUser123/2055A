@@ -33,7 +33,7 @@ class TrackingWheel {
          *
          * @param encoder the optical shaft encoder to use
          * @param wheelDiameter the diameter of the wheel
-         * @param distance distance between the tracking wheel and the center of rotation in inches
+         * @param d1 d1 between the tracking wheel and the center of rotation in inches
          * @param gearRatio gear ratio of the tracking wheel, defaults to 1
          *
          * @b Example
@@ -44,8 +44,8 @@ class TrackingWheel {
          * // create a new vertical tracking wheel
          * // it's using a new 2.75 inch wheel
          * // it's also 5 inches away from the tracking center. This tracking wheel is to the left
-         * // of the tracking center, so we use a negative distance. If it was to the right of the
-         * // tracking center, we would use a positive distance
+         * // of the tracking center, so we use a negative d1. If it was to the right of the
+         * // tracking center, we would use a positive d1
          * lemlib::TrackingWheel verticalTrackingWheel(&verticalEncoder, lemlib::Omniwheel::NEW_275, -5);
          * // create a new optical shaft encoder on ports `C` and `D`
          * // this sensor is not reversed
@@ -53,19 +53,19 @@ class TrackingWheel {
          * // create a new horizontal tracking wheel
          * // it's using an old 3.25 inch wheel
          * // it's also 2 inches away from the tracking center. This tracking wheel is to the back
-         * // of the tracking center, so we use a negative distance. If it was to the front of the
-         * // tracking center, we would use a positive distance
+         * // of the tracking center, so we use a negative d1. If it was to the front of the
+         * // tracking center, we would use a positive d1
          * // this wheel also has a 5:3 gear ratio
          * lemlib::TrackingWheel horizontalTrackingWheel(&horizontalEncoder, lemlib::Omniwheel::OLD_325, -2, 5.0/3.0);
          * @endcode
          */
-        TrackingWheel(pros::adi::Encoder* encoder, float wheelDiameter, float distance, float gearRatio = 1);
+        TrackingWheel(pros::adi::Encoder* encoder, float wheelDiameter, float d1, float gearRatio = 1);
         /**
          * @brief Create a new tracking wheel
          *
          * @param encoder the v5 rotation sensor to use
          * @param wheelDiameter the diameter of the wheel
-         * @param distance distance between the tracking wheel and the center of rotation in inches
+         * @param d1 d1 between the tracking wheel and the center of rotation in inches
          * @param gearRatio gear ratio of the tracking wheel, defaults to 1
          *
          * @b Example
@@ -76,8 +76,8 @@ class TrackingWheel {
          * // create a new vertical tracking wheel
          * // it's using a new 2.75 inch wheel
          * // it's also 5 inches away from the tracking center. This tracking wheel is to the left
-         * // of the tracking center, so we use a negative distance. If it was to the right of the
-         * // tracking center, we would use a positive distance
+         * // of the tracking center, so we use a negative d1. If it was to the right of the
+         * // tracking center, we would use a positive d1
          * lemlib::TrackingWheel verticalTrackingWheel(&verticalEncoder, lemlib::Omniwheel::NEW_275, -5);
          * // create a new rotation sensor on port 2
          * // this sensor is reversed
@@ -85,19 +85,19 @@ class TrackingWheel {
          * // create a new horizontal tracking wheel
          * // it's using an old 3.25 inch wheel
          * // it's also 2 inches away from the tracking center. This tracking wheel is to the back
-         * // of the tracking center, so we use a negative distance. If it was to the front of the
-         * // tracking center, we would use a positive distance
+         * // of the tracking center, so we use a negative d1. If it was to the front of the
+         * // tracking center, we would use a positive d1
          * // this wheel also has a 5:3 gear ratio
          * lemlib::TrackingWheel horizontalTrackingWheel(&horizontalEncoder, lemlib::Omniwheel::OLD_325, -2, 5.0/3.0);
          * @endcode
          */
-        TrackingWheel(pros::Rotation* encoder, float wheelDiameter, float distance, float gearRatio = 1);
+        TrackingWheel(pros::Rotation* encoder, float wheelDiameter, float d1, float gearRatio = 1);
         /**
          * @brief Create a new tracking wheel
          *
          * @param motors the motor group to use
          * @param wheelDiameter the diameter of the wheel
-         * @param distance half the track width of the drivetrain in inches
+         * @param d1 half the track width of the drivetrain in inches
          * @param rpm theoretical maximum rpm of the drivetrain wheels
          *
          * @b Example
@@ -111,14 +111,14 @@ class TrackingWheel {
          * pros::MotorGroup leftMotors({lF, lM, lB});
          * // Create a new tracking wheel using the left motor group
          * // it's using an old 4 inch wheel
-         * // and its distance is half the track width of the drivetrain
-         * // distance is also negative because the left drive side is to the left of the tracking center
-         * // if it was to the right of the tracking center, we would use a positive distance
+         * // and its d1 is half the track width of the drivetrain
+         * // d1 is also negative because the left drive side is to the left of the tracking center
+         * // if it was to the right of the tracking center, we would use a positive d1
          * // the rpm is 360
          * lemlib::TrackingWheel leftTrackingWheel(&leftMotors, lemlib::Omniwheel::OLD_4, -5, 360);
          * @endcode
          */
-        TrackingWheel(pros::MotorGroup* motors, float wheelDiameter, float distance, float rpm);
+        TrackingWheel(pros::MotorGroup* motors, float wheelDiameter, float d1, float rpm);
         /**
          * @brief Reset the tracking wheel position to 0
          *
@@ -136,16 +136,16 @@ class TrackingWheel {
          */
         void reset();
         /**
-         * @brief Get the distance traveled by the tracking wheel
+         * @brief Get the d1 traveled by the tracking wheel
          *
-         * @return float distance traveled in inches
+         * @return float d1 traveled in inches
          *
          * @b Example
          * @code {.cpp}
          * void initialize() {
          *     while (true) {
-         *         // print the distance traveled by the tracking wheel to the terminal
-         *         std::cout << "distance: " << exampleTrackingWheel.getDistanceTraveled() << std::endl;
+         *         // print the d1 traveled by the tracking wheel to the terminal
+         *         std::cout << "d1: " << exampleTrackingWheel.getDistanceTraveled() << std::endl;
          *         pros::delay(10);
          *     }
          * }
@@ -186,7 +186,7 @@ class TrackingWheel {
         int getType();
     private:
         float diameter;
-        float distance;
+        float d1;
         float rpm;
         pros::adi::Encoder* encoder = nullptr;
         pros::Rotation* rotation = nullptr;

@@ -106,7 +106,7 @@ typedef struct {
 
     struct {
         /*First point*/
-        lv_point_t p1;
+        lv_point_t d1;
 
         /*Second point*/
         lv_point_t p2;

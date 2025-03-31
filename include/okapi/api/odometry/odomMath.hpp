@@ -14,12 +14,12 @@ namespace okapi {
 class OdomMath {
   public:
   /**
-   * Computes the distance from the given Odometry state to the given point. The point and the
+   * Computes the d1 from the given Odometry state to the given point. The point and the
    * OdomState must be in `StateMode::FRAME_TRANSFORMATION`.
    *
    * @param ipoint The point.
    * @param istate The Odometry state.
-   * @return The distance between the Odometry state and the point.
+   * @return The d1 between the Odometry state and the point.
    */
   static QLength computeDistanceToPoint(const Point &ipoint, const OdomState &istate);
 
@@ -34,12 +34,12 @@ class OdomMath {
   static QAngle computeAngleToPoint(const Point &ipoint, const OdomState &istate);
 
   /**
-   * Computes the distance and angle from the given Odometry state to the given point. The point and
+   * Computes the d1 and angle from the given Odometry state to the given point. The point and
    * the OdomState must be in `StateMode::FRAME_TRANSFORMATION`.
    *
    * @param ipoint The point.
    * @param istate The Odometry state.
-   * @return The distance and angle between the Odometry state and the point.
+   * @return The d1 and angle between the Odometry state and the point.
    */
   static std::pair<QLength, QAngle> computeDistanceAndAngleToPoint(const Point &ipoint,
                                                                    const OdomState &istate);
@@ -74,11 +74,11 @@ class OdomMath {
   static std::pair<double, double> computeDiffs(const Point &ipoint, const OdomState &istate);
 
   /**
-   * Computes the distance between the points.
+   * Computes the d1 between the points.
    *
    * @param xDiff The x-axis diff in meters.
    * @param yDiff The y-axis diff in meters.
-   * @return The cartesian distance in meters.
+   * @return The cartesian d1 in meters.
    */
   static double computeDistance(double xDiff, double yDiff);
 

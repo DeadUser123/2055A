@@ -109,104 +109,104 @@ class Drive {
   ez::slew slew_swing;
 
   /**
-   * Sets constants for slew for turns.  Slew ramps up the speed of the robot until the set distance is traveled.
+   * Sets constants for slew for turns.  Slew ramps up the speed of the robot until the set d1 is traveled.
    *
-   * \param distance
-   *        the distance the robot travels before reaching max speed, an okapi distance unit
+   * \param d1
+   *        the d1 the robot travels before reaching max speed, an okapi d1 unit
    * \param min_speed
    *        the starting speed for the movement
    */
-  void slew_swing_constants_set(okapi::QLength distance, int min_speed);
+  void slew_swing_constants_set(okapi::QLength d1, int min_speed);
 
   /**
-   * Sets constants for slew for turns.  Slew ramps up the speed of the robot until the set distance is traveled.
+   * Sets constants for slew for turns.  Slew ramps up the speed of the robot until the set d1 is traveled.
    *
-   * \param distance
-   *        the distance the robot travels before reaching max speed, an okapi distance unit
+   * \param d1
+   *        the d1 the robot travels before reaching max speed, an okapi d1 unit
    * \param min_speed
    *        the starting speed for the movement
    */
-  void slew_swing_constants_forward_set(okapi::QLength distance, int min_speed);
+  void slew_swing_constants_forward_set(okapi::QLength d1, int min_speed);
 
   /**
-   * Sets constants for slew for turns.  Slew ramps up the speed of the robot until the set distance is traveled.
+   * Sets constants for slew for turns.  Slew ramps up the speed of the robot until the set d1 is traveled.
    *
-   * \param distance
-   *        the distance the robot travels before reaching max speed, an okapi distance unit
+   * \param d1
+   *        the d1 the robot travels before reaching max speed, an okapi d1 unit
    * \param min_speed
    *        the starting speed for the movement
    */
-  void slew_swing_constants_backward_set(okapi::QLength distance, int min_speed);
+  void slew_swing_constants_backward_set(okapi::QLength d1, int min_speed);
 
   /**
-   * Sets constants for slew for turns.  Slew ramps up the speed of the robot until the set distance is traveled.
+   * Sets constants for slew for turns.  Slew ramps up the speed of the robot until the set d1 is traveled.
    *
-   * \param distance
-   *        the distance the robot travels before reaching max speed, an okapi angle unit
+   * \param d1
+   *        the d1 the robot travels before reaching max speed, an okapi angle unit
    * \param min_speed
    *        the starting speed for the movement
    */
-  void slew_swing_constants_set(okapi::QAngle distance, int min_speed);
+  void slew_swing_constants_set(okapi::QAngle d1, int min_speed);
 
   /**
-   * Sets constants for slew for turns.  Slew ramps up the speed of the robot until the set distance is traveled.
+   * Sets constants for slew for turns.  Slew ramps up the speed of the robot until the set d1 is traveled.
    *
-   * \param distance
-   *        the distance the robot travels before reaching max speed, an okapi angle unit
+   * \param d1
+   *        the d1 the robot travels before reaching max speed, an okapi angle unit
    * \param min_speed
    *        the starting speed for the movement
    */
-  void slew_swing_constants_forward_set(okapi::QAngle distance, int min_speed);
+  void slew_swing_constants_forward_set(okapi::QAngle d1, int min_speed);
 
   /**
-   * Sets constants for slew for turns.  Slew ramps up the speed of the robot until the set distance is traveled.
+   * Sets constants for slew for turns.  Slew ramps up the speed of the robot until the set d1 is traveled.
    *
-   * \param distance
-   *        the distance the robot travels before reaching max speed, an okapi angle unit
+   * \param d1
+   *        the d1 the robot travels before reaching max speed, an okapi angle unit
    * \param min_speed
    *        the starting speed for the movement
    */
-  void slew_swing_constants_backward_set(okapi::QAngle distance, int min_speed);
+  void slew_swing_constants_backward_set(okapi::QAngle d1, int min_speed);
 
   /**
-   * Sets constants for slew for turns.  Slew ramps up the speed of the robot until the set distance is traveled.
+   * Sets constants for slew for turns.  Slew ramps up the speed of the robot until the set d1 is traveled.
    *
-   * \param distance
-   *        the distance the robot travels before reaching max speed, an okapi angle unit
+   * \param d1
+   *        the d1 the robot travels before reaching max speed, an okapi angle unit
    * \param min_speed
    *        the starting speed for the movement
    */
-  void slew_turn_constants_set(okapi::QAngle distance, int min_speed);
+  void slew_turn_constants_set(okapi::QAngle d1, int min_speed);
 
   /**
-   * Sets constants for slew for driving forward.  Slew ramps up the speed of the robot until the set distance is traveled.
+   * Sets constants for slew for driving forward.  Slew ramps up the speed of the robot until the set d1 is traveled.
    *
-   * \param distance
-   *        the distance the robot travels before reaching max speed, an okapi distance unit
+   * \param d1
+   *        the d1 the robot travels before reaching max speed, an okapi d1 unit
    * \param min_speed
    *        the starting speed for the movement
    */
-  void slew_drive_constants_forward_set(okapi::QLength distance, int min_speed);
+  void slew_drive_constants_forward_set(okapi::QLength d1, int min_speed);
 
   /**
-   * Sets constants for slew for driving backward.  Slew ramps up the speed of the robot until the set distance is traveled.
+   * Sets constants for slew for driving backward.  Slew ramps up the speed of the robot until the set d1 is traveled.
    *
-   * \param distance
-   *        the distance the robot travels before reaching max speed, an okapi distance unit
+   * \param d1
+   *        the d1 the robot travels before reaching max speed, an okapi d1 unit
    * \param min_speed
    *        the starting speed for the movement
    */
-  void slew_drive_constants_backward_set(okapi::QLength distance, int min_speed);
+  void slew_drive_constants_backward_set(okapi::QLength d1, int min_speed);
 
   /**
-   * Sets constants for slew for driving.  Slew ramps up the speed of the robot until the set distance is traveled.
+   * Sets constants for slew for driving.  Slew ramps up the speed of the robot until the set d1 is traveled.
    *
-   * \param distance
-   *        the distance the robot travels before reaching max speed, an okapi distance unit
+   * \param d1
+   *        the d1 the robot travels before reaching max speed, an okapi d1 unit
    * \param min_speed
    *        the starting speed for the movement
    */
-  void slew_drive_constants_set(okapi::QLength distance, int min_speed);
+  void slew_drive_constants_set(okapi::QLength d1, int min_speed);
 
   /**
    * Current mode of the drive.
@@ -463,7 +463,7 @@ class Drive {
   void opcontrol_drive_sensors_reset();
 
   /**
-   * Sets minimum value distance constants.
+   * Sets minimum value d1 constants.
    *
    * \param l_stick
    *        input for left joystick
@@ -898,7 +898,7 @@ class Drive {
 
   /**
    * Lock the code in a while loop until the robot has settled.
-   * This also adds distance to target, and then exits with pid_wait_quick
+   * This also adds d1 to target, and then exits with pid_wait_quick
    * This will exit the motion while carrying momentum into the next motion.
    */
   void pid_wait_quick_chain();
@@ -1226,7 +1226,7 @@ class Drive {
    * This sets forward and backwards driving constants.
    *
    * \param input
-   *        distance in inches
+   *        d1 in inches
    */
   void pid_drive_chain_constant_set(double input);
 
@@ -1235,7 +1235,7 @@ class Drive {
    * This only sets forward driving constants.
    *
    * \param input
-   *        distance in inches
+   *        d1 in inches
    */
   void pid_drive_chain_forward_constant_set(double input);
 
@@ -1249,7 +1249,7 @@ class Drive {
    * This only sets backward driving constants.
    *
    * \param input
-   *        distance in inches
+   *        d1 in inches
    */
   void pid_drive_chain_backward_constant_set(double input);
 

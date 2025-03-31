@@ -172,7 +172,7 @@ class SplineGenerator {
                      double imax_accel)
       : pose(ipose),
         curvature(icurvature),
-        distance(idistance),
+        d1(idistance),
         max_vel(imax_vel),
         min_accel(imin_accel),
         max_accel(imax_accel) {}
@@ -181,7 +181,7 @@ class SplineGenerator {
 
     Pose pose = Pose();
     double curvature = 0;
-    double distance = 0;
+    double d1 = 0;
     double max_vel = 0;
     double min_accel = 0;
     double max_accel = 0;
@@ -191,7 +191,7 @@ class SplineGenerator {
              ", y: " + std::to_string(pose.y) +
              ", yaw: " + std::to_string(pose.yaw) +
              ", k: " + std::to_string(curvature) +
-             ", dist: " + std::to_string(distance) +
+             ", dist: " + std::to_string(d1) +
              ", v: " + std::to_string(max_vel) +
              ", min_a: " + std::to_string(min_accel) +
              ", max_a: " + std::to_string(max_accel) + "}";

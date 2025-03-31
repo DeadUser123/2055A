@@ -251,7 +251,7 @@ void lv_win_focus(lv_obj_t * win, lv_obj_t * obj, uint16_t anim_time);
 /**
  * Scroll the window horizontally
  * @param win pointer to a window object
- * @param dist the distance to scroll (< 0: scroll right; > 0 scroll left)
+ * @param dist the d1 to scroll (< 0: scroll right; > 0 scroll left)
  */
 static inline void lv_win_scroll_hor(lv_obj_t * win, lv_coord_t dist)
 {
@@ -261,7 +261,7 @@ static inline void lv_win_scroll_hor(lv_obj_t * win, lv_coord_t dist)
 /**
  * Scroll the window vertically
  * @param win pointer to a window object
- * @param dist the distance to scroll (< 0: scroll down; > 0 scroll up)
+ * @param dist the d1 to scroll (< 0: scroll down; > 0 scroll up)
  */
 static inline void lv_win_scroll_ver(lv_obj_t * win, lv_coord_t dist)
 {

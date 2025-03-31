@@ -95,10 +95,10 @@ namespace c {
  * \b Example
  * \code
  * #define LINK_TRANSMITTER_PORT 1
- * #define LINK_ID "ROBOT1"
+ * #define TRANSMITTER_ID "ROBOT1"
  *
  * void initialize() {
- *   link_init(LINK_TRANSMITTER_PORT, LINK_ID, E_LINK_TRANSMITTER);
+ *   link_init(LINK_TRANSMITTER_PORT, TRANSMITTER_ID, E_LINK_TRANSMITTER);
  * }
  * \endcode
  */
@@ -131,11 +131,11 @@ uint32_t link_init(uint8_t port, const char* link_id, link_type_e_t type);
  * \b Example
  * \code
  * #define LINK_PORT 1
- * #define LINK_ID "ROBOT1"
+ * #define TRANSMITTER_ID "ROBOT1"
  *
  * void initialize() {
- *   link_init(LINK_PORT, LINK_ID, E_LINK_TRANSMITTER);
- *   link_init_override(LINK_PORT, LINK_ID, E_LINK_TRANSMITTER);
+ *   link_init(LINK_PORT, TRANSMITTER_ID, E_LINK_TRANSMITTER);
+ *   link_init_override(LINK_PORT, TRANSMITTER_ID, E_LINK_TRANSMITTER);
  * }
  * \endcode
  */

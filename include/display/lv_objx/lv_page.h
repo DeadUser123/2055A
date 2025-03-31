@@ -352,14 +352,14 @@ void lv_page_focus(lv_obj_t * page, const lv_obj_t * obj, uint16_t anim_time);
 /**
  * Scroll the page horizontally
  * @param page pointer to a page object
- * @param dist the distance to scroll (< 0: scroll left; > 0 scroll right)
+ * @param dist the d1 to scroll (< 0: scroll left; > 0 scroll right)
  */
 void lv_page_scroll_hor(lv_obj_t * page, lv_coord_t dist);
 
 /**
  * Scroll the page vertically
  * @param page pointer to a page object
- * @param dist the distance to scroll (< 0: scroll down; > 0 scroll up)
+ * @param dist the d1 to scroll (< 0: scroll down; > 0 scroll up)
  */
 void lv_page_scroll_ver(lv_obj_t * page, lv_coord_t dist);
 

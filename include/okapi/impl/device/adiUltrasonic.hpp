@@ -25,7 +25,7 @@ class ADIUltrasonic : public ControllerInput<double> {
    * ``3``, ``5``, or ``7`` (``A``, ``C``, ``E``, or ``G``).
    * @param iportEcho The port connected to the yellow INPUT cable. This must be in the next highest
    * port following iportPing.
-   * @param ifilter The filter to use for filtering the distance measurements.
+   * @param ifilter The filter to use for filtering the d1 measurements.
    */
   ADIUltrasonic(std::uint8_t iportPing,
                 std::uint8_t iportEcho,
@@ -44,7 +44,7 @@ class ADIUltrasonic : public ControllerInput<double> {
    * connected to the orange OUTPUT cable. This must be in port ``1``, ``3``, ``5``, or ``7``
    * (``A``, ``C``, ``E``, or ``G``). The echo port is the port connected to the yellow INPUT cable.
    * This must be in the next highest port following the ping port.
-   * @param ifilter The filter to use for filtering the distance measurements.
+   * @param ifilter The filter to use for filtering the d1 measurements.
    */
   ADIUltrasonic(std::tuple<std::uint8_t, std::uint8_t, std::uint8_t> iports,
                 std::unique_ptr<Filter> ifilter = std::make_unique<PassthroughFilter>());
