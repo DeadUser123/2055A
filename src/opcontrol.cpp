@@ -17,12 +17,24 @@ void my_opcontrol()
     // pros::rtos::Task my_task(my_task_fn);
     while (true)
     {
+        // if (receiver.connected()) {
+        //     pros::lcd::set_text(1, "Connected + " + receiveMessage());
+        // } else {
+        //     pros::lcd::set_text(1, "Not connected, receiver");
+        // }
+        if (transmitter.connected()){
+            pros::lcd::set_text(1, "Connected, Transmitting");
+            transmitMessage("U SUCK");
+        } else {
+            pros::lcd::set_text(1, "Not connected");
+        }
+
         setDriveMotors(); // sets motors based on joystick inputs
         driveIntake(); // sets intake based on L1 input -- comment this when running colorsort task
         driveClamp();
         doink();
         hang();
-        istherearobot();
+        // istherearobot();
         // pros::lcd::set_text(5, "X: "  +  std::to_string(chassis.getPose().x)); // print the x position
         // pros::lcd::set_text(6, "Y: " + std::to_string(chassis.getPose().y)); // print the y position
         // pros::lcd::set_text(7, "Angle: " + std::to_string(chassis.getPose().theta)); // print the heading
@@ -35,22 +47,22 @@ void my_opcontrol()
         //     pros::lcd::set_text(7,":)");
         // }
         // else if (istherearobot()==true) {
-        //     pros::lcd::set_text(7,"FUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
+        //     pros::lcd::set_text(7,"smth");
         // }
 
-        if (distancesensor.get_object_velocity()<0.09) {
-            pros::lcd::set_text(7,":)");
-        }
-        else if (distancesensor.get_object_velocity()>0.09) {
-            pros::lcd::set_text(1,"CKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
-            pros::lcd::set_text(2,"FUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
-            // pros::lcd::set_text(3,"KFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
-            // pros::lcd::set_text(4,"UCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
-            pros::lcd::set_text(5,"CKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
-            pros::lcd::set_text(6,"FUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
-            pros::lcd::set_text(7,"KFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK");
+        // if (distancesensor.get_object_velocity()<0.09) {
+        //     pros::lcd::set_text(7,":)");
+        // }
+        // else if (distancesensor.get_object_velocity()>0.09) {
+        //     pros::lcd::set_text(1,"......................................................................................");
+        //     pros::lcd::set_text(2,"........................................................................................");
+        //     // pros::lcd::set_text(3,"");
+        //     // pros::lcd::set_text(4,"");
+        //     pros::lcd::set_text(5,"........................................................................................");
+        //     pros::lcd::set_text(6,"........................................................................................");
+        //     pros::lcd::set_text(7,"........................................................................................");
 
-        }
+        // }
 
         // pros::lcd::set_text(5,"x: "+std::to_string(gpssensor.get_position_x()));
         // pros::lcd::set_text(6,"y: "+std::to_string(gpssensor.get_position_y()));

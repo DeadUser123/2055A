@@ -291,6 +291,11 @@ bool istherearobot() {
 
 }
 
+//return values using triangulation, converted to inches and in (x,y). rmr to add the size of the bot, using full width and half length. if values are unusually low (see if anlge is pointing at corner, that will have larger distance), then go to diff tracking system.
+double idistance = distancesensor.get();
+double fdistance = idistance;
+//std::make_pair()
+
 std::string receiveMessage() {
     std::string* received_data;
     std::string received_message;
