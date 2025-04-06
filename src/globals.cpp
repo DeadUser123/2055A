@@ -41,11 +41,13 @@ int ARM_SENSOR = 11;
 int COLOR_SENSOR_PORT = 20; // 
 
 int DISTANCE_PORT = 13;
+int DISTANCE_PORT2 = 3;
+int DISTANCE_PORT3 = 9;
 
 int GPS_PORT = 14;
 
-int TRANSMITTER_PORT = 13; // idk the port
-int RECEIVER_PORT = 13;
+// int TRANSMITTER_PORT = 13; // idk the port
+// int RECEIVER_PORT = 13;
 
 std::string random_string = ""; // varying this length won't change data size
 std::string* pointer_to_find_data_size = &random_string;
@@ -88,10 +90,12 @@ pros::IMU imu(INERTIAL_PORT);
 pros::Optical colorsensor(COLOR_SENSOR_PORT);
 
 pros::Distance distancesensor(DISTANCE_PORT);
+pros::Distance distancesensor2(DISTANCE_PORT2);
+pros::Distance distancesensor3(DISTANCE_PORT3);
 pros::Gps gpssensor(GPS_PORT);
 
 //Radio Link
-pros::Link transmitter(TRANSMITTER_PORT, TRANSMITTER_ID, pros::E_LINK_TRANSMITTER);
+//pros::Link transmitter(TRANSMITTER_PORT, TRANSMITTER_ID, pros::E_LINK_TRANSMITTER);
 // pros::Link receiver(RECEIVER_PORT, TRANSMITTER_ID, pros::E_LINK_RECIEVER);
 
 //Tracking Wheels

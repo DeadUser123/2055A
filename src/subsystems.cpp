@@ -292,9 +292,70 @@ bool istherearobot() {
 }
 
 //return values using triangulation, converted to inches and in (x,y). rmr to add the size of the bot, using full width and half length. if values are unusually low (see if anlge is pointing at corner, that will have larger distance), then go to diff tracking system.
-double idistance = distancesensor.get();
-double fdistance = idistance;
-//std::make_pair()
+double idistance1 = distancesensor.get();
+double fdistance = idistance1;
+double distance2 = distancesensor2.get();
+double distance3 = distancesensor3.get();
+double botlength = 444.5-23; //real length - distance sensor length (BOTH ESTIMATED)
+double botwidth = 345.6-23; //real length - distance sensor width (BOTH ESTIMATED)
+double fieldmax = 5165.5; //5161.88
+int fieldL = 3700; //3650
+std::double_t epicPositionTest() {
+    //if in quadrant x, turn to heading 90/180/270/0
+    //back up until wall
+    //test values
+    double x = chassis.getPose().x;
+    double y = chassis.getPose().y;
+    int quadrant = 0;
+    if (x>0) {
+        if (y>0) {
+            quadrant = 1;
+        }
+        else {
+            quadrant = 4;
+        }
+    }
+    else if (x<0) {
+        if (y>0) {
+            quadrant = 2;
+        }
+        else {
+            quadrant = 3;
+        }
+    }
+    if (quadrant==3 || quadrant==4) {
+        chassis.turnToHeading(0,1000, {}, false);
+        setDrive(-6000,-6000);
+        pros::delay(4000);
+        setDrive(0,0);
+        //make a distance reading, 
+        double distance1 = distancesensor.get();
+        double distance2 = distancesensor2.get();
+        double distance3 = distancesensor3.get();
+        //test if distance1+robotlength is less than fieldL. if so, something is in the way.
+        double yreading = distance1+botlength;
+        yreading = yreading/25.4; //for inches
+        //test if distance2+distance3+robotwidth is less than fieldL. if so, something is in the way.
+        double xreading = distance2+distance3+botwidth;
+        xreading = xreading/25.4;
+    }
+    else if (quadrant==1 || quadrant==2) {
+        chassis.turnToHeading(180,1000, {}, false);
+        setDrive(-6000,-6000);
+        pros::delay(4000);
+        setDrive(0,0);
+        //make a distance reading, 
+        double distance1 = distancesensor.get();
+        double distance2 = distancesensor2.get();
+        double distance3 = distancesensor3.get();
+        //test if distance1+robotlength is less than fieldL. if so, something is in the way.
+        double yreading = distance1+botlength;
+        yreading = yreading/25.4; //for inches
+        //test if distance2+distance3+robotwidth is less than fieldL. if so, something is in the way.
+        double xreading = distance2+distance3+botwidth;
+        xreading = xreading/25.4;
+    }
+}
 
 std::string receiveMessage() {
     std::string* received_data;
