@@ -296,16 +296,19 @@ double idistance1 = distancesensor.get();
 double fdistance = idistance1;
 double distance2 = distancesensor2.get();
 double distance3 = distancesensor3.get();
-double botlength = 444.5-23; //real length - distance sensor length (BOTH ESTIMATED)
-double botwidth = 345.6-23; //real length - distance sensor width (BOTH ESTIMATED)
+double botlength = 444.5; //-23; //real length - distance sensor length (BOTH ESTIMATED)
+double botwidth = 345.6; //-23; //real length - distance sensor width (BOTH ESTIMATED)
 double fieldmax = 5165.5; //5161.88
 int fieldL = 3700; //3650
+
 std::double_t epicPositionTest() {
     //if in quadrant x, turn to heading 90/180/270/0
     //back up until wall
     //test values
     double x = chassis.getPose().x;
     double y = chassis.getPose().y;
+    bool correcty = true;
+    bool correctx = true;
     int quadrant = 0;
     if (x>0) {
         if (y>0) {
@@ -325,47 +328,42 @@ std::double_t epicPositionTest() {
     }
     if (quadrant==3 || quadrant==4) {
         chassis.turnToHeading(0,1000, {}, false);
-        setDrive(-6000,-6000);
-        pros::delay(4000);
-        setDrive(0,0);
-        //make a distance reading, 
-        double distance1 = distancesensor.get();
-        double distance2 = distancesensor2.get();
-        double distance3 = distancesensor3.get();
-        //test if distance1+robotlength is less than fieldL. if so, something is in the way.
-        double yreading = distance1+botlength;
-        yreading = yreading/25.4; //for inches
-        //test if distance2+distance3+robotwidth is less than fieldL. if so, something is in the way.
-        double xreading = distance2+distance3+botwidth;
-        xreading = xreading/25.4;
     }
     else if (quadrant==1 || quadrant==2) {
         chassis.turnToHeading(180,1000, {}, false);
-        setDrive(-6000,-6000);
-        pros::delay(4000);
-        setDrive(0,0);
-        //make a distance reading, 
-        double distance1 = distancesensor.get();
-        double distance2 = distancesensor2.get();
-        double distance3 = distancesensor3.get();
-        //test if distance1+robotlength is less than fieldL. if so, something is in the way.
-        double yreading = distance1+botlength;
+    }
+    setDrive(-6000,-6000);
+    pros::delay(4000);
+    setDrive(0,0);
+    //make a distance reading, 
+    double distance1 = distancesensor.get();
+    double distance2 = distancesensor2.get();
+    double distance3 = distancesensor3.get();
+    //test if distance1+robotlength is less than fieldL. if so, something is in the way.
+    double yreading = distance1+botlength;
+    //test if distance2+distance3+robotwidth is less than fieldL. if so, something is in the way.
+    double xreading = distance2+distance3+botwidth;
+    if (yreading<fieldL) {
+        //do some things
+        correcty = false;
         yreading = yreading/25.4; //for inches
-        //test if distance2+distance3+robotwidth is less than fieldL. if so, something is in the way.
-        double xreading = distance2+distance3+botwidth;
         xreading = xreading/25.4;
+    }
+    else {
+        correcty = true;
+    }
+
+    if (correcty=true) {
+
     }
 }
 
 std::string receiveMessage() {
-    std::string* received_data;
-    std::string received_message;
-    receiver.receive((void*)received_data, DATA_SIZE);
-    received_message = *received_data;
-    return received_message;
+    std::string received_data;
+    receiver.receive((void*)&received_data, DATA_SIZE);
+    return received_data;
 }
 
 void transmitMessage(std::string message) {
-    std::string* data_to_transmit = &message;
-    transmitter.transmit((void*)data_to_transmit, DATA_SIZE);
+    transmitter.transmit((void*)message.c_str(), DATA_SIZE);
 }
