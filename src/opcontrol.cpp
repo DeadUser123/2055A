@@ -14,11 +14,23 @@
 
 void my_opcontrol()
 {
+    
+    pros::Link transmitter(12, "ABCD", pros::E_LINK_TRANSMITTER);
+    // pros::Link receiver(11, "ABCD", pros::E_LINK_RECIEVER);
     // pros::rtos::Task my_task(my_task_fn);
     while (true)
     {
-        // if (receiver.connected()){pros::lcd::set_text(1, "Connected + " + receiveMessage()); } else {pros::lcd::set_text(1, "Not connected, receiver");}
-        if (transmitter.connected()){pros::lcd::set_text(1, "Connected, Transmitting");transmitMessage("the answer is alwasy 42.3 lol");} else {pros::lcd::set_text(1, "Not connected, am transmitter");}
+        // if (receiver.connected()){std::string received_data;receiver.receive((void*)&received_data, DATA_SIZE);pros::lcd::set_text(1, "Connected + " + received_data); } else {pros::lcd::set_text(1, "Not connected, receiver");}
+        if (transmitter.connected()){// this somehow crashes the brain occasionally
+            pros::lcd::set_text(1, "Connected, Transmitting");
+            std::string message = "the asnwer is always 42.3 lol";
+            int len = std::min((int)message.size(), DATA_SIZE);
+            if (transmitter.connected()) {
+                transmitter.transmit((void*)message.data(), len);
+            }
+        } else {
+            pros::lcd::set_text(1, "Not connected, am transmitter");
+        }
 
         setDriveMotors(); // sets motors based on joystick inputs
         driveIntake(); // sets intake based on L1 input -- comment this when running colorsort task

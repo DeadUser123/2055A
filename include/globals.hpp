@@ -52,6 +52,6 @@ extern pros::Gps gpssensor;
 extern pros::Rotation armsensor;
 extern pros::adi::DigitalOut claw;
 
-extern pros::Link transmitter;
-extern pros::Link receiver;
+// extern pros::Link transmitter;
+// extern pros::Link receiver;
 extern int DATA_SIZE;

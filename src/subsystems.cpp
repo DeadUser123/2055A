@@ -301,7 +301,7 @@ double botwidth = 345.6; //-23; //real length - distance sensor width (BOTH ESTI
 double fieldmax = 5165.5; //5161.88
 int fieldL = 3700; //3650
 
-std::double_t epicPositionTest() {
+std::vector<double> epicPositionTest() {
     //if in quadrant x, turn to heading 90/180/270/0
     //back up until wall
     //test values
@@ -309,6 +309,7 @@ std::double_t epicPositionTest() {
     double y = chassis.getPose().y;
     bool correcty = true;
     bool correctx = true;
+    std::vector<std::pair<double, double>> coords = {{0,0}}; //imma comment this out for uploading stuff ok
     int quadrant = 0;
     if (x>0) {
         if (y>0) {
@@ -343,27 +344,47 @@ std::double_t epicPositionTest() {
     double yreading = distance1+botlength;
     //test if distance2+distance3+robotwidth is less than fieldL. if so, something is in the way.
     double xreading = distance2+distance3+botwidth;
-    if (yreading<fieldL) {
+    if (yreading<fieldL && yreading>3500) {
         //do some things
-        correcty = false;
+        correcty = true;
         yreading = yreading/25.4; //for inches
         xreading = xreading/25.4;
     }
     else {
-        correcty = true;
+        correcty = false;
+        //if theres time or if i suddenly feel liek it, test distances and determine what is blocking (robot, ring, etc.)
+        //^probably wont work 
     }
 
     if (correcty=true) {
 
     }
 }
+//issues:
+/*
+mogo in clamp
+solution: make a way to test that (distance, optical, line) and then only perform this test when we dont have a goal
+solution 2: if we have a mogo, we still test, but just taking into account the mogo length
+^ not good method imo
 
-std::string receiveMessage() {
-    std::string received_data;
-    receiver.receive((void*)&received_data, DATA_SIZE);
-    return received_data;
-}
+There are probably going to be rings in the corners (neg corner might be fine if we put sensor more up bc we sweep in auton)
+mogo with goal will be in positive
+a possible solution WOULD be to always use the negative corners, but it may be inconvenient
+solution: check how much time has passed since last check, if long enough, wait for robot to enter q1/q2 to do test against neg walls
+new issue!: what if robot is doing smth
+*/
 
-void transmitMessage(std::string message) {
-    transmitter.transmit((void*)message.c_str(), DATA_SIZE);
-}
+
+
+// std::string receiveMessage() {
+//     std::string received_data;
+//     receiver.receive((void*)&received_data, DATA_SIZE);
+//     return received_data;
+// }
+
+// void transmitMessage(std::string message) { // problem: this thing is somehow accessing out of bounds stuff and crashing the bot
+//     int len = std::min((int)message.size(), DATA_SIZE);
+//     if (transmitter.connected()) {
+//         transmitter.transmit((void*)message.data(), len);
+//     }
+// }

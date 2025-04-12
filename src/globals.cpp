@@ -96,7 +96,7 @@ pros::Gps gpssensor(GPS_PORT);
 
 // Radio Link
 pros::Link transmitter(TRANSMITTER_PORT, TRANSMITTER_ID, pros::E_LINK_TRANSMITTER);
-// pros::Link receiver(RECEIVER_PORT, TRANSMITTER_ID, pros::E_LINK_RECIEVER);
+pros::Link receiver(RECEIVER_PORT, TRANSMITTER_ID, pros::E_LINK_RECIEVER);
 
 //Tracking Wheels
 lemlib::TrackingWheel vert_tracking(&vert_encoder, 1.975, -0.75); // 0.75 inches left of the tracking center

@@ -154,8 +154,8 @@ void initialize() {
 	// lvgl_init();
 	// colorsensor.set_led_pwm(100); // turn on colorsensor LED -- TURN ON for colorsort
 	// pros::Gps gpssensor(1, -1.5, -1.14, 270);
-	gpssensor.initialize_full(30, 60, 270, 0, 0);
-	gpssensor.set_position(-1.5, -1.14, 270);
+	gpssensor.initialize_full(0.176, 0.2, (chassis.getPose().x)/39.37, (chassis.getPose().y)/39.37, chassis.getPose().theta); //(x from center, y from center, x coord, y coord, heading)
+	gpssensor.set_position((chassis.getPose().x)/39.37, (chassis.getPose().y)/39.37, chassis.getPose().theta); //RMR THE COORDS ARE IN METERS
 	
 
 }
