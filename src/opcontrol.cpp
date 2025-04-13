@@ -15,22 +15,18 @@
 void my_opcontrol()
 {
     
-    pros::Link transmitter(12, "ABCD", pros::E_LINK_TRANSMITTER);
+    // pros::Link transmitter(12, "ABCD", pros::E_LINK_TRANSMITTER);
     // pros::Link receiver(11, "ABCD", pros::E_LINK_RECIEVER);
+    // transmitter.setRemoteLocation(lemlib::Pose(42, 42, 42));
+    // RobotLink receiver(11, "Robot_VRC_2055", pros::E_LINK_RECIEVER);
+    // transmitter->setRemoteLocation(lemlib::Pose(42, 42, 42));
+    lemlib::Pose info = {23, 23, 23};
     // pros::rtos::Task my_task(my_task_fn);
     while (true)
     {
-        // if (receiver.connected()){std::string received_data;receiver.receive((void*)&received_data, DATA_SIZE);pros::lcd::set_text(1, "Connected + " + received_data); } else {pros::lcd::set_text(1, "Not connected, receiver");}
-        if (transmitter.connected()){// this somehow crashes the brain occasionally
-            pros::lcd::set_text(1, "Connected, Transmitting");
-            std::string message = "the asnwer is always 42.3 lol";
-            int len = std::min((int)message.size(), DATA_SIZE);
-            if (transmitter.connected()) {
-                transmitter.transmit((void*)message.data(), len);
-            }
-        } else {
-            pros::lcd::set_text(1, "Not connected, am transmitter");
-        }
+        info = receiver->getRemoteLocation(); // current issue: unsure if receiver ever started receiving (and if transmitter transmitted in the first place)
+        pros::lcd::set_text(1, "RECEIVED " + std::to_string(info.x) + " " + std::to_string(info.y) + " " + std::to_string(info.theta));
+        pros::lcd::set_text(2, "DATA: " + std::to_string(receiver->getNumErrorsRx()));
 
         setDriveMotors(); // sets motors based on joystick inputs
         driveIntake(); // sets intake based on L1 input -- comment this when running colorsort task

@@ -157,7 +157,8 @@ void initialize() {
 	gpssensor.initialize_full(0.176, 0.2, (chassis.getPose().x)/39.37, (chassis.getPose().y)/39.37, chassis.getPose().theta); //(x from center, y from center, x coord, y coord, heading)
 	gpssensor.set_position((chassis.getPose().x)/39.37, (chassis.getPose().y)/39.37, chassis.getPose().theta); //RMR THE COORDS ARE IN METERS
 	
-
+	// transmitter = new RobotLink(12, "Robot_VAIRC_2055A", pros::E_LINK_TX);
+    receiver = new RobotLink(11, "Robot_VAIRC_2055A", pros::E_LINK_RX);
 }
 
 /**

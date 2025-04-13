@@ -46,15 +46,15 @@ int DISTANCE_PORT3 = 9;
 
 int GPS_PORT = 14;
 
-int TRANSMITTER_PORT = 12;
-int RECEIVER_PORT = 13;
+// int TRANSMITTER_PORT = 12;
+// int RECEIVER_PORT = 13;
 
-std::string random_string = ""; // varying this length won't change data size
-std::string* pointer_to_find_data_size = &random_string;
-int DATA_SIZE = sizeof(*pointer_to_find_data_size) * sizeof(pointer_to_find_data_size); // needs adjusting
+// std::string random_string = ""; // varying this length won't change data size
+// std::string* pointer_to_find_data_size = &random_string;
+// int DATA_SIZE = sizeof(*pointer_to_find_data_size) * sizeof(pointer_to_find_data_size); // needs adjusting
 
-std::string TRANSMITTER_ID = "2055A Big T";
-std::string RECEIVER_ID = "2055A Big R";
+// std::string TRANSMITTER_ID = "2055A Big T";
+// std::string RECEIVER_ID = "2055A Big R";
 
 //Drivetrain
 pros::Motor drive_LB(MOTOR_LB, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
@@ -95,8 +95,10 @@ pros::Distance distancesensor3(DISTANCE_PORT3);
 pros::Gps gpssensor(GPS_PORT);
 
 // Radio Link
-pros::Link transmitter(TRANSMITTER_PORT, TRANSMITTER_ID, pros::E_LINK_TRANSMITTER);
-pros::Link receiver(RECEIVER_PORT, TRANSMITTER_ID, pros::E_LINK_RECIEVER);
+// pros::Link transmitter(TRANSMITTER_PORT, TRANSMITTER_ID, pros::E_LINK_TRANSMITTER);
+// pros::Link receiver(RECEIVER_PORT, TRANSMITTER_ID, pros::E_LINK_RECIEVER);
+// RobotLink* transmitter = nullptr;
+RobotLink* receiver = nullptr;
 
 //Tracking Wheels
 lemlib::TrackingWheel vert_tracking(&vert_encoder, 1.975, -0.75); // 0.75 inches left of the tracking center

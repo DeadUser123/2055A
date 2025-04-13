@@ -1,5 +1,6 @@
 #include "main.h"
 #include "lemlib/chassis/chassis.hpp"
+#include "robotLink.hpp"
 
 
 extern pros::Imu Inertial;
@@ -54,4 +55,8 @@ extern pros::adi::DigitalOut claw;
 
 // extern pros::Link transmitter;
 // extern pros::Link receiver;
+
+// extern RobotLink* transmitter;
+extern RobotLink* receiver;
+
 extern int DATA_SIZE;

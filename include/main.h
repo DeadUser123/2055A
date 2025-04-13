@@ -87,6 +87,7 @@ void setArmLoad();
 #include "PID.hpp"
 #include "opcontrol.hpp"
 #include "helper.hpp"
+#include "robotLink.hpp"
 // #include "selection.h"
 /**
  * You can add C++-only headers here
